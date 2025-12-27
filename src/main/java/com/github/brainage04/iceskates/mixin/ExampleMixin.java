@@ -1,4 +1,4 @@
-package com.example.mixin;
+package com.github.brainage04.iceskates.mixin;
 
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;

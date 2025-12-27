@@ -1,4 +1,4 @@
-package com.example.util;
+package com.github.brainage04.iceskates.util;
 
 public class StringUtils {
     public static char toUpperCase(char c) {

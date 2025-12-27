@@ -1,6 +1,6 @@
-package com.example.screen;
+package com.github.brainage04.iceskates.screen;
 
-import com.example.ExampleMod;
+import com.github.brainage04.iceskates.IceSkates;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
@@ -24,7 +24,7 @@ public class ExampleScreen extends Screen {
 
     @Override
     protected void init() {
-        button = Button.builder(Component.literal("Button"), button -> ExampleMod.LOGGER.info("You clicked a button!"))
+        button = Button.builder(Component.literal("Button"), button -> IceSkates.LOGGER.info("You clicked a button!"))
                 .bounds((width - BUTTON_WIDTH) / 2, height * 3 / 4, BUTTON_WIDTH, BUTTON_HEIGHT)
                 .tooltip(Tooltip.create(Component.literal("This is a tooltip.")))
                 .build();

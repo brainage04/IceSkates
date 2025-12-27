@@ -1,8 +1,8 @@
-package com.example.modmenu;
+package com.github.brainage04.iceskates.modmenu;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
-import com.example.config.core.ModConfig;
+import com.github.brainage04.iceskates.config.core.ModConfig;
 import me.shedaniel.autoconfig.AutoConfigClient;
 
 public class ModMenuIntegration implements ModMenuApi {
