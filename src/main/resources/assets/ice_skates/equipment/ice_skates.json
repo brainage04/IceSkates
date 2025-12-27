@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "ice_skates:ice_skates"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "ice_skates:ice_skates"
+      }
+    ]
+  }
+}

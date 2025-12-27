@@ -101,5 +101,5 @@ publishing {
 }
 
 loom {
-	accessWidenerPath = file("src/main/resources/iceskates.accesswidener")
+	accessWidenerPath = file("src/main/resources/ice_skates.accesswidener")
 }

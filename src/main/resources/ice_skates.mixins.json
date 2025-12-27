@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "com.github.brainage04.ice_skates.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "DisableBobbingMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "FootstepSoundMixin",
+    "IceSkateMovementMixin",
+    "SlowGaitMixin"
+  ]
+}
