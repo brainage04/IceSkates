@@ -1,8 +1,8 @@
-package com.example;
+package com.github.brainage04.iceskates;
 
-import com.example.command.core.ModCommands;
-import com.example.config.core.ModConfig;
-import com.example.key.core.ModKeys;
+import com.github.brainage04.iceskates.command.core.ModCommands;
+import com.github.brainage04.iceskates.config.core.ModConfig;
+import com.github.brainage04.iceskates.key.core.ModKeys;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
@@ -10,9 +10,9 @@ import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ExampleMod implements ClientModInitializer {
-	public static final String MOD_ID = "examplemod";
-	public static final String MOD_NAME = "ExampleMod";
+public class IceSkates implements ClientModInitializer {
+	public static final String MOD_ID = "iceskates";
+	public static final String MOD_NAME = "IceSkates";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
