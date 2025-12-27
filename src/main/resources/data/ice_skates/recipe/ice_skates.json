@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "# #",
+    "i i"
+  ],
+  "key": {
+    "#": "minecraft:leather",
+    "i": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "ice_skates:ice_skates"
+  }
+}

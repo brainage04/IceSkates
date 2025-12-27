@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "iceskates",
+	"id": "ice_skates",
 	"version": "${version}",
 	"name": "IceSkates",
-	"description": "brainage04's mod template for client-side Fabric mods.",
+	"description": "A Minecraft mod that adds ice skates.",
 	"authors": [
 		"brainage04"
 	],
@@ -12,21 +12,18 @@
 		"sources": "https://github.com/brainage04/IceSkates"
 	},
 	"license": "MIT",
-	"icon": "assets/iceskates/icon.png",
+	"icon": "assets/ice_skates/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"client": [
-			"com.github.brainage04.iceskates.IceSkates"
+          "com.github.brainage04.ice_skates.IceSkatesClient"
 		],
 		"fabric-datagen": [
-			"com.github.brainage04.iceskates.datagen.DataGenerator"
-		],
-		"modmenu": [
-			"com.github.brainage04.iceskates.modmenu.ModMenuIntegration"
+			"com.github.brainage04.ice_skates.datagen.DataGenerator"
 		]
 	},
 	"mixins": [
-		"iceskates.mixins.json"
+		"ice_skates.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.18.2",
@@ -34,5 +31,5 @@
 		"java": ">=21",
 		"fabric-api": "*"
 	},
-	"accessWidener": "iceskates.accesswidener"
+	"accessWidener": "ice_skates.accesswidener"
 }
