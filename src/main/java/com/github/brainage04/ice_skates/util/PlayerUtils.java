@@ -7,7 +7,17 @@ import net.minecraft.world.item.ItemStack;
 
 public class PlayerUtils {
     public static boolean isWearingIceSkates(Player player) {
-        ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
-        return boots.is(ModItems.ICE_SKATES);
+        return player.getItemBySlot(EquipmentSlot.FEET).is(ModItems.ICE_SKATES);
+    }
+
+    public static boolean isWearingRollerSkates(Player player) {
+        return player.getItemBySlot(EquipmentSlot.FEET).is(ModItems.ROLLER_SKATES);
+    }
+
+    public static boolean canSkate(Player player) {
+        return (isWearingIceSkates(player) || isWearingRollerSkates(player)) &&
+                player.onGround() &&
+                !player.isInLiquid() &&
+                !player.isInPowderSnow;
     }
 }

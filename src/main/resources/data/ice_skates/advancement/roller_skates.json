@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "id": "ice_skates:roller_skates",
+      "count": 1
+    },
+    "title": "Roller Skates!!!",
+    "description": "Craft a pair of Roller Skates",
+    "frame": "challenge"
+  },
+  "parent": "ice_skates:roller_skate_wheels",
+  "criteria": {
+    "got_roller_skates": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "ice_skates:roller_skates"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "got_roller_skates"
+    ]
+  ],
+  "rewards": {
+    "experience": 1000
+  },
+  "sends_telemetry_event": true
+}

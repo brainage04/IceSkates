@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:diamond_sword",
+      "count": 1
+    },
+    "title": "Skate and Run 2: Electric Boogaloo",
+    "description": "Deliver a kill with a melee weapon whilst skating",
+    "frame": "challenge"
+  },
+  "parent": "ice_skates:skate_and_run",
+  "criteria": {
+    "player_killed_entity": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "player": {
+          "type": "minecraft:player",
+          "equipment": {
+            "feet": {
+              "items": [
+                "ice_skates:ice_skates",
+                "ice_skates:roller_skates"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "player_killed_entity"
+    ]
+  ],
+  "rewards": {
+    "experience": 2000
+  },
+  "sends_telemetry_event": true
+}

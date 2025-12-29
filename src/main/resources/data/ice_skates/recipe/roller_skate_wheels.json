@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SIS",
+    "ITI",
+    "SIS"
+  ],
+  "key": {
+    "S": "minecraft:leather",
+    "I": "minecraft:iron_ingot",
+    "T": "minecraft:stick"
+  },
+  "result": {
+    "id": "ice_skates:roller_skate_wheels"
+  }
+}

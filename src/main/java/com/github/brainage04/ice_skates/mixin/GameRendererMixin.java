@@ -1,6 +1,5 @@
 package com.github.brainage04.ice_skates.mixin;
 
-import com.github.brainage04.ice_skates.IceSkateState;
 import com.github.brainage04.ice_skates.util.PlayerUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.fabricmc.api.EnvType;
@@ -14,17 +13,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GameRenderer.class)
 @Environment(EnvType.CLIENT)
-public abstract class DisableBobbingMixin {
+public abstract class GameRendererMixin {
     @Inject(method = "bobView", at = @At("HEAD"), cancellable = true)
-    private void onBobView(PoseStack poseStack, float partialTick, CallbackInfo ci) {
+    private void ice_skates$bobView(PoseStack poseStack, float partialTick, CallbackInfo ci) {
         Minecraft client = Minecraft.getInstance();
         
         if (client.player == null) return;
-        if (!PlayerUtils.isWearingIceSkates(client.player)) return;
-        
-        IceSkateState.IceSkateData state = IceSkateState.get(client.player);
 
-        // skip view bobbing if player is gliding
-        if (state.isGliding) ci.cancel();
+        // skip view bobbing if player is wearing skates and is grounded
+        if ((PlayerUtils.isWearingIceSkates(client.player)
+                || PlayerUtils.isWearingRollerSkates(client.player))
+                && client.player.onGround()) {
+            ci.cancel();
+        }
     }
 }

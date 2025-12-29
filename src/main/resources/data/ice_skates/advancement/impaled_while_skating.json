@@ -1,0 +1,54 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:diamond_spear",
+      "count": 1
+    },
+    "title": "Impaled while Skating",
+    "description": "Deal 20 hearts of damage in a single hit with a Spear whilst skating",
+    "frame": "challenge"
+  },
+  "parent": "ice_skates:ice_skates",
+  "criteria": {
+    "overoverkillspear": {
+      "conditions": {
+        "player": {
+          "type": "minecraft:player",
+          "equipment": {
+            "feet": {
+              "items": [
+                "ice_skates:ice_skates",
+                "ice_skates:roller_skates"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "type": {
+            "direct_entity": {
+              "type": "minecraft:player",
+              "equipment": {
+                "mainhand": {
+                  "items": "#minecraft:spears"
+                }
+              }
+            }
+          },
+          "dealt": {
+            "min": 40
+          }
+        }
+      },
+      "trigger": "minecraft:player_hurt_entity"
+    }
+  },
+  "requirements": [
+    [
+      "overoverkillspear"
+    ]
+  ],
+  "rewards": {
+    "experience": 2000
+  },
+  "sends_telemetry_event": true
+}

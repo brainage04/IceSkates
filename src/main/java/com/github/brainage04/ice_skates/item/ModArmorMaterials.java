@@ -9,4 +9,7 @@ public class ModArmorMaterials {
     public static final ArmorMaterial ICE_SKATES = new ArmorMaterial(
             15, ArmorMaterials.makeDefense(2, 5, 6, 2, 5), 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, ItemTags.REPAIRS_IRON_ARMOR, ModEquipmentAssets.ICE_SKATES
     );
+    public static final ArmorMaterial ROLLER_SKATES = new ArmorMaterial(
+            15, ArmorMaterials.makeDefense(2, 5, 6, 2, 5), 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, ItemTags.REPAIRS_IRON_ARMOR, ModEquipmentAssets.ROLLER_SKATES
+    );
 }
