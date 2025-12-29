@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i",
+    "i",
+    "s"
+  ],
+  "key": {
+    "i": "minecraft:packed_ice",
+    "s": "minecraft:stick"
+  },
+  "result": {
+    "id": "ice_skates:packed_ice_sword"
+  }
+}

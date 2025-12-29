@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "ice_skates:ice_skate_blades",
+      "count": 1
+    },
+    "title": "Ice Skate Blades",
+    "description": "Craft an Ice Skate Blade",
+    "frame": "goal"
+  },
+  "parent": "ice_skates:root",
+  "criteria": {
+    "got_ice_skate_blade": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "ice_skates:ice_skate_blades"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "got_ice_skate_blade"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ice_skates:ice_skates"
+    ],
+    "experience": 250
+  },
+  "sends_telemetry_event": true
+}

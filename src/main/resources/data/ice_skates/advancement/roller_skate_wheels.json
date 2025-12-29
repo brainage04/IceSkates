@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "ice_skates:roller_skate_wheels",
+      "count": 1
+    },
+    "title": "Roller Skate Wheels",
+    "description": "Craft a Roller Skate Wheel",
+    "frame": "goal"
+  },
+  "parent": "ice_skates:root",
+  "criteria": {
+    "got_roller_skate_wheel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "ice_skates:roller_skate_wheels"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "got_roller_skate_wheel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ice_skates:roller_skates"
+    ],
+    "experience": 250
+  },
+  "sends_telemetry_event": true
+}

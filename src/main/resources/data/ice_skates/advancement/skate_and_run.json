@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:iron_sword",
+      "count": 1
+    },
+    "title": "Skate and Run",
+    "description": "Deliver a hit with a melee weapon whilst skating",
+    "frame": "goal"
+  },
+  "parent": "ice_skates:ice_skates",
+  "criteria": {
+    "player_hurt_entity": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "player": {
+          "type": "minecraft:player",
+          "equipment": {
+            "feet": {
+              "items": [
+                "ice_skates:ice_skates",
+                "ice_skates:roller_skates"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "player_hurt_entity"
+    ]
+  ],
+  "rewards": {
+    "experience": 1000
+  },
+  "sends_telemetry_event": true
+}

@@ -7,4 +7,5 @@ import net.minecraft.world.item.equipment.EquipmentAssets;
 
 public class ModEquipmentAssets {
     public static final ResourceKey<EquipmentAsset> ICE_SKATES = ResourceKey.create(EquipmentAssets.ROOT_ID, IceSkates.id("ice_skates"));
+    public static final ResourceKey<EquipmentAsset> ROLLER_SKATES = ResourceKey.create(EquipmentAssets.ROOT_ID, IceSkates.id("roller_skates"));
 }

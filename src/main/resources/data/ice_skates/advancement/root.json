@@ -1,0 +1,54 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:ice",
+      "count": 1
+    },
+    "title": "Ice Skates???",
+    "description": "A new form of shoe-based transportation awaits...",
+    "background": "minecraft:block/ice"
+  },
+  "criteria": {
+    "got_iron": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:iron_ingot"
+          }
+        ]
+      }
+    },
+    "discover_frozen_biome": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:player",
+          "location": {
+            "biomes": [
+              "minecraft:deep_frozen_ocean",
+              "minecraft:frozen_ocean",
+              "minecraft:frozen_peaks",
+              "minecraft:frozen_river",
+              "minecraft:ice_spikes"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "got_iron",
+      "discover_frozen_biome"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ice_skates:ice_skate_blades",
+      "ice_skates:roller_skate_wheels"
+    ],
+    "experience": 50
+  },
+  "sends_telemetry_event": true
+}

@@ -20,5 +20,13 @@ public class ModelGenerator extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
         itemModelGenerators.generateFlatItem(ModItems.ICE_SKATES, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.ICE_SKATE_BLADES, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.ROLLER_SKATES, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.ROLLER_SKATE_WHEELS, ModelTemplates.FLAT_ITEM);
+
+        itemModelGenerators.generateFlatItem(ModItems.ICE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.PACKED_ICE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.BLUE_ICE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
+
     }
 }
