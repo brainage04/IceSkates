@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "ice_skates:item/packed_ice_sword"
+  }
+}

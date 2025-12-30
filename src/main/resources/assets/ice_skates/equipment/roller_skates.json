@@ -2,7 +2,13 @@
   "layers": {
     "humanoid": [
       {
-        "texture": "ice_skates:roller_skates"
+        "dyeable": {
+          "color_when_undyed": 15132390
+        },
+        "texture": "ice_skates:skates"
+      },
+      {
+        "texture": "ice_skates:roller_skates_overlay"
       }
     ]
   }
