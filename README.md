@@ -3,13 +3,14 @@ A Minecraft Fabric mod that adds ice skates (and roller skates).
 
 # Todo
 ## Short Term
-fix roller skates ITEM texture
+add dyeing recipes (crafting table + cauldron to reset dye) for skates
+add armor trim recipes for skates
+figure out why overlay textures work on skates items but base texture does not
 fix ice skate blades texture
-add dyeing support for ice skates and roller skates
 finish readme
 
 ## Long Term
-Add custom boots models for:
+Add custom boot models for:
 - ice skates (singular blade/plane in the middle of each boot)
 - roller skates (two sets of wheels/planes on each side of each boot)
 Add custom skating animation (pushing each leg back and out)
