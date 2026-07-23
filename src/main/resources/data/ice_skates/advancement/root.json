@@ -22,18 +22,23 @@
     "discover_frozen_biome": {
       "trigger": "minecraft:location",
       "conditions": {
-        "player": {
-          "type": "minecraft:player",
-          "location": {
-            "biomes": [
-              "minecraft:deep_frozen_ocean",
-              "minecraft:frozen_ocean",
-              "minecraft:frozen_peaks",
-              "minecraft:frozen_river",
-              "minecraft:ice_spikes"
-            ]
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:location": {
+                "biomes": [
+                  "minecraft:deep_frozen_ocean",
+                  "minecraft:frozen_ocean",
+                  "minecraft:frozen_peaks",
+                  "minecraft:frozen_river",
+                  "minecraft:ice_spikes"
+                ]
+              }
+            }
           }
-        }
+        ]
       }
     }
   },

@@ -5,5 +5,8 @@
   "item.ice_skates.roller_skate_wheels": "Roller Skate Wheels",
   "item.ice_skates.ice_sword": "Ice Sword",
   "item.ice_skates.packed_ice_sword": "Packed Ice Sword",
-  "item.ice_skates.blue_ice_sword": "Blue Ice Sword"
+  "item.ice_skates.blue_ice_sword": "Blue Ice Sword",
+  "tag.item.ice_skates.ice_tool_materials": "Ice Tool Materials",
+  "tag.item.ice_skates.packed_ice_tool_materials": "Packed Ice Tool Materials",
+  "tag.item.ice_skates.blue_ice_tool_materials": "Blue Ice Tool Materials"
 }

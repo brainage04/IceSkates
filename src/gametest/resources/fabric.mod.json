@@ -1,0 +1,13 @@
+{
+	"schemaVersion": 1,
+	"id": "${mod_id}-gametest",
+	"version": "${mod_version}",
+	"name": "${mod_name} Game Tests",
+	"icon": "assets/ice_skates/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-client-gametest": [
+			"io.github.brainage04.ice_skates.IceSkatesClientGameTest"
+		]
+	}
+}

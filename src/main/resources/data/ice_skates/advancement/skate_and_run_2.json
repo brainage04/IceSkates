@@ -13,17 +13,22 @@
     "player_killed_entity": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "player": {
-          "type": "minecraft:player",
-          "equipment": {
-            "feet": {
-              "items": [
-                "ice_skates:ice_skates",
-                "ice_skates:roller_skates"
-              ]
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:equipment": {
+                "feet": {
+                  "items": [
+                    "ice_skates:ice_skates",
+                    "ice_skates:roller_skates"
+                  ]
+                }
+              }
             }
           }
-        }
+        ]
       }
     }
   },

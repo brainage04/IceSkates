@@ -3,7 +3,7 @@
     "humanoid": [
       {
         "dyeable": {
-          "color_when_undyed": 15132390
+          "color_when_undyed": -1644826
         },
         "texture": "ice_skates:skates"
       },
