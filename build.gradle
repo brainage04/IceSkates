@@ -23,7 +23,6 @@ fabricApi {
 
 pluginManager.withPlugin("io.github.brainage04.client-gametest-recorder") {
 	clientGameTestRecorder {
-		fullscreen.set("false")
 		guiScale.set("3")
 	}
 }
