@@ -1,13 +1,20 @@
 # IceSkates
 
-IceSkates is a Fabric mod for Minecraft 26.2 that adds craftable ice skates, roller skates, and ice-themed swords. Install it on both the client and server.
+IceSkates is a Fabric and NeoForge mod for Minecraft 26.2 that adds craftable ice skates, roller skates, and ice-themed swords. Install the matching loader variant on both the client and server.
 
 ## Requirements
 
 - Minecraft 26.2
-- Fabric Loader 0.19.3 or newer
-- Fabric API
 - Java 25 or newer
+- Either Fabric Loader 0.19.3 or newer with Fabric API, or NeoForge 26.2.0.23-beta or newer
+
+## Migrating from the Fabric-only release
+
+Install exactly one IceSkates JAR matching the loader used by the client and server: the Fabric JAR requires Fabric Loader and Fabric API, while the NeoForge JAR requires NeoForge and no Fabric API. Remove the old IceSkates JAR before switching loaders; never place both variants in one `mods` directory.
+
+The mod ID remains `ice_skates`, so existing IceSkates item, recipe, advancement, and asset identifiers remain stable for worlds using the same Minecraft version. Install the same loader-specific IceSkates variant on every client and server that uses the mod.
+
+For local builds, `./gradlew build` emits the Fabric and NeoForge production JARs in `build/libs`.
 
 ## Skating
 
@@ -30,17 +37,23 @@ Recipes and advancements are available through the vanilla recipe book and advan
 
 ## Development
 
-Run the automated build and server integration checks:
+Run the automated build and server integration checks for both loaders. Production JARs are collected in `build/libs`.
 
 ```shell
-./gradlew clean build
+./gradlew build
 ```
 
-Run the headless client GameTest that verifies gameplay contracts and records item-rendering stages:
+Run the Fabric headless client GameTest that verifies gameplay contracts and records item-rendering stages:
 
 ```shell
-./gradlew runClientGameTest
-./gradlew recordClientGameTest
+./gradlew :fabric:runClientGameTest
+./gradlew :fabric:recordClientGameTest
+```
+
+Run the NeoForge GameTest server:
+
+```shell
+./gradlew runNeoForgeGameTests
 ```
 
 Release automation is documented in [docs/RELEASE.md](docs/RELEASE.md). Optional Modrinth publishing is documented in [docs/MODRINTH.md](docs/MODRINTH.md).

@@ -69,8 +69,8 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
     private static void preparePlayer(ServerPlayer player) {
         player.getInventory().clearContent();
         ServerLevel level = player.level();
-        verifyItemData(level, ModItems.ICE_SKATES, "ice_skates_dyed");
-        verifyItemData(level, ModItems.ROLLER_SKATES, "roller_skates_dyed");
+        verifyItemData(level, ModItems.iceSkates(), "ice_skates_dyed");
+        verifyItemData(level, ModItems.rollerSkates(), "roller_skates_dyed");
         for (BlockPos position : BlockPos.betweenClosed(-4, 63, -4, 4, 66, 4)) {
             level.setBlock(
                     position,
@@ -79,10 +79,10 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
             );
         }
 
-        player.getInventory().setItem(0, new ItemStack(ModItems.ICE_SKATES));
-        player.getInventory().setItem(1, new ItemStack(ModItems.ROLLER_SKATES));
+        player.getInventory().setItem(0, new ItemStack(ModItems.iceSkates()));
+        player.getInventory().setItem(1, new ItemStack(ModItems.rollerSkates()));
         player.getInventory().setSelectedSlot(0);
-        player.setItemSlot(EquipmentSlot.FEET, new ItemStack(ModItems.ICE_SKATES));
+        player.setItemSlot(EquipmentSlot.FEET, new ItemStack(ModItems.iceSkates()));
         player.teleportTo(0.5D, 64.0D, 0.5D);
         player.setOnGround(true);
         verifyHungerBehavior(player);
@@ -96,7 +96,7 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
                 player.getX(),
                 player.getY(),
                 player.getZ() + 2.0D,
-                new ItemStack(ModItems.ROLLER_SKATES)
+                new ItemStack(ModItems.rollerSkates())
         );
         droppedSkates.setPickUpDelay(200);
         player.level().addFreshEntity(droppedSkates);
@@ -111,7 +111,7 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
         }
 
         boolean dyeRecipeLoaded = level.getServer().getRecipeManager().getRecipes().stream()
-                .anyMatch(recipe -> recipe.id().identifier().equals(IceSkates.id(dyeRecipePath)));
+                .anyMatch(recipe -> recipe.id().identifier().equals(IceSkatesCommon.id(dyeRecipePath)));
         if (!dyeRecipeLoaded) {
             throw new AssertionError("Missing dye recipe " + dyeRecipePath);
         }

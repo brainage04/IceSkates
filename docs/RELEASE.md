@@ -14,6 +14,6 @@ git push origin v1.0.1
 
 For longer notes, put them in a file and use `git tag -a v1.0.1 -F RELEASE_NOTES.md`.
 
-The release workflow validates that the tag and `mod_version` match, builds the release JAR, and publishes a GitHub Release. If the tag has no annotation text, GitHub-generated notes are used as a fallback.
+The release workflow validates that the tag and `mod_version` match, builds both loader JARs, and attaches the Fabric and NeoForge artifacts to the GitHub Release. If the tag has no annotation text, GitHub-generated notes are used as a fallback.
 
-If `MODRINTH_TOKEN` is configured, the same workflow creates or updates the Modrinth project and publishes the release JAR. If both `CURSEFORGE_TOKEN` and `CURSEFORGE_PROJECT_ID` are configured, it also publishes to CurseForge. Missing third-party credentials skip only that destination; the GitHub Release still proceeds.
+If `MODRINTH_TOKEN` is configured, the workflow publishes the Fabric release JAR to Modrinth. If both `CURSEFORGE_TOKEN` and `CURSEFORGE_PROJECT_ID` are configured, it also publishes that loader variant to CurseForge. Missing third-party credentials skip only that destination; the GitHub Release still contains both loader artifacts.

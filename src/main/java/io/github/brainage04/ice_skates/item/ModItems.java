@@ -1,33 +1,40 @@
 package io.github.brainage04.ice_skates.item;
 
-import io.github.brainage04.ice_skates.IceSkates;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.equipment.ArmorType;
 
-import java.util.function.Function;
+import java.util.Objects;
+import java.util.function.Supplier;
 
-public class ModItems {
-    public static final Item ICE_SKATES = register("ice_skates", Item::new, new Item.Properties().humanoidArmor(ModArmorMaterials.ICE_SKATES, ArmorType.BOOTS));
-    public static final Item ICE_SKATE_BLADES = register("ice_skate_blades", Item::new, new Item.Properties());
-    public static final Item ROLLER_SKATES = register("roller_skates", Item::new, new Item.Properties().humanoidArmor(ModArmorMaterials.ROLLER_SKATES, ArmorType.BOOTS));
-    public static final Item ROLLER_SKATE_WHEELS = register("roller_skate_wheels", Item::new, new Item.Properties());
+public final class ModItems {
+    private static Supplier<Item> iceSkates;
+    private static Supplier<Item> iceSkateBlades;
+    private static Supplier<Item> rollerSkates;
+    private static Supplier<Item> rollerSkateWheels;
+    private static Supplier<Item> iceSword;
+    private static Supplier<Item> packedIceSword;
+    private static Supplier<Item> blueIceSword;
 
-    public static final Item ICE_SWORD = register("ice_sword", Item::new, new Item.Properties().sword(ModToolMaterials.ICE, 3.0F, -2.4F));
-    public static final Item PACKED_ICE_SWORD = register("packed_ice_sword", Item::new, new Item.Properties().sword(ModToolMaterials.PACKED_ICE, 3.0F, -2.4F));
-    public static final Item BLUE_ICE_SWORD = register("blue_ice_sword", Item::new, new Item.Properties().sword(ModToolMaterials.BLUE_ICE, 3.0F, -2.4F));
+    private ModItems() { }
 
-    public static Item register(String path, Function<Item.Properties, Item> factory, Item.Properties settings) {
-        final ResourceKey<Item> registryKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(IceSkates.MOD_ID, path));
-        settings.setId(registryKey);
-        return Registry.register(BuiltInRegistries.ITEM, registryKey, factory.apply(settings));
+    public static void initialize(ItemRegistrar registrar) {
+        if (iceSkates != null) return;
+        iceSkates = registrar.register("ice_skates", properties -> new Item(properties.humanoidArmor(ModArmorMaterials.ICE_SKATES, ArmorType.BOOTS)));
+        iceSkateBlades = registrar.register("ice_skate_blades", Item::new);
+        rollerSkates = registrar.register("roller_skates", properties -> new Item(properties.humanoidArmor(ModArmorMaterials.ROLLER_SKATES, ArmorType.BOOTS)));
+        rollerSkateWheels = registrar.register("roller_skate_wheels", Item::new);
+        iceSword = registrar.register("ice_sword", properties -> new Item(properties.sword(ModToolMaterials.ICE, 3.0F, -2.4F)));
+        packedIceSword = registrar.register("packed_ice_sword", properties -> new Item(properties.sword(ModToolMaterials.PACKED_ICE, 3.0F, -2.4F)));
+        blueIceSword = registrar.register("blue_ice_sword", properties -> new Item(properties.sword(ModToolMaterials.BLUE_ICE, 3.0F, -2.4F)));
     }
 
-    public static void initialize() {
-        // Class loading registers all items.
-    }
+    public static Item iceSkates() { return get(iceSkates); }
+    public static Item iceSkateBlades() { return get(iceSkateBlades); }
+    public static Item rollerSkates() { return get(rollerSkates); }
+    public static Item rollerSkateWheels() { return get(rollerSkateWheels); }
+    public static Item iceSword() { return get(iceSword); }
+    public static Item packedIceSword() { return get(packedIceSword); }
+    public static Item blueIceSword() { return get(blueIceSword); }
+
+    private static Item get(Supplier<Item> item) { return Objects.requireNonNull(item, "Items have not been registered").get(); }
 }

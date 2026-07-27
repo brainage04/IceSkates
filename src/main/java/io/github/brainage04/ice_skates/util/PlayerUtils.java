@@ -6,11 +6,11 @@ import net.minecraft.world.entity.player.Player;
 
 public class PlayerUtils {
     public static boolean isWearingIceSkates(Player player) {
-        return player.getItemBySlot(EquipmentSlot.FEET).is(ModItems.ICE_SKATES);
+        return player.getItemBySlot(EquipmentSlot.FEET).is(ModItems.iceSkates());
     }
 
     public static boolean isWearingRollerSkates(Player player) {
-        return player.getItemBySlot(EquipmentSlot.FEET).is(ModItems.ROLLER_SKATES);
+        return player.getItemBySlot(EquipmentSlot.FEET).is(ModItems.rollerSkates());
     }
 
     public static boolean canSkate(Player player) {

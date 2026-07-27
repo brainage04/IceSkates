@@ -1,0 +1,17 @@
+plugins {
+	id 'dev.architectury.loom-no-remap'
+	id 'dev.architectury.loom'
+}
+sourceSets {
+	main {
+		java.srcDirs = [rootProject.file('src/main/java'), rootProject.file('src/client/java')]
+		java.exclude 'io/github/brainage04/ice_skates/IceSkates.java', 'io/github/brainage04/ice_skates/IceSkatesClient.java'
+		resources.srcDirs = [rootProject.file('src/main/resources'), rootProject.file('src/client/resources'), rootProject.file('src/main/generated')]
+		resources.exclude 'fabric.mod.json'
+	}
+}
+loom { accessWidenerPath = rootProject.file('src/main/resources/ice_skates.accesswidener') }
+dependencies {
+	minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+	compileOnly "net.fabricmc:fabric-loader:${rootProject.loader_version}"
+}
