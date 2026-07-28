@@ -5,7 +5,7 @@ import io.github.brainage04.fabricmoddingconventions.ClientGameTestServers;
 import io.github.brainage04.ice_skates.item.ModItems;
 import net.fabricmc.fabric.api.client.gametest.v1.FabricClientGameTest;
 import net.fabricmc.fabric.api.client.gametest.v1.context.ClientGameTestContext;
-import net.fabricmc.fabric.api.client.gametest.v1.context.TestDedicatedServerContext;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -26,44 +26,41 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
     public void runTest(ClientGameTestContext context) {
         Properties serverProperties = ClientGameTestServers.flatServerProperties();
 
-        try (TestDedicatedServerContext server = context.worldBuilder().createServer(serverProperties)) {
-            ClientGameTestServers.connectToDedicatedServer(context, server, "IceSkates item rendering GameTest");
-            try {
-                server.runOnServer(minecraftServer -> preparePlayer(
-                        minecraftServer.getPlayerList().getPlayers().getFirst()));
-                ClientGameTestServers.assertClientWorldAndPlayerAvailable(context);
-                context.waitTicks(20);
-
-                ClientGameTestRecorder.startRecording(context);
-                ClientGameTestRecorder.showStep(
-                        context,
-                        "ice_skates.held",
-                        "Ice skates item layers",
-                        "Boot and blade layers must both render in hand and hotbar"
-                );
-                context.waitTicks(40);
-
-                context.runOnClient(client -> client.player.getInventory().setSelectedSlot(1));
-                ClientGameTestRecorder.showStep(
-                        context,
-                        "roller_skates.held",
-                        "Roller skates item layers",
-                        "Boot and wheel layers must both render in hand and hotbar"
-                );
-                context.waitTicks(40);
-
-                context.runOnClient(client -> client.player.getInventory().setSelectedSlot(0));
-                ClientGameTestRecorder.showStep(
-                        context,
-                        "skates.dropped",
-                        "Dropped skates",
-                        "The dropped roller skates ahead retain both item texture layers"
-                );
-                context.waitTicks(50);
-            } finally {
-                ClientGameTestServers.disconnectFromDedicatedServer(context);
-            }
-        }
+        ClientGameTestServers.withDedicatedServer(context, serverProperties, "IceSkates item rendering GameTest", server -> { try {
+            server.runOnServer(minecraftServer -> preparePlayer(
+                    minecraftServer.getPlayerList().getPlayers().getFirst()));
+            ClientGameTestServers.assertClientWorldAndPlayerAvailable(context);
+            context.waitTicks(20);
+        
+            ClientGameTestRecorder.startRecording(context);
+            ClientGameTestRecorder.showStep(
+                    context,
+                    "ice_skates.held",
+                    "Ice skates item layers",
+                    "Boot and blade layers must both render in hand and hotbar"
+            );
+            context.waitTicks(40);
+        
+            context.runOnClient(client -> client.player.getInventory().setSelectedSlot(1));
+            ClientGameTestRecorder.showStep(
+                    context,
+                    "roller_skates.held",
+                    "Roller skates item layers",
+                    "Boot and wheel layers must both render in hand and hotbar"
+            );
+            context.waitTicks(40);
+        
+            context.runOnClient(client -> client.player.getInventory().setSelectedSlot(0));
+            ClientGameTestRecorder.showStep(
+                    context,
+                    "skates.dropped",
+                    "Dropped skates",
+                    "The dropped roller skates ahead retain both item texture layers"
+            );
+            context.waitTicks(50);
+        } finally {
+            ;
+        } });
     }
 
     private static void preparePlayer(ServerPlayer player) {
