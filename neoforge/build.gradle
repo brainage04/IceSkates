@@ -5,7 +5,7 @@ plugins {
 	id 'io.github.brainage04.mod-publishing' version "${fabricmoddingconventions_version}"
 }
 sourceSets {
-	gametest { java.srcDirs = [project.file('src/gametest/java')]; resources.srcDirs = [project.file('src/gametest/resources')]; compileClasspath += sourceSets.main.output + configurations.compileClasspath; runtimeClasspath += output + compileClasspath + configurations.runtimeClasspath }
+	gametest { compileClasspath += sourceSets.main.output + configurations.compileClasspath; runtimeClasspath += output + compileClasspath + configurations.runtimeClasspath }
 }
 loom {
 	neoForge { accessTransformer file('src/main/resources/META-INF/accesstransformer.cfg') }
