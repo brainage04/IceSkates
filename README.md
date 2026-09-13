@@ -35,6 +35,8 @@ Equip either pair of skates in the feet slot and move along the ground.
 
 Recipes and advancements are available through the vanilla recipe book and advancement screen.
 
+Both skate items use three-dimensional paired boot models with open cuffs, raised straps, and buckles. Ice skates have thin supported runners; roller skates have four stepped wheels and a toe stop per boot. Equipped skates follow each leg independently. The undyed upper is pale slate, with cyan ice-skate straps or amber roller-skate straps; dye changes the upper without recoloring the hardware. Armor-trim materials highlight the cuff rims, and equipped skates retain the selected smithing-template pattern on the upper panels.
+
 ## Development
 
 Run the automated build and server integration checks for both loaders. Production JARs are collected in `build/libs`.

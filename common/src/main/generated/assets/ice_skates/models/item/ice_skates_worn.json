@@ -1,0 +1,1919 @@
+{
+  "gui_light": "side",
+  "textures": {
+    "particle": "ice_skates:item/ice_skates",
+    "ice_skate_blades": "ice_skates:item/ice_skate_blades",
+    "ice_skates": "ice_skates:item/ice_skates",
+    "ice_skates_overlay": "ice_skates:item/ice_skates_overlay"
+  },
+  "elements": [
+    {
+      "name": "boot1-sole",
+      "from": [
+        5,
+        2.4,
+        2
+      ],
+      "to": [
+        11,
+        3.4,
+        14
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "south": {
+          "uv": [
+            4.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            4.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "west": {
+          "uv": [
+            4.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "up": {
+          "uv": [
+            4.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "down": {
+          "uv": [
+            4.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        }
+      }
+    },
+    {
+      "name": "boot1-toe",
+      "from": [
+        5.5,
+        3.4,
+        2.5
+      ],
+      "to": [
+        10.5,
+        5.5,
+        4.4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-instep",
+      "from": [
+        5.5,
+        3.4,
+        4.4
+      ],
+      "to": [
+        10.5,
+        6.5,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-heel",
+      "from": [
+        5.5,
+        3.4,
+        8.5
+      ],
+      "to": [
+        10.5,
+        8.2,
+        13.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-cuff-left",
+      "from": [
+        5.5,
+        8.2,
+        8.5
+      ],
+      "to": [
+        6.5,
+        11.8,
+        13.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-cuff-right",
+      "from": [
+        9.5,
+        8.2,
+        8.5
+      ],
+      "to": [
+        10.5,
+        11.8,
+        13.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-cuff-front",
+      "from": [
+        6.5,
+        8.2,
+        8.5
+      ],
+      "to": [
+        9.5,
+        11.8,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-cuff-back",
+      "from": [
+        6.5,
+        8.2,
+        12.5
+      ],
+      "to": [
+        9.5,
+        11.8,
+        13.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-cuff-floor",
+      "from": [
+        6.5,
+        8.2,
+        9.5
+      ],
+      "to": [
+        9.5,
+        8.8,
+        12.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        }
+      }
+    },
+    {
+      "name": "boot1-rim-left",
+      "from": [
+        5.35,
+        11.8,
+        8.35
+      ],
+      "to": [
+        6.55,
+        12.25,
+        13.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        }
+      }
+    },
+    {
+      "name": "boot1-rim-right",
+      "from": [
+        9.45,
+        11.8,
+        8.35
+      ],
+      "to": [
+        10.65,
+        12.25,
+        13.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        }
+      }
+    },
+    {
+      "name": "boot1-rim-front",
+      "from": [
+        6.55,
+        11.8,
+        8.35
+      ],
+      "to": [
+        9.45,
+        12.25,
+        9.55
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        }
+      }
+    },
+    {
+      "name": "boot1-rim-back",
+      "from": [
+        6.55,
+        11.8,
+        12.45
+      ],
+      "to": [
+        9.45,
+        12.25,
+        13.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 4
+        }
+      }
+    },
+    {
+      "name": "boot1-strap-0",
+      "from": [
+        5.3,
+        6.5,
+        4.4
+      ],
+      "to": [
+        10.7,
+        7.15,
+        5.2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "name": "boot1-buckle-0",
+      "from": [
+        9.2,
+        7.15,
+        4.3
+      ],
+      "to": [
+        10.2,
+        7.45,
+        5.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "south": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "east": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "west": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "up": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "down": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#ice_skate_blades"
+        }
+      }
+    },
+    {
+      "name": "boot1-strap-1",
+      "from": [
+        5.3,
+        6.5,
+        6.8
+      ],
+      "to": [
+        10.7,
+        7.15,
+        7.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "name": "boot1-buckle-1",
+      "from": [
+        9.2,
+        7.15,
+        6.7
+      ],
+      "to": [
+        10.2,
+        7.45,
+        7.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "south": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "east": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "west": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "up": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "down": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#ice_skate_blades"
+        }
+      }
+    },
+    {
+      "name": "boot1-ankle-band-front",
+      "from": [
+        5.3,
+        10.2,
+        8.3
+      ],
+      "to": [
+        10.7,
+        11.0,
+        8.55
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "name": "boot1-ankle-band-left",
+      "from": [
+        5.3,
+        10.2,
+        8.55
+      ],
+      "to": [
+        5.55,
+        11.0,
+        13.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "name": "boot1-ankle-band-right",
+      "from": [
+        10.45,
+        10.2,
+        8.55
+      ],
+      "to": [
+        10.7,
+        11.0,
+        13.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "name": "boot1-ankle-band-back",
+      "from": [
+        5.3,
+        10.2,
+        13.45
+      ],
+      "to": [
+        10.7,
+        11.0,
+        13.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#ice_skates",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "name": "boot1-blade-support-0",
+      "from": [
+        7.35,
+        0.65,
+        3.85
+      ],
+      "to": [
+        8.65,
+        2.4,
+        4.95
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            8.1,
+            6.9,
+            8.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "south": {
+          "uv": [
+            4.1,
+            8.1,
+            6.9,
+            8.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "east": {
+          "uv": [
+            4.1,
+            8.1,
+            6.9,
+            8.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "west": {
+          "uv": [
+            4.1,
+            8.1,
+            6.9,
+            8.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "up": {
+          "uv": [
+            4.1,
+            8.1,
+            6.9,
+            8.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "down": {
+          "uv": [
+            4.1,
+            8.1,
+            6.9,
+            8.9
+          ],
+          "texture": "#ice_skate_blades"
+        }
+      }
+    },
+    {
+      "name": "boot1-blade-support-1",
+      "from": [
+        7.35,
+        0.65,
+        10.85
+      ],
+      "to": [
+        8.65,
+        2.4,
+        11.95
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            8.1,
+            6.9,
+            8.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "south": {
+          "uv": [
+            4.1,
+            8.1,
+            6.9,
+            8.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "east": {
+          "uv": [
+            4.1,
+            8.1,
+            6.9,
+            8.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "west": {
+          "uv": [
+            4.1,
+            8.1,
+            6.9,
+            8.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "up": {
+          "uv": [
+            4.1,
+            8.1,
+            6.9,
+            8.9
+          ],
+          "texture": "#ice_skate_blades"
+        },
+        "down": {
+          "uv": [
+            4.1,
+            8.1,
+            6.9,
+            8.9
+          ],
+          "texture": "#ice_skate_blades"
+        }
+      }
+    },
+    {
+      "name": "boot1-blade-runner",
+      "from": [
+        7.6,
+        0,
+        2
+      ],
+      "to": [
+        8.4,
+        0.65,
+        14
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "south": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "east": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "west": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "up": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "down": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        }
+      }
+    },
+    {
+      "name": "boot1-blade-toe-rise",
+      "from": [
+        7.6,
+        0.55,
+        1.4
+      ],
+      "to": [
+        8.4,
+        1.3,
+        2.2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "south": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "east": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "west": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "up": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "down": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        }
+      }
+    },
+    {
+      "name": "boot1-blade-heel-rise",
+      "from": [
+        7.6,
+        0.55,
+        13.8
+      ],
+      "to": [
+        8.4,
+        1.15,
+        14.4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "south": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "east": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "west": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "up": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        },
+        "down": {
+          "uv": [
+            1.1,
+            12.1,
+            4.9,
+            13.9
+          ],
+          "texture": "#ice_skates_overlay"
+        }
+      }
+    }
+  ]
+}

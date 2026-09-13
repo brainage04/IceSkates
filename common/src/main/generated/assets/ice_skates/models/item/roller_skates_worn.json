@@ -1,0 +1,2963 @@
+{
+  "gui_light": "side",
+  "textures": {
+    "particle": "ice_skates:item/roller_skates",
+    "ice_skate_blades": "ice_skates:item/ice_skate_blades",
+    "roller_skates": "ice_skates:item/roller_skates",
+    "roller_skate_wheels": "ice_skates:item/roller_skate_wheels"
+  },
+  "elements": [
+    {
+      "name": "boot1-sole",
+      "from": [
+        5,
+        3.25,
+        2
+      ],
+      "to": [
+        11,
+        4.25,
+        14
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "south": {
+          "uv": [
+            4.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            4.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "west": {
+          "uv": [
+            4.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "up": {
+          "uv": [
+            4.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "down": {
+          "uv": [
+            4.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        }
+      }
+    },
+    {
+      "name": "boot1-toe",
+      "from": [
+        5.5,
+        4.25,
+        2.5
+      ],
+      "to": [
+        10.5,
+        6.35,
+        4.4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-instep",
+      "from": [
+        5.5,
+        4.25,
+        4.4
+      ],
+      "to": [
+        10.5,
+        7.35,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-heel",
+      "from": [
+        5.5,
+        4.25,
+        8.5
+      ],
+      "to": [
+        10.5,
+        9.05,
+        13.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-cuff-left",
+      "from": [
+        5.5,
+        9.05,
+        8.5
+      ],
+      "to": [
+        6.5,
+        12.65,
+        13.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-cuff-right",
+      "from": [
+        9.5,
+        9.05,
+        8.5
+      ],
+      "to": [
+        10.5,
+        12.65,
+        13.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-cuff-front",
+      "from": [
+        6.5,
+        9.05,
+        8.5
+      ],
+      "to": [
+        9.5,
+        12.65,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-cuff-back",
+      "from": [
+        6.5,
+        9.05,
+        12.5
+      ],
+      "to": [
+        9.5,
+        12.65,
+        13.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.05,
+            3.05,
+            5.95,
+            6.95
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "name": "boot1-cuff-floor",
+      "from": [
+        6.5,
+        9.05,
+        9.5
+      ],
+      "to": [
+        9.5,
+        9.65,
+        12.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            7.9,
+            5.9
+          ],
+          "texture": "#ice_skate_blades",
+          "tintindex": 1
+        }
+      }
+    },
+    {
+      "name": "boot1-rim-left",
+      "from": [
+        5.35,
+        12.65,
+        8.35
+      ],
+      "to": [
+        6.55,
+        13.1,
+        13.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        }
+      }
+    },
+    {
+      "name": "boot1-rim-right",
+      "from": [
+        9.45,
+        12.65,
+        8.35
+      ],
+      "to": [
+        10.65,
+        13.1,
+        13.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        }
+      }
+    },
+    {
+      "name": "boot1-rim-front",
+      "from": [
+        6.55,
+        12.65,
+        8.35
+      ],
+      "to": [
+        9.45,
+        13.1,
+        9.55
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        }
+      }
+    },
+    {
+      "name": "boot1-rim-back",
+      "from": [
+        6.55,
+        12.65,
+        12.45
+      ],
+      "to": [
+        9.45,
+        13.1,
+        13.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 4
+        }
+      }
+    },
+    {
+      "name": "boot1-strap-0",
+      "from": [
+        5.3,
+        7.35,
+        4.4
+      ],
+      "to": [
+        10.7,
+        8.0,
+        5.2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "name": "boot1-buckle-0",
+      "from": [
+        9.2,
+        8.0,
+        4.3
+      ],
+      "to": [
+        10.2,
+        8.299999999999999,
+        5.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "south": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "east": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "west": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "up": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "down": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        }
+      }
+    },
+    {
+      "name": "boot1-strap-1",
+      "from": [
+        5.3,
+        7.35,
+        6.8
+      ],
+      "to": [
+        10.7,
+        8.0,
+        7.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "name": "boot1-buckle-1",
+      "from": [
+        9.2,
+        8.0,
+        6.7
+      ],
+      "to": [
+        10.2,
+        8.299999999999999,
+        7.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "south": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "east": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "west": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "up": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "down": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        }
+      }
+    },
+    {
+      "name": "boot1-ankle-band-front",
+      "from": [
+        5.3,
+        11.05,
+        8.3
+      ],
+      "to": [
+        10.7,
+        11.85,
+        8.55
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "name": "boot1-ankle-band-left",
+      "from": [
+        5.3,
+        11.05,
+        8.55
+      ],
+      "to": [
+        5.55,
+        11.85,
+        13.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "name": "boot1-ankle-band-right",
+      "from": [
+        10.45,
+        11.05,
+        8.55
+      ],
+      "to": [
+        10.7,
+        11.85,
+        13.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "name": "boot1-ankle-band-back",
+      "from": [
+        5.3,
+        11.05,
+        13.45
+      ],
+      "to": [
+        10.7,
+        11.85,
+        13.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            4.1,
+            3.1,
+            5.9,
+            4.9
+          ],
+          "texture": "#roller_skates",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "name": "boot1-axle-0",
+      "from": [
+        4.6,
+        1.15,
+        3.85
+      ],
+      "to": [
+        11.4,
+        1.85,
+        4.55
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "south": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "east": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "west": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "up": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "down": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        }
+      }
+    },
+    {
+      "name": "boot1-wheel-0--1-front",
+      "from": [
+        4.4,
+        0.75,
+        2.7
+      ],
+      "to": [
+        5.5,
+        2.25,
+        3.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "name": "boot1-wheel-0--1-back",
+      "from": [
+        4.4,
+        0.75,
+        4.95
+      ],
+      "to": [
+        5.5,
+        2.25,
+        5.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "name": "boot1-wheel-0--1-vertical",
+      "from": [
+        4.4,
+        0,
+        3.45
+      ],
+      "to": [
+        5.5,
+        3,
+        4.95
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "name": "boot1-hub-0--1",
+      "from": [
+        4.3,
+        1.05,
+        3.75
+      ],
+      "to": [
+        5.6,
+        1.95,
+        4.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "south": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "east": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "west": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "up": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "down": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        }
+      }
+    },
+    {
+      "name": "boot1-wheel-0-1-front",
+      "from": [
+        10.5,
+        0.75,
+        2.7
+      ],
+      "to": [
+        11.6,
+        2.25,
+        3.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "name": "boot1-wheel-0-1-back",
+      "from": [
+        10.5,
+        0.75,
+        4.95
+      ],
+      "to": [
+        11.6,
+        2.25,
+        5.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "name": "boot1-wheel-0-1-vertical",
+      "from": [
+        10.5,
+        0,
+        3.45
+      ],
+      "to": [
+        11.6,
+        3,
+        4.95
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "name": "boot1-hub-0-1",
+      "from": [
+        10.4,
+        1.05,
+        3.75
+      ],
+      "to": [
+        11.7,
+        1.95,
+        4.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "south": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "east": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "west": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "up": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "down": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        }
+      }
+    },
+    {
+      "name": "boot1-axle-1",
+      "from": [
+        4.6,
+        1.15,
+        11.15
+      ],
+      "to": [
+        11.4,
+        1.85,
+        11.85
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "south": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "east": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "west": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "up": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "down": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        }
+      }
+    },
+    {
+      "name": "boot1-wheel-1--1-front",
+      "from": [
+        4.4,
+        0.75,
+        10.0
+      ],
+      "to": [
+        5.5,
+        2.25,
+        10.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "name": "boot1-wheel-1--1-back",
+      "from": [
+        4.4,
+        0.75,
+        12.25
+      ],
+      "to": [
+        5.5,
+        2.25,
+        13.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "name": "boot1-wheel-1--1-vertical",
+      "from": [
+        4.4,
+        0,
+        10.75
+      ],
+      "to": [
+        5.5,
+        3,
+        12.25
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "name": "boot1-hub-1--1",
+      "from": [
+        4.3,
+        1.05,
+        11.05
+      ],
+      "to": [
+        5.6,
+        1.95,
+        11.95
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "south": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "east": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "west": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "up": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "down": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        }
+      }
+    },
+    {
+      "name": "boot1-wheel-1-1-front",
+      "from": [
+        10.5,
+        0.75,
+        10.0
+      ],
+      "to": [
+        11.6,
+        2.25,
+        10.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "name": "boot1-wheel-1-1-back",
+      "from": [
+        10.5,
+        0.75,
+        12.25
+      ],
+      "to": [
+        11.6,
+        2.25,
+        13.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "name": "boot1-wheel-1-1-vertical",
+      "from": [
+        10.5,
+        0,
+        10.75
+      ],
+      "to": [
+        11.6,
+        3,
+        12.25
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "name": "boot1-hub-1-1",
+      "from": [
+        10.4,
+        1.05,
+        11.05
+      ],
+      "to": [
+        11.7,
+        1.95,
+        11.95
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "south": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "east": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "west": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "up": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        },
+        "down": {
+          "uv": [
+            7.1,
+            6.1,
+            8.9,
+            7.9
+          ],
+          "texture": "#roller_skate_wheels"
+        }
+      }
+    },
+    {
+      "name": "boot1-toe-stop",
+      "from": [
+        7.35,
+        1.8,
+        2.15
+      ],
+      "to": [
+        8.65,
+        3.25,
+        3.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.1,
+            4.1,
+            6.9,
+            5.9
+          ],
+          "texture": "#roller_skate_wheels",
+          "tintindex": 3
+        }
+      }
+    }
+  ]
+}

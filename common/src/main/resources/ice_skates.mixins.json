@@ -3,7 +3,10 @@
   "package": "io.github.brainage04.ice_skates.mixin",
   "compatibilityLevel": "JAVA_25",
   "client": [
-    "GameRendererMixin"
+    "GameRendererMixin",
+    "HumanoidArmorLayerMixin",
+    "HumanoidRenderStateMixin",
+    "LivingEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

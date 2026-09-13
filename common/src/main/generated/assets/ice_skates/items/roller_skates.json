@@ -1,161 +1,713 @@
 {
   "model": {
     "type": "minecraft:select",
+    "property": "minecraft:display_context",
     "cases": [
       {
+        "when": "none",
         "model": {
-          "type": "minecraft:model",
-          "model": "ice_skates:item/roller_skates_quartz_trim",
-          "tints": [
+          "type": "minecraft:select",
+          "property": "minecraft:trim_material",
+          "cases": [
             {
-              "type": "minecraft:dye",
-              "default": -1644826
-            }
-          ]
-        },
-        "when": "minecraft:quartz"
-      },
-      {
-        "model": {
-          "type": "minecraft:model",
-          "model": "ice_skates:item/roller_skates_iron_trim",
-          "tints": [
+              "when": "minecraft:quartz",
+              "model": {
+                "type": "minecraft:model",
+                "model": "ice_skates:item/roller_skates_worn",
+                "tints": [
+                  {
+                    "type": "minecraft:dye",
+                    "default": -2694928
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -6047527
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -31447
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -4996394
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -1846076
+                  }
+                ]
+              }
+            },
             {
-              "type": "minecraft:dye",
-              "default": -1644826
-            }
-          ]
-        },
-        "when": "minecraft:iron"
-      },
-      {
-        "model": {
-          "type": "minecraft:model",
-          "model": "ice_skates:item/roller_skates_netherite_trim",
-          "tints": [
+              "when": "minecraft:iron",
+              "model": {
+                "type": "minecraft:model",
+                "model": "ice_skates:item/roller_skates_worn",
+                "tints": [
+                  {
+                    "type": "minecraft:dye",
+                    "default": -2694928
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -6047527
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -31447
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -4996394
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -1250068
+                  }
+                ]
+              }
+            },
             {
-              "type": "minecraft:dye",
-              "default": -1644826
-            }
-          ]
-        },
-        "when": "minecraft:netherite"
-      },
-      {
-        "model": {
-          "type": "minecraft:model",
-          "model": "ice_skates:item/roller_skates_redstone_trim",
-          "tints": [
+              "when": "minecraft:netherite",
+              "model": {
+                "type": "minecraft:model",
+                "model": "ice_skates:item/roller_skates_worn",
+                "tints": [
+                  {
+                    "type": "minecraft:dye",
+                    "default": -2694928
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -6047527
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -31447
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -4996394
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -10332071
+                  }
+                ]
+              }
+            },
             {
-              "type": "minecraft:dye",
-              "default": -1644826
-            }
-          ]
-        },
-        "when": "minecraft:redstone"
-      },
-      {
-        "model": {
-          "type": "minecraft:model",
-          "model": "ice_skates:item/roller_skates_copper_trim",
-          "tints": [
+              "when": "minecraft:redstone",
+              "model": {
+                "type": "minecraft:model",
+                "model": "ice_skates:item/roller_skates_worn",
+                "tints": [
+                  {
+                    "type": "minecraft:dye",
+                    "default": -2694928
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -6047527
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -31447
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -4996394
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -4382712
+                  }
+                ]
+              }
+            },
             {
-              "type": "minecraft:dye",
-              "default": -1644826
-            }
-          ]
-        },
-        "when": "minecraft:copper"
-      },
-      {
-        "model": {
-          "type": "minecraft:model",
-          "model": "ice_skates:item/roller_skates_gold_trim",
-          "tints": [
+              "when": "minecraft:copper",
+              "model": {
+                "type": "minecraft:model",
+                "model": "ice_skates:item/roller_skates_worn",
+                "tints": [
+                  {
+                    "type": "minecraft:dye",
+                    "default": -2694928
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -6047527
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -31447
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -4996394
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -1794953
+                  }
+                ]
+              }
+            },
             {
-              "type": "minecraft:dye",
-              "default": -1644826
-            }
-          ]
-        },
-        "when": "minecraft:gold"
-      },
-      {
-        "model": {
-          "type": "minecraft:model",
-          "model": "ice_skates:item/roller_skates_emerald_trim",
-          "tints": [
+              "when": "minecraft:gold",
+              "model": {
+                "type": "minecraft:model",
+                "model": "ice_skates:item/roller_skates_worn",
+                "tints": [
+                  {
+                    "type": "minecraft:dye",
+                    "default": -2694928
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -6047527
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -31447
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -4996394
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -1386167
+                  }
+                ]
+              }
+            },
             {
-              "type": "minecraft:dye",
-              "default": -1644826
-            }
-          ]
-        },
-        "when": "minecraft:emerald"
-      },
-      {
-        "model": {
-          "type": "minecraft:model",
-          "model": "ice_skates:item/roller_skates_diamond_trim",
-          "tints": [
+              "when": "minecraft:emerald",
+              "model": {
+                "type": "minecraft:model",
+                "model": "ice_skates:item/roller_skates_worn",
+                "tints": [
+                  {
+                    "type": "minecraft:dye",
+                    "default": -2694928
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -6047527
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -31447
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -4996394
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -15622090
+                  }
+                ]
+              }
+            },
             {
-              "type": "minecraft:dye",
-              "default": -1644826
-            }
-          ]
-        },
-        "when": "minecraft:diamond"
-      },
-      {
-        "model": {
-          "type": "minecraft:model",
-          "model": "ice_skates:item/roller_skates_lapis_trim",
-          "tints": [
+              "when": "minecraft:diamond",
+              "model": {
+                "type": "minecraft:model",
+                "model": "ice_skates:item/roller_skates_worn",
+                "tints": [
+                  {
+                    "type": "minecraft:dye",
+                    "default": -2694928
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -6047527
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -31447
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -4996394
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -9507630
+                  }
+                ]
+              }
+            },
             {
-              "type": "minecraft:dye",
-              "default": -1644826
-            }
-          ]
-        },
-        "when": "minecraft:lapis"
-      },
-      {
-        "model": {
-          "type": "minecraft:model",
-          "model": "ice_skates:item/roller_skates_amethyst_trim",
-          "tints": [
+              "when": "minecraft:lapis",
+              "model": {
+                "type": "minecraft:model",
+                "model": "ice_skates:item/roller_skates_worn",
+                "tints": [
+                  {
+                    "type": "minecraft:dye",
+                    "default": -2694928
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -6047527
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -31447
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -4996394
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -12489065
+                  }
+                ]
+              }
+            },
             {
-              "type": "minecraft:dye",
-              "default": -1644826
-            }
-          ]
-        },
-        "when": "minecraft:amethyst"
-      },
-      {
-        "model": {
-          "type": "minecraft:model",
-          "model": "ice_skates:item/roller_skates_resin_trim",
-          "tints": [
+              "when": "minecraft:amethyst",
+              "model": {
+                "type": "minecraft:model",
+                "model": "ice_skates:item/roller_skates_worn",
+                "tints": [
+                  {
+                    "type": "minecraft:dye",
+                    "default": -2694928
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -6047527
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -31447
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -4996394
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -5141023
+                  }
+                ]
+              }
+            },
             {
-              "type": "minecraft:dye",
-              "default": -1644826
+              "when": "minecraft:resin",
+              "model": {
+                "type": "minecraft:model",
+                "model": "ice_skates:item/roller_skates_worn",
+                "tints": [
+                  {
+                    "type": "minecraft:dye",
+                    "default": -2694928
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -6047527
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -31447
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -4996394
+                  },
+                  {
+                    "type": "minecraft:constant",
+                    "value": -231406
+                  }
+                ]
+              }
             }
-          ]
-        },
-        "when": "minecraft:resin"
+          ],
+          "fallback": {
+            "type": "minecraft:model",
+            "model": "ice_skates:item/roller_skates_worn",
+            "tints": [
+              {
+                "type": "minecraft:dye",
+                "default": -2694928
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -6047527
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -31447
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4996394
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -1
+              }
+            ]
+          }
+        }
       }
     ],
     "fallback": {
-      "type": "minecraft:model",
-      "model": "ice_skates:item/roller_skates",
-      "tints": [
+      "type": "minecraft:select",
+      "property": "minecraft:trim_material",
+      "cases": [
         {
-          "type": "minecraft:dye",
-          "default": -1644826
+          "when": "minecraft:quartz",
+          "model": {
+            "type": "minecraft:model",
+            "model": "ice_skates:item/roller_skates",
+            "tints": [
+              {
+                "type": "minecraft:dye",
+                "default": -2694928
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -6047527
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -31447
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4996394
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -1846076
+              }
+            ]
+          }
+        },
+        {
+          "when": "minecraft:iron",
+          "model": {
+            "type": "minecraft:model",
+            "model": "ice_skates:item/roller_skates",
+            "tints": [
+              {
+                "type": "minecraft:dye",
+                "default": -2694928
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -6047527
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -31447
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4996394
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -1250068
+              }
+            ]
+          }
+        },
+        {
+          "when": "minecraft:netherite",
+          "model": {
+            "type": "minecraft:model",
+            "model": "ice_skates:item/roller_skates",
+            "tints": [
+              {
+                "type": "minecraft:dye",
+                "default": -2694928
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -6047527
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -31447
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4996394
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -10332071
+              }
+            ]
+          }
+        },
+        {
+          "when": "minecraft:redstone",
+          "model": {
+            "type": "minecraft:model",
+            "model": "ice_skates:item/roller_skates",
+            "tints": [
+              {
+                "type": "minecraft:dye",
+                "default": -2694928
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -6047527
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -31447
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4996394
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4382712
+              }
+            ]
+          }
+        },
+        {
+          "when": "minecraft:copper",
+          "model": {
+            "type": "minecraft:model",
+            "model": "ice_skates:item/roller_skates",
+            "tints": [
+              {
+                "type": "minecraft:dye",
+                "default": -2694928
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -6047527
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -31447
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4996394
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -1794953
+              }
+            ]
+          }
+        },
+        {
+          "when": "minecraft:gold",
+          "model": {
+            "type": "minecraft:model",
+            "model": "ice_skates:item/roller_skates",
+            "tints": [
+              {
+                "type": "minecraft:dye",
+                "default": -2694928
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -6047527
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -31447
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4996394
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -1386167
+              }
+            ]
+          }
+        },
+        {
+          "when": "minecraft:emerald",
+          "model": {
+            "type": "minecraft:model",
+            "model": "ice_skates:item/roller_skates",
+            "tints": [
+              {
+                "type": "minecraft:dye",
+                "default": -2694928
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -6047527
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -31447
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4996394
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -15622090
+              }
+            ]
+          }
+        },
+        {
+          "when": "minecraft:diamond",
+          "model": {
+            "type": "minecraft:model",
+            "model": "ice_skates:item/roller_skates",
+            "tints": [
+              {
+                "type": "minecraft:dye",
+                "default": -2694928
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -6047527
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -31447
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4996394
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -9507630
+              }
+            ]
+          }
+        },
+        {
+          "when": "minecraft:lapis",
+          "model": {
+            "type": "minecraft:model",
+            "model": "ice_skates:item/roller_skates",
+            "tints": [
+              {
+                "type": "minecraft:dye",
+                "default": -2694928
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -6047527
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -31447
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4996394
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -12489065
+              }
+            ]
+          }
+        },
+        {
+          "when": "minecraft:amethyst",
+          "model": {
+            "type": "minecraft:model",
+            "model": "ice_skates:item/roller_skates",
+            "tints": [
+              {
+                "type": "minecraft:dye",
+                "default": -2694928
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -6047527
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -31447
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4996394
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -5141023
+              }
+            ]
+          }
+        },
+        {
+          "when": "minecraft:resin",
+          "model": {
+            "type": "minecraft:model",
+            "model": "ice_skates:item/roller_skates",
+            "tints": [
+              {
+                "type": "minecraft:dye",
+                "default": -2694928
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -6047527
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -31447
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -4996394
+              },
+              {
+                "type": "minecraft:constant",
+                "value": -231406
+              }
+            ]
+          }
         }
-      ]
-    },
-    "property": "minecraft:trim_material"
+      ],
+      "fallback": {
+        "type": "minecraft:model",
+        "model": "ice_skates:item/roller_skates",
+        "tints": [
+          {
+            "type": "minecraft:dye",
+            "default": -2694928
+          },
+          {
+            "type": "minecraft:constant",
+            "value": -6047527
+          },
+          {
+            "type": "minecraft:constant",
+            "value": -31447
+          },
+          {
+            "type": "minecraft:constant",
+            "value": -4996394
+          },
+          {
+            "type": "minecraft:constant",
+            "value": -1
+          }
+        ]
+      }
+    }
   }
 }
