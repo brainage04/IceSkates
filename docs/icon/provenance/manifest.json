@@ -1,0 +1,10 @@
+[
+  {
+    "project": "IceSkates",
+    "label": "ice-skates-improved-01",
+    "path": "blender-f/ice-skates-improved-01.png",
+    "method": "Blender 5.1.1 / Cycles CPU / 64 samples / headless -noaudio",
+    "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/generated/assets/ice_skates/models/item/ice_skates.json; /home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/generated/assets/ice_skates/items/ice_skates.json; /home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/item/ice_skates.png; /home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/item/ice_skates_overlay.png; /home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/item/roller_skate_wheels.png; /home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/item/ice_skate_blades.png",
+    "notes": "Explicit new volumetric voxel-model proposal, not current mod geometry. Open cuffs, restrained dyed real texture palette, two straps and buckles per boot, thin central silver blade and two supports per boot. Exact changes and per-part UV/coordinates: blender-f/improvements.json and image metadata. Candidate 1: cool slate, right isometric. 1024x1024 PNG; Blender 5.1.1; CYCLES CPU; 64 samples; 34.003 seconds. Scene blender-f/ice-skates-improved-01.blend; script blender-f/ice-skates-improved-01.py; metadata blender-f/ice-skates-improved-01-metadata.json. Packed source texture hashes and ray-visible composition validated in blender-f/verification.json."
+  }
+]

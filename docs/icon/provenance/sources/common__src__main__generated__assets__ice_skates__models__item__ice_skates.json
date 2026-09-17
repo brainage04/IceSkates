@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ice_skates:item/ice_skates",
+    "layer1": "ice_skates:item/ice_skates_overlay"
+  }
+}

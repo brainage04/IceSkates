@@ -1,0 +1,103 @@
+{
+  "mod": "IceSkates",
+  "source_folder": "round3/blender-f",
+  "source_folder_absolute": "/home/thomas/01_TM/Coding/Websites/brainage04.github.io/.local-icon-variants/round3/blender-f",
+  "icon_source": "blender-f/ice-skates-improved-01.png",
+  "icon_sha256_source": "16fb724eca739fdf34d1b5a10fd8862ff5d0f282badf9de429dba9be516b9e14",
+  "icon_sha256_copy": "16fb724eca739fdf34d1b5a10fd8862ff5d0f282badf9de429dba9be516b9e14",
+  "icon_dimensions": [
+    1024,
+    1024
+  ],
+  "files_copied": [
+    "finalize_models.py",
+    "ice-skates-improved-01-metadata.json",
+    "ice-skates-improved-01.blend",
+    "ice-skates-improved-01.py",
+    "improvements.json",
+    "inspect_assets.py",
+    "manifest.json",
+    "provenance.json",
+    "render-evidence.json",
+    "render_all.py",
+    "render_models.py",
+    "resource-evidence.json",
+    "source-pixels.json",
+    "sources/common__src__main__generated__assets__ice_skates__items__ice_skates.json",
+    "sources/common__src__main__generated__assets__ice_skates__items__roller_skates.json",
+    "sources/common__src__main__generated__assets__ice_skates__models__item__ice_skates.json",
+    "sources/common__src__main__generated__assets__ice_skates__models__item__roller_skates.json",
+    "sources/minecraft-item-generated.json",
+    "textures/common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+    "textures/common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+    "textures/common__src__main__resources__assets__ice_skates__textures__item__ice_skates_overlay.png",
+    "textures/common__src__main__resources__assets__ice_skates__textures__item__roller_skate_wheels.png",
+    "verification.json",
+    "verify_models.py",
+    "visual-review.json"
+  ],
+  "file_count_copied": 25,
+  "json_curation": [
+    {
+      "file": "manifest.json",
+      "curation": "kept only the selected ice-skates-improved-01 entry; roller-skates and magic-carpet entries were dropped"
+    },
+    {
+      "file": "verification.json",
+      "curation": "kept the ice-skates-improved-01 row"
+    },
+    {
+      "file": "render-evidence.json",
+      "curation": "kept the ice-skates-improved-01 row"
+    },
+    {
+      "file": "visual-review.json",
+      "curation": "kept the ice-skates-improved-01 review row"
+    },
+    {
+      "file": "provenance.json",
+      "curation": "kept the IceSkates mod snapshots and the vanilla client-jar entry; MagicCarpet source snapshots dropped"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "blender-f/roller-skates-*.{py,blend,log,metadata.json,png}",
+      "reason": "retired roller-skates candidates and their scenes"
+    },
+    {
+      "path": "blender-f/ice-skates-current-0{1,2}.* and ice-skates-improved-02.*",
+      "reason": "unselected candidates"
+    },
+    {
+      "path": "blender-f/magic-carpet-tiers*.*",
+      "reason": "another mod's candidates"
+    },
+    {
+      "path": "blender-f/*.blend1",
+      "reason": "Blender backup files"
+    },
+    {
+      "path": "blender-f/sources/common__src__main__java__io__github__brainage04__magic_carpet__*.java",
+      "reason": "MagicCarpet mod sources used only by the carpet candidates"
+    },
+    {
+      "path": "blender-f/textures/ (empty directory)",
+      "reason": "no files present"
+    },
+    {
+      "path": "blender-f/blockers.json",
+      "reason": "empty blocker list"
+    }
+  ],
+  "bytes_added_total": 1736420,
+  "deliverable": {
+    "icon": "icon.png",
+    "icon_sha256_round3_source": "16fb724eca739fdf34d1b5a10fd8862ff5d0f282badf9de429dba9be516b9e14",
+    "icon_sha256_shipped_copy": "16fb724eca739fdf34d1b5a10fd8862ff5d0f282badf9de429dba9be516b9e14",
+    "provenance_file_count": 25,
+    "total_file_count": 28,
+    "total_bytes": 1745301,
+    "largest_file": "icon.png",
+    "largest_file_bytes": 1172145
+  }
+}

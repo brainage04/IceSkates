@@ -1,0 +1,17 @@
+[
+  {
+    "name": "ice-skates-improved-01",
+    "blender_version": "5.1.1",
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 64,
+    "threads": 6,
+    "duration_seconds": 34.003,
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "png_sha256": "16fb724eca739fdf34d1b5a10fd8862ff5d0f282badf9de429dba9be516b9e14",
+    "shared_script_sha256": "addc253b6218700380dd7240de962e216975ef2f979f8c45ba899810e83af087"
+  }
+]

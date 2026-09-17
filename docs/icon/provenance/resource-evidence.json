@@ -1,0 +1,15 @@
+{
+  "headless": true,
+  "display_created": false,
+  "display_environment": "",
+  "wayland_environment": "",
+  "audio_sink_created": false,
+  "audio_device_allocated": false,
+  "audio_argument": "-noaudio",
+  "gpu_allocated": false,
+  "cycles_device": "CPU",
+  "blender_threads": 6,
+  "resources_remaining": [],
+  "source_control": "Local-only batch requirement: reproducible Python scripts preserved but intentionally not committed or pushed. No tracked-file or source-mod edits.",
+  "foreign_files": "Other-agent telekinesis/vein-miner/toggle-sprint/vanilla_helpers files, if present, are not part of this manifest and were left untouched for Main."
+}

@@ -1,0 +1,1162 @@
+{
+  "name": "ice-skates-improved-01",
+  "blender_version": "5.1.1",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "samples": 64,
+  "threads": 6,
+  "duration_seconds": 34.003,
+  "dimensions": [
+    1024,
+    1024
+  ],
+  "geometry": {
+    "geometry": "New local volumetric voxel proposal, authored in render_models.py; exact per-cuboid definition in parts below",
+    "changes": [
+      "Replace vanilla one-model-unit-thick paired sprite with two independently posed volumetric boots; proposal only, no source-mod changes.",
+      "Use a 6 x 12 x 1 sole and a 5 x 11 boot upper; toe and instep top heights are respectively 3.1 and 4.1 above the sole base. Adjacent cuboids share boundaries without overlapping exterior faces.",
+      "Build a real open cuff from four one-unit walls around a 3 x 3 opening; cavity floor is 3 units below the cuff wall tops and 3.45 below the 0.45-unit white rim top.",
+      "Use two 0.65-unit-thick instep straps at y=-3.6 and y=-1.2, a 0.8-unit ankle band, and two small square metallic buckles per boot.",
+      "Retain the mod grayscale leather texture: remap opaque body pixels [4,3,6,7] across boot panels; rim and straps sample [4,3,6,5]. Closest filtering, no painted texture.",
+      "Define pale slate body tint #D6E0F0, graphite sole tint #A3B8D9, and cyan #2ED1F2 strap accents on real grayscale textures; preserve silver/white hardware. This replaces the current default #191919 only in the new proposal.",
+      "Replace solid white sprite undercarriage with a thin central silver runner 0.8 units wide, 12 units long, and 0.65 units high; ends step upward by 0.55 units rather than a thick wedge.",
+      "Use exactly two short blade supports per boot, y=-3.6,+3.4, connected to the sole. Preserve visible air between blade and sole; blade height is under one-tenth of boot upper height."
+    ],
+    "boots": 2,
+    "wheels": 0,
+    "blade_runners": 2,
+    "parts": [
+      {
+        "name": "boot1-sole",
+        "from": [
+          -3,
+          -6,
+          2.4
+        ],
+        "to": [
+          3,
+          6,
+          3.4
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          4.1,
+          7.9,
+          5.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-toe",
+        "from": [
+          -2.5,
+          -5.5,
+          3.4
+        ],
+        "to": [
+          2.5,
+          -3.6,
+          5.5
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-instep",
+        "from": [
+          -2.5,
+          -3.6,
+          3.4
+        ],
+        "to": [
+          2.5,
+          0.5,
+          6.5
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-heel",
+        "from": [
+          -2.5,
+          0.5,
+          3.4
+        ],
+        "to": [
+          2.5,
+          5.5,
+          8.2
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-cuff-left",
+        "from": [
+          -2.5,
+          0.5,
+          8.2
+        ],
+        "to": [
+          -1.5,
+          5.5,
+          11.8
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-cuff-right",
+        "from": [
+          1.5,
+          0.5,
+          8.2
+        ],
+        "to": [
+          2.5,
+          5.5,
+          11.8
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-cuff-front",
+        "from": [
+          -1.5,
+          0.5,
+          8.2
+        ],
+        "to": [
+          1.5,
+          1.5,
+          11.8
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-cuff-back",
+        "from": [
+          -1.5,
+          4.5,
+          8.2
+        ],
+        "to": [
+          1.5,
+          5.5,
+          11.8
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-cuff-floor",
+        "from": [
+          -1.5,
+          1.5,
+          8.2
+        ],
+        "to": [
+          1.5,
+          4.5,
+          8.8
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+        "uv_crop_top_left_pixels": [
+          5.1,
+          4.1,
+          7.9,
+          5.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-rim-left",
+        "from": [
+          -2.65,
+          0.35,
+          11.8
+        ],
+        "to": [
+          -1.45,
+          5.65,
+          12.25
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-rim-right",
+        "from": [
+          1.45,
+          0.35,
+          11.8
+        ],
+        "to": [
+          2.65,
+          5.65,
+          12.25
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-rim-front",
+        "from": [
+          -1.45,
+          0.35,
+          11.8
+        ],
+        "to": [
+          1.45,
+          1.55,
+          12.25
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-rim-back",
+        "from": [
+          -1.45,
+          4.45,
+          11.8
+        ],
+        "to": [
+          1.45,
+          5.65,
+          12.25
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-strap-0",
+        "from": [
+          -2.7,
+          -3.6,
+          6.5
+        ],
+        "to": [
+          2.7,
+          -2.8,
+          7.15
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-buckle-0",
+        "from": [
+          1.2,
+          -3.7,
+          7.15
+        ],
+        "to": [
+          2.2,
+          -2.7,
+          7.45
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+        "uv_crop_top_left_pixels": [
+          7.1,
+          6.1,
+          8.9,
+          7.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-strap-1",
+        "from": [
+          -2.7,
+          -1.2,
+          6.5
+        ],
+        "to": [
+          2.7,
+          -0.3999999999999999,
+          7.15
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-buckle-1",
+        "from": [
+          1.2,
+          -1.3,
+          7.15
+        ],
+        "to": [
+          2.2,
+          -0.29999999999999993,
+          7.45
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+        "uv_crop_top_left_pixels": [
+          7.1,
+          6.1,
+          8.9,
+          7.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-ankle-band-front",
+        "from": [
+          -2.7,
+          0.3,
+          10.2
+        ],
+        "to": [
+          2.7,
+          0.55,
+          11.0
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-ankle-band-left",
+        "from": [
+          -2.7,
+          0.55,
+          10.2
+        ],
+        "to": [
+          -2.45,
+          5.45,
+          11.0
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-ankle-band-right",
+        "from": [
+          2.45,
+          0.55,
+          10.2
+        ],
+        "to": [
+          2.7,
+          5.45,
+          11.0
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-ankle-band-back",
+        "from": [
+          -2.7,
+          5.45,
+          10.2
+        ],
+        "to": [
+          2.7,
+          5.7,
+          11.0
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-blade-support-0",
+        "from": [
+          -0.65,
+          -4.15,
+          0.65
+        ],
+        "to": [
+          0.65,
+          -3.05,
+          2.4
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          8.1,
+          6.9,
+          8.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-blade-support-1",
+        "from": [
+          -0.65,
+          2.8499999999999996,
+          0.65
+        ],
+        "to": [
+          0.65,
+          3.95,
+          2.4
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          8.1,
+          6.9,
+          8.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-blade-runner",
+        "from": [
+          -0.4,
+          -6,
+          0
+        ],
+        "to": [
+          0.4,
+          6,
+          0.65
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates_overlay.png",
+        "uv_crop_top_left_pixels": [
+          1.1,
+          12.1,
+          4.9,
+          13.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-blade-toe-rise",
+        "from": [
+          -0.4,
+          -6.6,
+          0.55
+        ],
+        "to": [
+          0.4,
+          -5.8,
+          1.3
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates_overlay.png",
+        "uv_crop_top_left_pixels": [
+          1.1,
+          12.1,
+          4.9,
+          13.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot1-blade-heel-rise",
+        "from": [
+          -0.4,
+          5.8,
+          0.55
+        ],
+        "to": [
+          0.4,
+          6.4,
+          1.15
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates_overlay.png",
+        "uv_crop_top_left_pixels": [
+          1.1,
+          12.1,
+          4.9,
+          13.9
+        ],
+        "parent": "ice_skates-boot-1"
+      },
+      {
+        "name": "boot2-sole",
+        "from": [
+          -3,
+          -6,
+          2.4
+        ],
+        "to": [
+          3,
+          6,
+          3.4
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          4.1,
+          7.9,
+          5.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-toe",
+        "from": [
+          -2.5,
+          -5.5,
+          3.4
+        ],
+        "to": [
+          2.5,
+          -3.6,
+          5.5
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-instep",
+        "from": [
+          -2.5,
+          -3.6,
+          3.4
+        ],
+        "to": [
+          2.5,
+          0.5,
+          6.5
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-heel",
+        "from": [
+          -2.5,
+          0.5,
+          3.4
+        ],
+        "to": [
+          2.5,
+          5.5,
+          8.2
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-cuff-left",
+        "from": [
+          -2.5,
+          0.5,
+          8.2
+        ],
+        "to": [
+          -1.5,
+          5.5,
+          11.8
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-cuff-right",
+        "from": [
+          1.5,
+          0.5,
+          8.2
+        ],
+        "to": [
+          2.5,
+          5.5,
+          11.8
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-cuff-front",
+        "from": [
+          -1.5,
+          0.5,
+          8.2
+        ],
+        "to": [
+          1.5,
+          1.5,
+          11.8
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-cuff-back",
+        "from": [
+          -1.5,
+          4.5,
+          8.2
+        ],
+        "to": [
+          1.5,
+          5.5,
+          11.8
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.05,
+          3.05,
+          5.95,
+          6.95
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-cuff-floor",
+        "from": [
+          -1.5,
+          1.5,
+          8.2
+        ],
+        "to": [
+          1.5,
+          4.5,
+          8.8
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+        "uv_crop_top_left_pixels": [
+          5.1,
+          4.1,
+          7.9,
+          5.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-rim-left",
+        "from": [
+          -2.65,
+          0.35,
+          11.8
+        ],
+        "to": [
+          -1.45,
+          5.65,
+          12.25
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-rim-right",
+        "from": [
+          1.45,
+          0.35,
+          11.8
+        ],
+        "to": [
+          2.65,
+          5.65,
+          12.25
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-rim-front",
+        "from": [
+          -1.45,
+          0.35,
+          11.8
+        ],
+        "to": [
+          1.45,
+          1.55,
+          12.25
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-rim-back",
+        "from": [
+          -1.45,
+          4.45,
+          11.8
+        ],
+        "to": [
+          1.45,
+          5.65,
+          12.25
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-strap-0",
+        "from": [
+          -2.7,
+          -3.6,
+          6.5
+        ],
+        "to": [
+          2.7,
+          -2.8,
+          7.15
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-buckle-0",
+        "from": [
+          1.2,
+          -3.7,
+          7.15
+        ],
+        "to": [
+          2.2,
+          -2.7,
+          7.45
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+        "uv_crop_top_left_pixels": [
+          7.1,
+          6.1,
+          8.9,
+          7.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-strap-1",
+        "from": [
+          -2.7,
+          -1.2,
+          6.5
+        ],
+        "to": [
+          2.7,
+          -0.3999999999999999,
+          7.15
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-buckle-1",
+        "from": [
+          1.2,
+          -1.3,
+          7.15
+        ],
+        "to": [
+          2.2,
+          -0.29999999999999993,
+          7.45
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+        "uv_crop_top_left_pixels": [
+          7.1,
+          6.1,
+          8.9,
+          7.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-ankle-band-front",
+        "from": [
+          -2.7,
+          0.3,
+          10.2
+        ],
+        "to": [
+          2.7,
+          0.55,
+          11.0
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-ankle-band-left",
+        "from": [
+          -2.7,
+          0.55,
+          10.2
+        ],
+        "to": [
+          -2.45,
+          5.45,
+          11.0
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-ankle-band-right",
+        "from": [
+          2.45,
+          0.55,
+          10.2
+        ],
+        "to": [
+          2.7,
+          5.45,
+          11.0
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-ankle-band-back",
+        "from": [
+          -2.7,
+          5.45,
+          10.2
+        ],
+        "to": [
+          2.7,
+          5.7,
+          11.0
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          3.1,
+          5.9,
+          4.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-blade-support-0",
+        "from": [
+          -0.65,
+          -4.15,
+          0.65
+        ],
+        "to": [
+          0.65,
+          -3.05,
+          2.4
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          8.1,
+          6.9,
+          8.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-blade-support-1",
+        "from": [
+          -0.65,
+          2.8499999999999996,
+          0.65
+        ],
+        "to": [
+          0.65,
+          3.95,
+          2.4
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+        "uv_crop_top_left_pixels": [
+          4.1,
+          8.1,
+          6.9,
+          8.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-blade-runner",
+        "from": [
+          -0.4,
+          -6,
+          0
+        ],
+        "to": [
+          0.4,
+          6,
+          0.65
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates_overlay.png",
+        "uv_crop_top_left_pixels": [
+          1.1,
+          12.1,
+          4.9,
+          13.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-blade-toe-rise",
+        "from": [
+          -0.4,
+          -6.6,
+          0.55
+        ],
+        "to": [
+          0.4,
+          -5.8,
+          1.3
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates_overlay.png",
+        "uv_crop_top_left_pixels": [
+          1.1,
+          12.1,
+          4.9,
+          13.9
+        ],
+        "parent": "ice_skates-boot-2"
+      },
+      {
+        "name": "boot2-blade-heel-rise",
+        "from": [
+          -0.4,
+          5.8,
+          0.55
+        ],
+        "to": [
+          0.4,
+          6.4,
+          1.15
+        ],
+        "texture": "common__src__main__resources__assets__ice_skates__textures__item__ice_skates_overlay.png",
+        "uv_crop_top_left_pixels": [
+          1.1,
+          12.1,
+          4.9,
+          13.9
+        ],
+        "parent": "ice_skates-boot-2"
+      }
+    ]
+  },
+  "camera": {
+    "projection": "orthographic true isometric",
+    "azimuth_degrees": 45,
+    "elevation_degrees": 35.26438968,
+    "camera_location": [
+      86.42828369140625,
+      -86.1301040649414,
+      92.94306182861328
+    ],
+    "ortho_scale": 24.15215301513672,
+    "projected_model_bounds_normalized": [
+      0.07264948636293411,
+      0.12737275660037994,
+      0.9273502230644226,
+      0.8726276159286499
+    ]
+  },
+  "packed_textures": [
+    "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+    "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+    "common__src__main__resources__assets__ice_skates__textures__item__ice_skates_overlay.png",
+    "common__src__main__resources__assets__ice_skates__textures__item__roller_skate_wheels.png"
+  ],
+  "script": "ice-skates-improved-01.py",
+  "shared_authoring_script": "render_models.py",
+  "shared_script_sha256": "addc253b6218700380dd7240de962e216975ef2f979f8c45ba899810e83af087",
+  "blend": "ice-skates-improved-01.blend",
+  "png": "ice-skates-improved-01.png",
+  "png_sha256": "16fb724eca739fdf34d1b5a10fd8862ff5d0f282badf9de429dba9be516b9e14",
+  "validation": {
+    "opened_rendered_png": true,
+    "rgba_standard_deviation": 0.1884181797504425,
+    "geometry_part_count": 52,
+    "frame_bounds_pass": true,
+    "packed_texture_pass": true,
+    "display_environment": "",
+    "wayland_environment": "",
+    "cycles_device": "CPU"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "sources": [
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/generated/assets/ice_skates/models/item/ice_skates.json",
+      "snapshot": "sources/common__src__main__generated__assets__ice_skates__models__item__ice_skates.json",
+      "sha256": "19cb1fb7aa83a9d928a587466a3c3e8f686a391af931258a51f78b6044911a54"
+    },
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/generated/assets/ice_skates/models/item/roller_skates.json",
+      "snapshot": "sources/common__src__main__generated__assets__ice_skates__models__item__roller_skates.json",
+      "sha256": "ba9b4001ca20b1c980e8d25df7af0ebdc9ecdc72dbcfc2d28eb48b30fd730605"
+    },
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/generated/assets/ice_skates/items/ice_skates.json",
+      "snapshot": "sources/common__src__main__generated__assets__ice_skates__items__ice_skates.json",
+      "sha256": "e525daaf63d5fc3f63cda211313c0d859f620138842da96a2cbb76357ca7cb72"
+    },
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/generated/assets/ice_skates/items/roller_skates.json",
+      "snapshot": "sources/common__src__main__generated__assets__ice_skates__items__roller_skates.json",
+      "sha256": "b51113f9a13e67bfadde0e4715948bb82ab6dae6b4a2fc252ce99cac8853ae21"
+    },
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/item/roller_skate_wheels.png",
+      "snapshot": "textures/common__src__main__resources__assets__ice_skates__textures__item__roller_skate_wheels.png",
+      "sha256": "10328988f8c1cf5fad5494253dc583573b1a0a056a71ca51a69f77f113a88851"
+    },
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/item/roller_skates_overlay.png",
+      "snapshot": "textures/common__src__main__resources__assets__ice_skates__textures__item__roller_skates_overlay.png",
+      "sha256": "8ddd7445501da3558a8ca989a7c5609aee2725f96cd67e207a92d2b683d20f89"
+    },
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/item/ice_skates.png",
+      "snapshot": "textures/common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png",
+      "sha256": "44aed68c533016acd154dd8f75907fb5e8f23a4bbe956300a1028a9eba90c8fa"
+    },
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/item/ice_skate_blades.png",
+      "snapshot": "textures/common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png",
+      "sha256": "9a1189131811036779c0576b0cacf92a91dc6e9feef00288fe6e62aab331ee93"
+    },
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/item/ice_skates_overlay.png",
+      "snapshot": "textures/common__src__main__resources__assets__ice_skates__textures__item__ice_skates_overlay.png",
+      "sha256": "7a36b44639ac4543e15b697150f1728faf7ba55529c1629120f8c007e3fdb0c4"
+    },
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/item/roller_skates.png",
+      "snapshot": "textures/common__src__main__resources__assets__ice_skates__textures__item__roller_skates.png",
+      "sha256": "44aed68c533016acd154dd8f75907fb5e8f23a4bbe956300a1028a9eba90c8fa"
+    },
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/entity/equipment/humanoid/roller_skates_overlay.png",
+      "snapshot": "textures/common__src__main__resources__assets__ice_skates__textures__entity__equipment__humanoid__roller_skates_overlay.png",
+      "sha256": "d23a3e44361b7d91fee7341b042a31d233b50a52b14fb882cb074333931333ea"
+    },
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/entity/equipment/humanoid/skates.png",
+      "snapshot": "textures/common__src__main__resources__assets__ice_skates__textures__entity__equipment__humanoid__skates.png",
+      "sha256": "79d676d8a78de014b54ca862d82af54e711f99dabdd7d9f31cc96c12a3c06b2a"
+    },
+    {
+      "source": "/home/thomas/01_TM/Coding/Minecraft/IceSkates/common/src/main/resources/assets/ice_skates/textures/entity/equipment/humanoid/ice_skates_overlay.png",
+      "snapshot": "textures/common__src__main__resources__assets__ice_skates__textures__entity__equipment__humanoid__ice_skates_overlay.png",
+      "sha256": "ad950cc066d9a9c02b0afdc8cdc0e19c04196b09c72889e52782f4d62e3daae1"
+    },
+    {
+      "source": "/home/thomas/.gradle/caches/fabric-loom/26.2/minecraft-client.jar:assets/minecraft/models/item/generated.json",
+      "snapshot": "sources/minecraft-item-generated.json",
+      "sha256": "63190611202e75ad7b812bc9a4b31bd53f3e186895d7b53e5e280b0d1e30a67a"
+    }
+  ],
+  "source_client_jar": "/home/thomas/.gradle/caches/fabric-loom/26.2/minecraft-client.jar",
+  "source_client_sha256": "40896ee9f1e2bec3c934daac7e93d41e9e3d9c2f8ae0ca366d52ffbfd1afa290",
+  "current_model_note": "Both skate items use minecraft:item/generated; vanilla 26.2 ItemModelGenerator generates alpha-clipped front/back at 7.5/8.5 and one side quad per opaque-to-transparent pixel edge. No bespoke volumetric skate model exists in mod. The new volumetric improved geometry is a proposal, not current mod geometry.",
+  "local_only": "Scripts are preserved locally and hashed; no Git commit, push or tracked-file edit was made, per batch constraint."
+}

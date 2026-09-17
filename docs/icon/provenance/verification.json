@@ -1,0 +1,128 @@
+[
+  {
+    "name": "ice-skates-improved-01",
+    "passed": true,
+    "resolution": [
+      1024,
+      1024
+    ],
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 64,
+    "packed_textures_verified": true,
+    "source_texture_sha256_matches": {
+      "common__src__main__resources__assets__ice_skates__textures__item__ice_skate_blades.png": "9a1189131811036779c0576b0cacf92a91dc6e9feef00288fe6e62aab331ee93",
+      "common__src__main__resources__assets__ice_skates__textures__item__ice_skates.png": "44aed68c533016acd154dd8f75907fb5e8f23a4bbe956300a1028a9eba90c8fa",
+      "common__src__main__resources__assets__ice_skates__textures__item__ice_skates_overlay.png": "7a36b44639ac4543e15b697150f1728faf7ba55529c1629120f8c007e3fdb0c4",
+      "common__src__main__resources__assets__ice_skates__textures__item__roller_skate_wheels.png": "10328988f8c1cf5fad5494253dc583573b1a0a056a71ca51a69f77f113a88851"
+    },
+    "visible_model_ray_samples": {
+      "boot2 visible runner": 21,
+      "boot2": 1749,
+      "boot1 visible runner": 24,
+      "boot1": 1722
+    },
+    "decoded_png_sample_evidence": {
+      "boot2": [
+        {
+          "pixel": [
+            549,
+            890
+          ],
+          "rgba": [
+            0.6235294342041016,
+            0.6784313917160034,
+            0.7372549176216125,
+            1.0
+          ]
+        },
+        {
+          "pixel": [
+            528,
+            879
+          ],
+          "rgba": [
+            0.7137255072593689,
+            0.760784387588501,
+            0.8156863451004028,
+            1.0
+          ]
+        },
+        {
+          "pixel": [
+            538,
+            879
+          ],
+          "rgba": [
+            0.7137255072593689,
+            0.760784387588501,
+            0.8156863451004028,
+            1.0
+          ]
+        },
+        {
+          "pixel": [
+            549,
+            879
+          ],
+          "rgba": [
+            0.6509804129600525,
+            0.7137255072593689,
+            0.7686275243759155,
+            1.0
+          ]
+        }
+      ],
+      "boot1": [
+        {
+          "pixel": [
+            165,
+            783
+          ],
+          "rgba": [
+            0.6117647290229797,
+            0.6627451181411743,
+            0.7176470756530762,
+            1.0
+          ]
+        },
+        {
+          "pixel": [
+            144,
+            773
+          ],
+          "rgba": [
+            0.6627451181411743,
+            0.7098039388656616,
+            0.7647059559822083,
+            1.0
+          ]
+        },
+        {
+          "pixel": [
+            154,
+            773
+          ],
+          "rgba": [
+            0.6470588445663452,
+            0.6980392336845398,
+            0.7529412508010864,
+            1.0
+          ]
+        },
+        {
+          "pixel": [
+            165,
+            773
+          ],
+          "rgba": [
+            0.6274510025978088,
+            0.6745098233222961,
+            0.7254902124404907,
+            1.0
+          ]
+        }
+      ]
+    }
+  }
+]
