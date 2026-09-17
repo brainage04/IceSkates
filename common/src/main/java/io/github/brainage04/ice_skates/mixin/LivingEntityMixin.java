@@ -81,6 +81,13 @@ public abstract class LivingEntityMixin extends EntityMixin {
                 strafeAccel -= 0.04F;
             }
 
+            float accelerationLength = Mth.sqrt(forwardAccel * forwardAccel + strafeAccel * strafeAccel);
+            if (accelerationLength > 0.04F) {
+                float scale = 0.04F / accelerationLength;
+                forwardAccel *= scale;
+                strafeAccel *= scale;
+            }
+
             // apply rotation and acceleration
             if (forwardAccel != 0.0F || strafeAccel != 0.0F) {
                 float yRot = this.getYRot();
