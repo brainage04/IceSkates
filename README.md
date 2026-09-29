@@ -6,7 +6,7 @@ IceSkates is a Fabric and NeoForge mod for Minecraft 26.2 that adds craftable ic
 
 - Minecraft 26.2
 - Java 25 or newer
-- Either Fabric Loader 0.19.3 or newer with Fabric API, or NeoForge 26.2.0.23-beta or newer
+- Either Fabric Loader 0.19.3 or newer with Fabric API, or NeoForge 26.2.0.88 or newer
 
 ## Migrating from the Fabric-only release
 
