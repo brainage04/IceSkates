@@ -8,7 +8,7 @@ version="${version}"
 displayName="IceSkates"
 authors="brainage04"
 description='''A Minecraft mod that adds ice skates (and roller skates).'''
-logoFile="assets/ice_skates/icon.png"
+iconFile="assets/ice_skates/icon.png"
 
 [[mixins]]
 config="ice_skates.mixins.json"
