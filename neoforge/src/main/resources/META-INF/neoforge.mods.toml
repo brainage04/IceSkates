@@ -1,6 +1,7 @@
 modLoader="javafml"
 loaderVersion="[11,)"
 license="MIT"
+issueTrackerURL="https://github.com/brainage04/IceSkates/issues"
 
 [[mods]]
 modId="ice_skates"
@@ -9,6 +10,7 @@ displayName="IceSkates"
 authors="brainage04"
 description='''A Minecraft mod that adds ice skates (and roller skates).'''
 iconFile="assets/ice_skates/icon.png"
+displayURL="https://github.com/brainage04/IceSkates"
 
 [[mixins]]
 config="ice_skates.mixins.json"

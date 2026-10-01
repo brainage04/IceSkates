@@ -8,6 +8,9 @@
 	"entrypoints": {
 		"fabric-client-gametest": [
 			"io.github.brainage04.ice_skates.IceSkatesClientGameTest"
+		],
+		"fabric-gametest": [
+			"io.github.brainage04.ice_skates.IceSkatesGameTest"
 		]
 	}
 }
