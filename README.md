@@ -48,14 +48,14 @@ Run the automated build and server integration checks for both loaders. Producti
 Run the Fabric headless client GameTest that verifies gameplay contracts and records item-rendering stages:
 
 ```shell
-./gradlew :fabric:runClientGameTest
+./gradlew :fabric:runProductionClientGameTest
 ./gradlew :fabric:recordClientGameTest
 ```
 
 Run the NeoForge GameTest server:
 
 ```shell
-./gradlew runNeoForgeGameTests
+./gradlew :neoforge:runGameTest
 ```
 
 Release automation is documented in [docs/RELEASE.md](docs/RELEASE.md). Optional Modrinth publishing is documented in [docs/MODRINTH.md](docs/MODRINTH.md).
