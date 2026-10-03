@@ -52,10 +52,10 @@ Run the Fabric headless client GameTest that verifies gameplay contracts and rec
 ./gradlew :fabric:recordClientGameTest
 ```
 
-Run the NeoForge GameTest server:
+Run the NeoForge GameTests on a NeoForge server against the release JAR:
 
 ```shell
-./gradlew :neoforge:runGameTest
+./gradlew :neoforge:runProductionServerGameTest
 ```
 
 Release automation is documented in [docs/RELEASE.md](docs/RELEASE.md). Optional Modrinth publishing is documented in [docs/MODRINTH.md](docs/MODRINTH.md).
