@@ -8,14 +8,6 @@ IceSkates is a Fabric and NeoForge mod for Minecraft 26.2 that adds craftable ic
 - Java 25 or newer
 - Either Fabric Loader 0.19.3 or newer with Fabric API, or NeoForge 26.2.0.88 or newer
 
-## Migrating from the Fabric-only release
-
-Install exactly one IceSkates JAR matching the loader used by the client and server: the Fabric JAR requires Fabric Loader and Fabric API, while the NeoForge JAR requires NeoForge and no Fabric API. Remove the old IceSkates JAR before switching loaders; never place both variants in one `mods` directory.
-
-The mod ID remains `ice_skates`, so existing IceSkates item, recipe, advancement, and asset identifiers remain stable for worlds using the same Minecraft version. Install the same loader-specific IceSkates variant on every client and server that uses the mod.
-
-For local builds, `./gradlew build` emits the Fabric and NeoForge production JARs in `build/libs`.
-
 ## Skating
 
 Equip either pair of skates in the feet slot and move along the ground.
