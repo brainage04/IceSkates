@@ -10,13 +10,14 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
@@ -40,9 +41,7 @@ public final class IceSkatesGameTests {
         verifyItemData(context, ModItems.iceSkates(), "ice_skates_dyed");
         verifyItemData(context, ModItems.rollerSkates(), "roller_skates_dyed");
 
-        ServerPlayer player = context.makeMockServerPlayerInLevel();
-        player.setItemSlot(EquipmentSlot.FEET, new ItemStack(ModItems.iceSkates()));
-        player.setOnGround(true);
+        ServerPlayer player = newPlayer(context, ModItems.iceSkates());
         verifyHungerBehavior(player);
         verifySkatingMovement(player);
         context.succeed();
@@ -118,7 +117,7 @@ public final class IceSkatesGameTests {
         context.runBeforeTestEnd(player::discard);
         for (Item skates : List.of(ModItems.iceSkates(), ModItems.rollerSkates())) {
             ItemStack undyed = new ItemStack(skates);
-            CraftingInput input = CraftingInput.of(2, 1, List.of(undyed, new ItemStack(Items.RED_DYE)));
+            CraftingInput input = CraftingInput.of(2, 1, List.of(undyed, new ItemStack(Items.DYE.red())));
             ItemStack dyed = context.getLevel().getServer().getRecipeManager()
                     .getRecipeFor(RecipeType.CRAFTING, input, context.getLevel()).orElseThrow().value().assemble(input);
             context.assertTrue(dyed.is(skates) && dyed.has(DataComponents.DYED_COLOR), "Dye recipe must color the skates");
@@ -133,8 +132,8 @@ public final class IceSkatesGameTests {
     }
 
     public static void combatAdvancementsSeparateMeleeAndArrows(GameTestHelper context) {
-        var target = context.spawn(EntityType.PIG, new BlockPos(1, 2, 1));
-        var arrow = context.spawn(EntityType.ARROW, new BlockPos(1, 3, 1));
+        var target = context.spawn(EntityTypes.PIG, new BlockPos(1, 2, 1));
+        var arrow = context.spawn(EntityTypes.ARROW, new BlockPos(1, 3, 1));
         context.runBeforeTestEnd(target::discard);
         context.runBeforeTestEnd(arrow::discard);
         List<String> paths = List.of("skate_and_run", "skate_and_run_2", "skate_by_shooting", "skate_by_shooting_2");
@@ -166,6 +165,7 @@ public final class IceSkatesGameTests {
     private static ServerPlayer newPlayer(GameTestHelper context, Item boots) {
         ServerPlayer player = context.makeMockServerPlayerInLevel();
         context.runBeforeTestEnd(player::discard);
+        player.setGameMode(GameType.SURVIVAL);
         player.setItemSlot(EquipmentSlot.FEET, new ItemStack(boots));
         player.setOnGround(true);
         return player;

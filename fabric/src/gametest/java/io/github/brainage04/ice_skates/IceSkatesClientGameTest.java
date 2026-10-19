@@ -12,6 +12,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
@@ -68,6 +69,7 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
 
     private static void verifyItemModels(ClientGameTestContext context) {
         context.runOnClient(client -> {
+            RandomSource random = RandomSource.create(0);
             for (Item item : List.of(ModItems.iceSkates(), ModItems.rollerSkates())) {
                 for (ItemDisplayContext display : List.of(ItemDisplayContext.GUI, ItemDisplayContext.GROUND,
                         ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, ItemDisplayContext.NONE)) {
@@ -77,7 +79,7 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
                         ItemStackRenderState state = new ItemStackRenderState();
                         client.getItemModelResolver().updateForTopItem(state, stack, display, client.level, client.player, 0);
                         if (state.isEmpty() || state.getModelBoundingBox().getSize() <= 0
-                                || state.pickParticleMaterial(client.level.random).sprite().contents().name()
+                                || state.pickParticleMaterial(random).sprite().contents().name()
                                 .equals(MissingTextureAtlasSprite.getLocation())) {
                             throw new AssertionError("Missing skate model or texture: " + item + " in " + display);
                         }

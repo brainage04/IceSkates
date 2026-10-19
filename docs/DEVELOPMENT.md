@@ -20,5 +20,3 @@ Run the NeoForge GameTests on a NeoForge server against the release JAR:
 ```shell
 heavy --label IceSkates-neoforge -- ./gradlew --no-daemon :neoforge:runProductionServerGameTest -Pfabricmoddingconventions.devClientOptions=/nonexistent
 ```
-
-Use the workspace's headless recording and private audio-sink instructions when recording.
