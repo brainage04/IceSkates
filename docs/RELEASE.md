@@ -1,5 +1,7 @@
 # Create a new release
 
+The build and release workflows use FabricModdingConventions 2.4.26, matching `gradle.properties`.
+
 1. Update `mod_version` in `gradle.properties`.
 2. Commit that change.
 3. Push that commit.
