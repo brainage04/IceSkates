@@ -2,15 +2,11 @@
 
 IceSkates is a Fabric and NeoForge mod for Minecraft 26.2 that adds craftable ice skates, roller skates, and ice-themed swords. Install the matching loader variant on both the client and server.
 
-## Requirements
+Equip either pair of skates in the feet slot and move along the ground. Recipes and advancements are available through the vanilla recipe book and advancement screen.
 
-- Minecraft 26.2
-- Java 25 or newer
-- Either Fabric Loader 0.19.3 or newer with Fabric API, or NeoForge 26.2.0.88 or newer
+## Features
 
-## Skating
-
-Equip either pair of skates in the feet slot and move along the ground.
+### Skating
 
 - Ice skates preserve the friction of the block below the player, making ice, packed ice, and blue ice especially slippery. Skating over ice also emits snowflake particles.
 - Roller skates use consistent low friction on solid ground and emit dark dust particles.
@@ -18,36 +14,36 @@ Equip either pair of skates in the feet slot and move along the ground.
 - Skating replaces normal footsteps with periodic skating sounds, reduces the walk animation, and suppresses grounded first-person view bobbing.
 - Skating physics disengage in liquids, powder snow, and while airborne.
 
-## Items and customization
+### Items and customization
 
 - Ice skates and roller skates provide iron-equivalent boot protection and can be repaired with iron.
 - Both pairs can be dyed in a crafting table, washed clean in a water cauldron, enchanted as boots, and customized with vanilla armor trims.
 - Ice skate blades and roller skate wheels are crafting components.
 - Ice, packed-ice, and blue-ice swords provide progressively greater durability and attack damage.
 
-Recipes and advancements are available through the vanilla recipe book and advancement screen.
+Equipped skates follow each leg independently.
 
-Both skate items use three-dimensional paired boot models with open cuffs, raised straps, and buckles. Ice skates have thin supported runners; roller skates have four stepped wheels and a toe stop per boot. Equipped skates follow each leg independently. The undyed upper is pale slate, with cyan ice-skate straps or amber roller-skate straps; dye changes the upper without recoloring the hardware. Armor-trim materials highlight the cuff rims, and equipped skates retain the selected smithing-template pattern on the upper panels.
+## Getting started
 
-## Development
+- Minecraft 26.2
+- Java 25 or newer
+- Either Fabric Loader 0.19.3 or newer with Fabric API, or NeoForge 26.2.0.88 or newer
+- Install the matching loader variant on both the client and server.
 
-Run the automated build and server integration checks for both loaders. Production JARs are collected in `build/libs`.
+## Commands
 
-```shell
-./gradlew build
-```
+No commands yet.
 
-Run the Fabric headless client GameTest that verifies gameplay contracts and records item-rendering stages:
+## Configuration
 
-```shell
-./gradlew :fabric:runProductionClientGameTest
-./gradlew :fabric:recordClientGameTest
-```
+No configuration yet.
 
-Run the NeoForge GameTests on a NeoForge server against the release JAR:
+## Compatibility
 
-```shell
-./gradlew :neoforge:runProductionServerGameTest
-```
+No known incompatibilities.
 
-Release automation is documented in [docs/RELEASE.md](docs/RELEASE.md). Optional Modrinth publishing is documented in [docs/MODRINTH.md](docs/MODRINTH.md).
+## Documentation
+
+- [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) - builds and GameTests.
+- [docs/RELEASE.md](docs/RELEASE.md) - release automation.
+- [docs/MODRINTH.md](docs/MODRINTH.md) - optional Modrinth publishing.
