@@ -23,4 +23,9 @@ public class IceSkatesGameTest {
     public void skatesCanBeDyedAndWashed(GameTestHelper context) {
         IceSkatesGameTests.skatesCanBeDyedAndWashed(context);
     }
+
+    @GameTest
+    public void combatAdvancementsSeparateMeleeAndArrows(GameTestHelper context) {
+        IceSkatesGameTests.combatAdvancementsSeparateMeleeAndArrows(context);
+    }
 }

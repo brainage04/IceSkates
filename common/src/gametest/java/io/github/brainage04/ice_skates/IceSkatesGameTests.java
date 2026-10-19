@@ -2,6 +2,7 @@ package io.github.brainage04.ice_skates;
 
 import io.github.brainage04.ice_skates.item.ModItems;
 import io.github.brainage04.ice_skates.util.PlayerUtils;
+import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.gametest.framework.GameTestHelper;
@@ -9,6 +10,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -126,6 +128,37 @@ public final class IceSkatesGameTests {
             context.setBlock(cauldron, Blocks.WATER_CAULDRON);
             context.useBlock(cauldron, player);
             context.assertFalse(player.getMainHandItem().has(DataComponents.DYED_COLOR), "Water cauldron must wash skate dye");
+        }
+        context.succeed();
+    }
+
+    public static void combatAdvancementsSeparateMeleeAndArrows(GameTestHelper context) {
+        var target = context.spawn(EntityType.PIG, new BlockPos(1, 2, 1));
+        var arrow = context.spawn(EntityType.ARROW, new BlockPos(1, 3, 1));
+        context.runBeforeTestEnd(target::discard);
+        context.runBeforeTestEnd(arrow::discard);
+        List<String> paths = List.of("skate_and_run", "skate_and_run_2", "skate_by_shooting", "skate_by_shooting_2");
+        for (Item boots : List.of(ModItems.iceSkates(), ModItems.rollerSkates(), Items.IRON_BOOTS)) {
+            for (boolean projectile : List.of(false, true)) {
+                ServerPlayer player = newPlayer(context, boots);
+                for (String path : paths) {
+                    var advancement = context.getLevel().getServer().getAdvancements().get(IceSkatesCommon.id(path));
+                    if (advancement == null) throw new AssertionError("Missing advancement " + path);
+                    for (String criterion : advancement.value().criteria().keySet()) {
+                        player.getAdvancements().revoke(advancement, criterion);
+                    }
+                }
+                var source = projectile ? player.damageSources().arrow(arrow, player) : player.damageSources().playerAttack(player);
+                CriteriaTriggers.PLAYER_HURT_ENTITY.trigger(player, target, source, 4, 4, false);
+                CriteriaTriggers.PLAYER_KILLED_ENTITY.trigger(player, target, source);
+                boolean wearingSkates = boots != Items.IRON_BOOTS;
+                for (String path : paths) {
+                    var advancement = context.getLevel().getServer().getAdvancements().get(IceSkatesCommon.id(path));
+                    boolean expected = wearingSkates && projectile == path.startsWith("skate_by_shooting");
+                    context.assertTrue(player.getAdvancements().getOrStartProgress(advancement).isDone() == expected,
+                            path + " awarded for wrong attack or footwear: projectile=" + projectile + ", boots=" + boots);
+                }
+            }
         }
         context.succeed();
     }

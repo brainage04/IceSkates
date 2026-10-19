@@ -28,5 +28,8 @@ public final class IceSkatesNeoForgeGameTest {
         event.register(BuiltInRegistries.TEST_FUNCTION.key(),
                 IceSkatesCommon.id("skates_can_be_dyed_and_washed"),
                 () -> IceSkatesGameTests::skatesCanBeDyedAndWashed);
+        event.register(BuiltInRegistries.TEST_FUNCTION.key(),
+                IceSkatesCommon.id("combat_advancements_separate_melee_and_arrows"),
+                () -> IceSkatesGameTests::combatAdvancementsSeparateMeleeAndArrows);
     }
 }

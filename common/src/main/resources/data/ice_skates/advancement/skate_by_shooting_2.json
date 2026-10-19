@@ -32,18 +32,16 @@
             }
           }
         ],
-        "damage": {
-          "type": {
-            "direct_entity": {
-              "minecraft:entity_type": "#minecraft:arrows"
-            },
-            "tags": [
-              {
-                "expected": true,
-                "id": "minecraft:is_projectile"
-              }
-            ]
-          }
+        "killing_blow": {
+          "direct_entity": {
+            "minecraft:entity_type": "#minecraft:arrows"
+          },
+          "tags": [
+            {
+              "expected": true,
+              "id": "minecraft:is_projectile"
+            }
+          ]
         }
       }
     }

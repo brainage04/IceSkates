@@ -31,3 +31,15 @@ The old suite did not cover roller-skate movement, steering, diagonal speed, sur
 All shared tests run through both loader adapters and use local test structures and disposable players. There are no commands, gamerules, configuration files, background threads or shutdown resources in this mod.
 
 Remaining manual coverage: skating sounds and particles, visual trim-pattern placement, leg animation, view bobbing, sword combat and crafting advancements. The conventions do not supply a NeoForge client GameTest task, so NeoForge rendering is not automatically exercised; its gameplay tests use the same shared production code and assets as Fabric.
+
+## Code review
+
+Fixed three combat advancement predicates, with shared `combatAdvancementsSeparateMeleeAndArrows` coverage on both loaders:
+
+- `skate_and_run` accepted arrow hits because it had no damage-source restriction.
+- `skate_and_run_2` accepted arrow kills for the same reason.
+- `skate_by_shooting_2` put a hurt-event `damage` predicate on a kill event, which reads `killing_blow` instead; melee kills could therefore award the ranged-kill advancement.
+
+The regression dispatches real loaded advancement triggers with player-melee and arrow damage sources, both skate types, and ordinary boots. It checks all four hit/kill advancements, including rejected combinations.
+
+Judgement calls left unchanged: combat advancements interpret "whilst skating" as wearing skates, without checking movement or ground state; item-acquisition advancements say "Craft" but use inventory triggers, so loot or gifts also qualify; advancement titles and descriptions are English literals. Movement deliberately uses fixed acceleration by input direction, so sneak/analogue-input scaling and movement-speed effects are not represented in skating acceleration. Changing those would alter existing gameplay rather than correct a documented contract.

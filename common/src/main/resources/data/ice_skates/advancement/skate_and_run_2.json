@@ -28,7 +28,18 @@
               }
             }
           }
-        ]
+        ],
+        "killing_blow": {
+          "direct_entity": {
+            "minecraft:entity_type": "minecraft:player"
+          },
+          "tags": [
+            {
+              "expected": false,
+              "id": "minecraft:is_projectile"
+            }
+          ]
+        }
       }
     }
   },
