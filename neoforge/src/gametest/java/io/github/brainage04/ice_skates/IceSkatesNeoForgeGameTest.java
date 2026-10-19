@@ -19,5 +19,14 @@ public final class IceSkatesNeoForgeGameTest {
         event.register(BuiltInRegistries.TEST_FUNCTION.key(),
                 Identifier.fromNamespaceAndPath(IceSkatesCommon.MOD_ID, "skates_and_swords_are_registered_with_dye_recipes"),
                 () -> IceSkatesGameTests::skatesAndSwordsAreRegisteredWithDyeRecipes);
+        event.register(BuiltInRegistries.TEST_FUNCTION.key(),
+                IceSkatesCommon.id("skating_controls_and_friction"),
+                () -> IceSkatesGameTests::skatingControlsAndFriction);
+        event.register(BuiltInRegistries.TEST_FUNCTION.key(),
+                IceSkatesCommon.id("exhaustion_follows_skating_state"),
+                () -> IceSkatesGameTests::exhaustionFollowsSkatingState);
+        event.register(BuiltInRegistries.TEST_FUNCTION.key(),
+                IceSkatesCommon.id("skates_can_be_dyed_and_washed"),
+                () -> IceSkatesGameTests::skatesCanBeDyedAndWashed);
     }
 }

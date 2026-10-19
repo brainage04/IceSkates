@@ -8,4 +8,19 @@ public class IceSkatesGameTest {
     public void skatesAndSwordsAreRegisteredWithDyeRecipes(GameTestHelper context) {
         IceSkatesGameTests.skatesAndSwordsAreRegisteredWithDyeRecipes(context);
     }
+
+    @GameTest
+    public void skatingControlsAndFriction(GameTestHelper context) {
+        IceSkatesGameTests.skatingControlsAndFriction(context);
+    }
+
+    @GameTest
+    public void exhaustionFollowsSkatingState(GameTestHelper context) {
+        IceSkatesGameTests.exhaustionFollowsSkatingState(context);
+    }
+
+    @GameTest
+    public void skatesCanBeDyedAndWashed(GameTestHelper context) {
+        IceSkatesGameTests.skatesCanBeDyedAndWashed(context);
+    }
 }
