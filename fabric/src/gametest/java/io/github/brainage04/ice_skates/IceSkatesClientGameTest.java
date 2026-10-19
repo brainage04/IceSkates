@@ -1,7 +1,7 @@
 package io.github.brainage04.ice_skates;
 
-import io.github.brainage04.fabricmoddingconventions.ClientGameTestRecorder;
-import io.github.brainage04.fabricmoddingconventions.ClientGameTestServers;
+import io.github.brainage04.minecraftmodconventions.ClientGameTestRecorder;
+import io.github.brainage04.minecraftmodconventions.ClientGameTestServers;
 import io.github.brainage04.ice_skates.item.ModItems;
 import net.fabricmc.fabric.api.client.gametest.v1.FabricClientGameTest;
 import net.fabricmc.fabric.api.client.gametest.v1.context.ClientGameTestContext;
