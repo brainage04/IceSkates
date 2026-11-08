@@ -4,9 +4,11 @@
   "compatibilityLevel": "JAVA_25",
   "client": [
     "GameRendererMixin",
+    "HotbarMixin",
     "HumanoidArmorLayerMixin",
     "HumanoidRenderStateMixin",
-    "LivingEntityRendererMixin"
+    "LivingEntityRendererMixin",
+    "MultiPlayerGameModeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

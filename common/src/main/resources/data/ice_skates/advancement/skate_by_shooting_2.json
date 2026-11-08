@@ -16,22 +16,20 @@
     "killed_arrow_with_skates": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:equipment": {
-                "feet": {
-                  "items": [
-                    "ice_skates:ice_skates",
-                    "ice_skates:roller_skates"
-                  ]
-                }
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:equipment": {
+              "feet": {
+                "items": [
+                  "ice_skates:ice_skates",
+                  "ice_skates:roller_skates"
+                ]
               }
             }
           }
-        ],
+        },
         "killing_blow": {
           "direct_entity": {
             "minecraft:entity_type": "#minecraft:arrows"
@@ -39,7 +37,7 @@
           "tags": [
             {
               "expected": true,
-              "id": "minecraft:is_projectile"
+              "id": "#minecraft:is_projectile"
             }
           ]
         }

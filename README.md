@@ -1,6 +1,6 @@
 # IceSkates
 
-IceSkates is a Fabric and NeoForge mod for Minecraft 26.2 that adds craftable ice skates, roller skates, and ice-themed swords. Install the matching loader variant on both the client and server.
+IceSkates is a Fabric and NeoForge mod for Minecraft 26.3 that adds craftable ice skates, roller skates, and ice-themed swords. Install the matching loader variant on both the client and server.
 
 Equip either pair of skates in the feet slot and move along the ground. Recipes and advancements are available through the vanilla recipe book and advancement screen.
 
@@ -25,9 +25,9 @@ Equipped skates follow each leg independently.
 
 ## Getting started
 
-- Minecraft 26.2
+- Minecraft 26.3
 - Java 25 or newer
-- Either Fabric Loader 0.19.3 or newer with Fabric API, or NeoForge 26.2.0.88 or newer
+- Either Fabric Loader 0.19.5 or newer with Fabric API, or NeoForge 26.3.0.99 or newer
 - Install the matching loader variant on both the client and server.
 
 ## Commands

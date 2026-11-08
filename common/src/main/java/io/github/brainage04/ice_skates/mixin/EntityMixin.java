@@ -18,16 +18,35 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Entity.class)
 public abstract class EntityMixin {
-    @Shadow public abstract boolean onGround();
-    @Shadow public abstract Vec3 getDeltaMovement();
-    @Shadow public abstract void setDeltaMovement(Vec3 vec3);
-    @Shadow public abstract float getYRot();
-    @Shadow public abstract void move(MoverType type, Vec3 pos);
-    @Shadow public abstract BlockPos getBlockPosBelowThatAffectsMyMovement();
-    @Shadow public abstract Level level();
-    @Shadow public abstract double getX();
-    @Shadow public abstract double getY();
-    @Shadow public abstract double getZ();
+    @Shadow
+    public abstract boolean onGround();
+
+    @Shadow
+    public abstract Vec3 getDeltaMovement();
+
+    @Shadow
+    public abstract void setDeltaMovement(Vec3 vec3);
+
+    @Shadow
+    public abstract float getYRot();
+
+    @Shadow
+    public abstract void move(MoverType type, Vec3 pos);
+
+    @Shadow
+    public abstract BlockPos getBlockPosBelowThatAffectsMyMovement();
+
+    @Shadow
+    public abstract Level level();
+
+    @Shadow
+    public abstract double getX();
+
+    @Shadow
+    public abstract double getY();
+
+    @Shadow
+    public abstract double getZ();
 
     @Unique private static final int DELAY_BETWEEN_FOOTSTEPS = 14;
     @Unique private int ticksSinceLastStep = 0;

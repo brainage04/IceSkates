@@ -8,9 +8,13 @@ public final class IceSkatesCommon {
     public static final String MOD_ID = "ice_skates";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-    private IceSkatesCommon() { }
+    private IceSkatesCommon() {}
 
-    public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(MOD_ID, path); }
+    public static Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path);
+    }
 
-    public static void initialize() { LOGGER.info("Initialising IceSkates"); }
+    public static void initialize() {
+        LOGGER.info("Initialising IceSkates");
+    }
 }

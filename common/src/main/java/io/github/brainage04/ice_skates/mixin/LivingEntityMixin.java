@@ -23,7 +23,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends EntityMixin {
-    @Shadow protected abstract double getEffectiveGravity();
+    @Shadow
+    protected abstract double getEffectiveGravity();
 
     @Inject(method = "travel", at = @At("HEAD"), cancellable = true)
     private void ice_skates$travel(Vec3 inputVector, CallbackInfo ci) {
@@ -40,14 +41,16 @@ public abstract class LivingEntityMixin extends EntityMixin {
                 double particleDelta = 0.1;
 
                 if (PlayerUtils.isWearingIceSkates(player)) {
-                    BlockState state = this.level().getBlockState(this.getBlockPosBelowThatAffectsMyMovement());
+                    BlockState state =
+                            this.level()
+                                    .getBlockState(this.getBlockPosBelowThatAffectsMyMovement());
                     Block block = state.getBlock();
                     friction = block.getFriction();
 
                     // particles
-                    if (block instanceof IceBlock ||
-                            block == Blocks.PACKED_ICE ||
-                            block == Blocks.BLUE_ICE) {
+                    if (block instanceof IceBlock
+                            || block == Blocks.PACKED_ICE
+                            || block == Blocks.BLUE_ICE) {
                         spawnFeetParticles(particleDelta, ParticleTypes.SNOWFLAKE);
                     }
                 } else if (PlayerUtils.isWearingRollerSkates(player)) {
@@ -60,11 +63,7 @@ public abstract class LivingEntityMixin extends EntityMixin {
             Vec3 velocity = this.getDeltaMovement();
 
             // apply friction and gravity
-            velocity = new Vec3(
-                    velocity.x * friction,
-                    velocity.y - gravity,
-                    velocity.z * friction
-            );
+            velocity = new Vec3(velocity.x * friction, velocity.y - gravity, velocity.z * friction);
 
             // forward/back and left/right input handling
             float forwardAccel = 0.0F;
@@ -81,7 +80,8 @@ public abstract class LivingEntityMixin extends EntityMixin {
                 strafeAccel -= 0.04F;
             }
 
-            float accelerationLength = Mth.sqrt(forwardAccel * forwardAccel + strafeAccel * strafeAccel);
+            float accelerationLength =
+                    Mth.sqrt(forwardAccel * forwardAccel + strafeAccel * strafeAccel);
             if (accelerationLength > 0.04F) {
                 float scale = 0.04F / accelerationLength;
                 forwardAccel *= scale;
@@ -99,11 +99,7 @@ public abstract class LivingEntityMixin extends EntityMixin {
                 double xStrafe = Mth.cos(rad) * strafeAccel;
                 double zStrafe = Mth.sin(rad) * strafeAccel;
 
-                velocity = velocity.add(
-                        xForward + xStrafe,
-                        0.0,
-                        zForward + zStrafe
-                );
+                velocity = velocity.add(xForward + xStrafe, 0.0, zForward + zStrafe);
             }
 
             this.setDeltaMovement(velocity);
@@ -115,27 +111,25 @@ public abstract class LivingEntityMixin extends EntityMixin {
 
     @Unique
     private void spawnFeetParticles(double particleDelta, ParticleOptions particleOptions) {
-        this.level().addParticle(
-                particleOptions,
-                this.getX(),
-                this.getY() + 0.1F,
-                this.getZ(),
-                particleDelta,
-                particleDelta,
-                particleDelta
-        );
+        this.level()
+                .addParticle(
+                        particleOptions,
+                        this.getX(),
+                        this.getY() + 0.1F,
+                        this.getZ(),
+                        particleDelta,
+                        particleDelta,
+                        particleDelta);
     }
 
-    @Unique
-    private static final float WALK_ANIMATION_SPEED = 0.7F;
+    @Unique private static final float WALK_ANIMATION_SPEED = 0.7F;
 
     @Inject(
             method = "tick",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/entity/LivingEntity;tickHeadTurn(F)V"
-            )
-    )
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target = "Lnet/minecraft/world/entity/LivingEntity;tickHeadTurn(F)V"))
     private void ice_skates$tickHeadTurn(CallbackInfo ci) {
         LivingEntity self = (LivingEntity) (Object) this;
 

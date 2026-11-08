@@ -6,7 +6,10 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 public class ModItemTags {
-    public static final TagKey<Item> ICE_TOOL_MATERIALS = TagKey.create(Registries.ITEM, IceSkatesCommon.id("ice_tool_materials"));
-    public static final TagKey<Item> PACKED_ICE_TOOL_MATERIALS = TagKey.create(Registries.ITEM, IceSkatesCommon.id("packed_ice_tool_materials"));
-    public static final TagKey<Item> BLUE_ICE_TOOL_MATERIALS = TagKey.create(Registries.ITEM, IceSkatesCommon.id("blue_ice_tool_materials"));
+    public static final TagKey<Item> ICE_TOOL_MATERIALS =
+            TagKey.create(Registries.ITEM, IceSkatesCommon.id("ice_tool_materials"));
+    public static final TagKey<Item> PACKED_ICE_TOOL_MATERIALS =
+            TagKey.create(Registries.ITEM, IceSkatesCommon.id("packed_ice_tool_materials"));
+    public static final TagKey<Item> BLUE_ICE_TOOL_MATERIALS =
+            TagKey.create(Registries.ITEM, IceSkatesCommon.id("blue_ice_tool_materials"));
 }

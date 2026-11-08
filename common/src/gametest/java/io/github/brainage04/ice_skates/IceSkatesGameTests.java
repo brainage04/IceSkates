@@ -2,6 +2,7 @@ package io.github.brainage04.ice_skates;
 
 import io.github.brainage04.ice_skates.item.ModItems;
 import io.github.brainage04.ice_skates.util.PlayerUtils;
+import java.util.List;
 import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -9,8 +10,8 @@ import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -22,15 +23,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.List;
-
 /**
  * Loader-neutral server GameTest bodies. Both loaders compile this source set into their GameTest
  * mods: Fabric runs them through {@code @GameTest} methods, NeoForge through registered test
  * functions and {@code test_instance} data.
  */
 public final class IceSkatesGameTests {
-    private IceSkatesGameTests() { }
+    private IceSkatesGameTests() {}
 
     public static void skatesAndSwordsAreRegisteredWithDyeRecipes(GameTestHelper context) {
         requireItem(ModItems.iceSkates(), "ice skates");
@@ -48,7 +47,7 @@ public final class IceSkatesGameTests {
     }
 
     public static void skatingControlsAndFriction(GameTestHelper context) {
-        ServerPlayer player = context.makeMockServerPlayerInLevel();
+        ServerPlayer player = (ServerPlayer) context.makeMockServerPlayer(GameType.CREATIVE);
         context.runBeforeTestEnd(player::discard);
         player.setNoGravity(true);
         for (Item skates : List.of(ModItems.iceSkates(), ModItems.rollerSkates())) {
@@ -56,17 +55,24 @@ public final class IceSkatesGameTests {
             resetPlayer(context, player, Blocks.STONE);
             player.travel(new Vec3(0, 0, 1));
             Vec3 forward = player.getDeltaMovement();
-            context.assertTrue(forward.z > 0 && Math.abs(forward.x) < 0.00001, "Forward follows player yaw");
+            context.assertTrue(
+                    forward.z > 0 && Math.abs(forward.x) < 0.00001, "Forward follows player yaw");
 
             resetPlayer(context, player, Blocks.STONE);
             player.travel(new Vec3(1, 0, 1));
-            context.assertTrue(Math.abs(player.getDeltaMovement().horizontalDistance() - forward.horizontalDistance()) < 0.00001,
+            context.assertTrue(
+                    Math.abs(
+                                    player.getDeltaMovement().horizontalDistance()
+                                            - forward.horizontalDistance())
+                            < 0.00001,
                     "Diagonal input must not skate faster");
 
             resetPlayer(context, player, Blocks.STONE);
             player.setYRot(90);
             player.travel(new Vec3(0, 0, 1));
-            context.assertTrue(player.getDeltaMovement().x < 0 && Math.abs(player.getDeltaMovement().z) < 0.00001,
+            context.assertTrue(
+                    player.getDeltaMovement().x < 0
+                            && Math.abs(player.getDeltaMovement().z) < 0.00001,
                     "Forward rotates with player yaw");
 
             resetPlayer(context, player, Blocks.STONE);
@@ -77,9 +83,12 @@ public final class IceSkatesGameTests {
             double ice = coast(context, player, Blocks.ICE);
             double blueIce = coast(context, player, Blocks.BLUE_ICE);
             if (skates == ModItems.iceSkates()) {
-                context.assertTrue(stone < ice && ice < blueIce, "Ice skates preserve surface friction differences");
+                context.assertTrue(
+                        stone < ice && ice < blueIce,
+                        "Ice skates preserve surface friction differences");
             } else {
-                context.assertTrue(Math.abs(stone - ice) < 0.00001 && Math.abs(ice - blueIce) < 0.00001,
+                context.assertTrue(
+                        Math.abs(stone - ice) < 0.00001 && Math.abs(ice - blueIce) < 0.00001,
                         "Roller skates use the same friction across surfaces");
             }
         }
@@ -113,20 +122,33 @@ public final class IceSkatesGameTests {
     }
 
     public static void skatesCanBeDyedAndWashed(GameTestHelper context) {
-        ServerPlayer player = context.makeMockServerPlayerInLevel();
+        ServerPlayer player = (ServerPlayer) context.makeMockServerPlayer(GameType.CREATIVE);
         context.runBeforeTestEnd(player::discard);
         for (Item skates : List.of(ModItems.iceSkates(), ModItems.rollerSkates())) {
             ItemStack undyed = new ItemStack(skates);
-            CraftingInput input = CraftingInput.of(2, 1, List.of(undyed, new ItemStack(Items.DYE.red())));
-            ItemStack dyed = context.getLevel().getServer().getRecipeManager()
-                    .getRecipeFor(RecipeType.CRAFTING, input, context.getLevel()).orElseThrow().value().assemble(input);
-            context.assertTrue(dyed.is(skates) && dyed.has(DataComponents.DYED_COLOR), "Dye recipe must color the skates");
-            context.assertFalse(undyed.has(DataComponents.DYED_COLOR), "Dye crafting must not mutate its input");
+            CraftingInput input =
+                    CraftingInput.of(2, 1, List.of(undyed, new ItemStack(Items.DYE.red())));
+            ItemStack dyed =
+                    context.getLevel()
+                            .getServer()
+                            .getRecipeManager()
+                            .getRecipeFor(RecipeType.CRAFTING, input, context.getLevel())
+                            .orElseThrow()
+                            .value()
+                            .assemble(input);
+            context.assertTrue(
+                    dyed.is(skates) && dyed.has(DataComponents.DYED_COLOR),
+                    "Dye recipe must color the skates");
+            context.assertFalse(
+                    undyed.has(DataComponents.DYED_COLOR),
+                    "Dye crafting must not mutate its input");
             player.setItemInHand(InteractionHand.MAIN_HAND, dyed);
             BlockPos cauldron = new BlockPos(1, 1, 1);
             context.setBlock(cauldron, Blocks.WATER_CAULDRON);
             context.useBlock(cauldron, player);
-            context.assertFalse(player.getMainHandItem().has(DataComponents.DYED_COLOR), "Water cauldron must wash skate dye");
+            context.assertFalse(
+                    player.getMainHandItem().has(DataComponents.DYED_COLOR),
+                    "Water cauldron must wash skate dye");
         }
         context.succeed();
     }
@@ -136,26 +158,51 @@ public final class IceSkatesGameTests {
         var arrow = context.spawn(EntityTypes.ARROW, new BlockPos(1, 3, 1));
         context.runBeforeTestEnd(target::discard);
         context.runBeforeTestEnd(arrow::discard);
-        List<String> paths = List.of("skate_and_run", "skate_and_run_2", "skate_by_shooting", "skate_by_shooting_2");
-        for (Item boots : List.of(ModItems.iceSkates(), ModItems.rollerSkates(), Items.IRON_BOOTS)) {
+        List<String> paths =
+                List.of(
+                        "skate_and_run",
+                        "skate_and_run_2",
+                        "skate_by_shooting",
+                        "skate_by_shooting_2");
+        for (Item boots :
+                List.of(ModItems.iceSkates(), ModItems.rollerSkates(), Items.IRON_BOOTS)) {
             for (boolean projectile : List.of(false, true)) {
                 ServerPlayer player = newPlayer(context, boots);
                 for (String path : paths) {
-                    var advancement = context.getLevel().getServer().getAdvancements().get(IceSkatesCommon.id(path));
-                    if (advancement == null) throw new AssertionError("Missing advancement " + path);
+                    var advancement =
+                            context.getLevel()
+                                    .getServer()
+                                    .getAdvancements()
+                                    .get(IceSkatesCommon.id(path));
+                    if (advancement == null)
+                        throw new AssertionError("Missing advancement " + path);
                     for (String criterion : advancement.value().criteria().keySet()) {
                         player.getAdvancements().revoke(advancement, criterion);
                     }
                 }
-                var source = projectile ? player.damageSources().arrow(arrow, player) : player.damageSources().playerAttack(player);
+                var source =
+                        projectile
+                                ? player.damageSources().arrow(arrow, player)
+                                : player.damageSources().playerAttack(player);
                 CriteriaTriggers.PLAYER_HURT_ENTITY.trigger(player, target, source, 4, 4, false);
                 CriteriaTriggers.PLAYER_KILLED_ENTITY.trigger(player, target, source);
                 boolean wearingSkates = boots != Items.IRON_BOOTS;
                 for (String path : paths) {
-                    var advancement = context.getLevel().getServer().getAdvancements().get(IceSkatesCommon.id(path));
-                    boolean expected = wearingSkates && projectile == path.startsWith("skate_by_shooting");
-                    context.assertTrue(player.getAdvancements().getOrStartProgress(advancement).isDone() == expected,
-                            path + " awarded for wrong attack or footwear: projectile=" + projectile + ", boots=" + boots);
+                    var advancement =
+                            context.getLevel()
+                                    .getServer()
+                                    .getAdvancements()
+                                    .get(IceSkatesCommon.id(path));
+                    boolean expected =
+                            wearingSkates && projectile == path.startsWith("skate_by_shooting");
+                    context.assertTrue(
+                            player.getAdvancements().getOrStartProgress(advancement).isDone()
+                                    == expected,
+                            path
+                                    + " awarded for wrong attack or footwear: projectile="
+                                    + projectile
+                                    + ", boots="
+                                    + boots);
                 }
             }
         }
@@ -163,21 +210,23 @@ public final class IceSkatesGameTests {
     }
 
     private static ServerPlayer newPlayer(GameTestHelper context, Item boots) {
-        ServerPlayer player = context.makeMockServerPlayerInLevel();
+        ServerPlayer player = (ServerPlayer) context.makeMockServerPlayer(GameType.SURVIVAL);
         context.runBeforeTestEnd(player::discard);
-        player.setGameMode(GameType.SURVIVAL);
         player.setItemSlot(EquipmentSlot.FEET, new ItemStack(boots));
         player.setOnGround(true);
         return player;
     }
 
-    private static void verifyNormalExhaustion(GameTestHelper context, ServerPlayer player, String state) {
+    private static void verifyNormalExhaustion(
+            GameTestHelper context, ServerPlayer player, String state) {
         context.assertFalse(PlayerUtils.canSkate(player), state + " must disengage skating");
         player.getFoodData().setFoodLevel(20);
         player.getFoodData().setSaturation(0);
         player.causeFoodExhaustion(5);
         player.getFoodData().tick(player);
-        context.assertTrue(player.getFoodData().getFoodLevel() == 19, state + " must retain normal exhaustion");
+        context.assertTrue(
+                player.getFoodData().getFoodLevel() == 19,
+                state + " must retain normal exhaustion");
     }
 
     private static void resetPlayer(GameTestHelper context, ServerPlayer player, Block surface) {
@@ -207,11 +256,16 @@ public final class IceSkatesGameTests {
 
     private static void verifyItemData(GameTestHelper context, Item item, String path) {
         ItemStack stack = new ItemStack(item);
-        if (!stack.is(ItemTags.FOOT_ARMOR) || !stack.is(ItemTags.TRIMMABLE_ARMOR) || !stack.is(ItemTags.CAULDRON_CAN_REMOVE_DYE)) {
+        if (!stack.is(ItemTags.FOOT_ARMOR)
+                || !stack.is(ItemTags.TRIMMABLE_ARMOR)
+                || !stack.is(ItemTags.CAULDRON_CAN_REMOVE_DYE)) {
             throw new AssertionError(item + " is missing required armor tags");
         }
-        boolean loaded = context.getLevel().getServer().getRecipeManager().getRecipes().stream()
-                .anyMatch(recipe -> recipe.id().identifier().equals(IceSkatesCommon.id(path)));
+        boolean loaded =
+                context.getLevel().getServer().getRecipeManager().getRecipes().stream()
+                        .anyMatch(
+                                recipe ->
+                                        recipe.id().identifier().equals(IceSkatesCommon.id(path)));
         if (!loaded) throw new AssertionError("Missing dye recipe " + path);
     }
 
@@ -221,10 +275,13 @@ public final class IceSkatesGameTests {
         foodData.setSaturation(0.0F);
         player.causeFoodExhaustion(5.0F);
         foodData.tick(player);
-        if (foodData.getFoodLevel() != 20) throw new AssertionError("Skating added food exhaustion");
+        if (foodData.getFoodLevel() != 20)
+            throw new AssertionError("Skating added food exhaustion");
         foodData.addExhaustion(5.0F);
         foodData.tick(player);
-        if (foodData.getFoodLevel() != 19) throw new AssertionError("Skates stopped existing food exhaustion from being processed");
+        if (foodData.getFoodLevel() != 19)
+            throw new AssertionError(
+                    "Skates stopped existing food exhaustion from being processed");
         foodData.setFoodLevel(20);
         foodData.setSaturation(5.0F);
     }
@@ -233,7 +290,8 @@ public final class IceSkatesGameTests {
         double startingZ = player.getZ();
         player.setDeltaMovement(Vec3.ZERO);
         player.travel(new Vec3(0.0D, 0.0D, 1.0D));
-        if (player.getZ() <= startingZ) throw new AssertionError("Skates did not move the player forward");
+        if (player.getZ() <= startingZ)
+            throw new AssertionError("Skates did not move the player forward");
         player.setDeltaMovement(Vec3.ZERO);
     }
 }

@@ -14,9 +14,9 @@ public class PlayerUtils {
     }
 
     public static boolean canSkate(Player player) {
-        return (isWearingIceSkates(player) || isWearingRollerSkates(player)) &&
-                player.onGround() &&
-                !player.isInLiquid() &&
-                !player.isInPowderSnow;
+        return (isWearingIceSkates(player) || isWearingRollerSkates(player))
+                && player.onGround()
+                && !player.isInLiquid()
+                && !player.isInPowderSnow;
     }
 }
