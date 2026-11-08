@@ -15,6 +15,12 @@ heavy --label IceSkates-client -- ./gradlew --no-daemon :fabric:runProductionCli
 heavy --label IceSkates-recording -- ./gradlew --no-daemon :fabric:recordClientGameTest
 ```
 
+Run the same client GameTests against a plain vanilla server without Ice Skates (MinecraftModConventions starts it). `IceSkatesVanillaServerClientGameTest` checks that no Ice Skates item is offered in creative there and that taking one does not get the player kicked, then sends the held-back packet and expects the kick, so the check would catch it. It is not part of `runAllGameTests`:
+
+```shell
+heavy --label IceSkates-vanilla -- ./gradlew --no-daemon :fabric:runVanillaServerClientGameTest
+```
+
 Run the NeoForge GameTests on a NeoForge server against the release JAR:
 
 ```shell
