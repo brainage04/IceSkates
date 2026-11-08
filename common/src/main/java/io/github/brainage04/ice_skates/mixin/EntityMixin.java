@@ -58,10 +58,9 @@ public abstract class EntityMixin {
 
         if (!PlayerUtils.canSkate(player)) {
             ticksSinceLastStep = 0;
-            return; // normal footsteps when not skating
+            return;
         }
 
-        // cancel all footsteps if skating
         ci.cancel();
 
         if (ticksSinceLastStep > DELAY_BETWEEN_FOOTSTEPS) {

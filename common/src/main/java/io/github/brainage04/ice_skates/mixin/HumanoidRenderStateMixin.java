@@ -27,8 +27,7 @@ public class HumanoidRenderStateMixin implements SkateRenderState {
         if (!trim.equals(ice_skates$trim)) {
             ice_skates$trim = trim;
             // The same pattern texture vanilla's humanoid armor layer uses. The skates' equipment
-            // asset defines no
-            // trim overrides, so the trim material's own palette always applies.
+            // asset defines no trim overrides, so the trim material's own palette always applies.
             String prefix = EquipmentClientInfo.LayerType.HUMANOID.trimAssetPrefix();
             ice_skates$trimTexture =
                     trim.pattern().value().assetId().withPath(path -> prefix + "/" + path);

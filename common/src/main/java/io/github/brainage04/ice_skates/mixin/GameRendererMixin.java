@@ -22,7 +22,6 @@ public abstract class GameRendererMixin {
 
         if (client.player == null) return;
 
-        // skip view bobbing if player is wearing skates and is grounded
         if ((PlayerUtils.isWearingIceSkates(client.player)
                         || PlayerUtils.isWearingRollerSkates(client.player))
                 && client.player.onGround()) {

@@ -32,10 +32,9 @@ public abstract class LivingEntityMixin extends EntityMixin {
         if (!(self instanceof Player player)) return;
 
         if (PlayerUtils.canSkate(player)) {
-            // calculate gravity (vanilla logic)
             double gravity = this.getEffectiveGravity();
 
-            float friction = 0.9F; // default air friction
+            float friction = 0.9F;
 
             if (this.onGround()) {
                 double particleDelta = 0.1;
@@ -47,7 +46,6 @@ public abstract class LivingEntityMixin extends EntityMixin {
                     Block block = state.getBlock();
                     friction = block.getFriction();
 
-                    // particles
                     if (block instanceof IceBlock
                             || block == Blocks.PACKED_ICE
                             || block == Blocks.BLUE_ICE) {
@@ -62,10 +60,8 @@ public abstract class LivingEntityMixin extends EntityMixin {
 
             Vec3 velocity = this.getDeltaMovement();
 
-            // apply friction and gravity
             velocity = new Vec3(velocity.x * friction, velocity.y - gravity, velocity.z * friction);
 
-            // forward/back and left/right input handling
             float forwardAccel = 0.0F;
             if (inputVector.z > 0) {
                 forwardAccel += 0.04F;
@@ -88,7 +84,6 @@ public abstract class LivingEntityMixin extends EntityMixin {
                 strafeAccel *= scale;
             }
 
-            // apply rotation and acceleration
             if (forwardAccel != 0.0F || strafeAccel != 0.0F) {
                 float yRot = this.getYRot();
                 float rad = yRot * ((float) Math.PI / 180F);

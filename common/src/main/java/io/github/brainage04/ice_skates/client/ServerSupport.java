@@ -38,7 +38,6 @@ public final class ServerSupport {
                         .equals(IceSkatesCommon.MOD_ID);
     }
 
-    /** An Ice Skates item the connected server cannot decode. */
     public static boolean isUnknownToServer(ItemStack stack) {
         return isIceSkatesItem(stack) && !serverHasIceSkates();
     }

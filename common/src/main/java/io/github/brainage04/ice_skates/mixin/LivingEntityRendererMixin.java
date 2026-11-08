@@ -40,9 +40,6 @@ public abstract class LivingEntityRendererMixin {
         else if (boots.is(ModItems.rollerSkates())) soleTop = 4.25F;
         else return;
 
-        // Move the whole wearer, including held items and other armor, onto the runner/wheels.
-        // This is a render offset only: collision, camera height, and skating physics are
-        // unchanged.
         poses.translate(0, -soleTop * state.ageScale / 16, 0);
     }
 }

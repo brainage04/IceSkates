@@ -105,15 +105,11 @@ public abstract class HumanoidArmorLayerMixin<S extends HumanoidRenderState> {
         poses.pushPose();
         leg.translateAndRotate(poses);
         poses.pushPose();
-        // The upper encloses the foot. The runner/wheels sit below it rather than filling its air
-        // gaps.
         poses.translate(0, (12 + soleTop - 8) / 16.0F, -3 / 16.0F);
         poses.scale(-1, -1, 1);
         boot.submit(poses, collector, light, OverlayTexture.NO_OVERLAY, outlineColor);
         poses.popPose();
         if (trimTexture != null) {
-            // Preserve the actual smithing-template pattern, not just its material color.
-            // Standard leg UVs wrap the new 5 x 8.4 x 5 heel/cuff panels.
             poses.translate(0, 3.6F / 16, 0);
             poses.scale(1.255F, .7F, 1.255F);
             collector.submitModelPart(

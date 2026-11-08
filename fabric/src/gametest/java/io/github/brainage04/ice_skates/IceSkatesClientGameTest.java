@@ -66,7 +66,6 @@ import net.minecraft.world.phys.Vec3;
 public final class IceSkatesClientGameTest implements FabricClientGameTest {
     private static final int FLOOR_Y = 63;
 
-    /** The stone pad the held, worn and dropped skates are shown on, east of the runway. */
     private static final int PAD_MIN_X = 26;
 
     private static final int PAD_MAX_X = 34;
@@ -76,11 +75,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
     private static final double RING_RADIUS = 2.0D;
     private static final int RING_SIZE = 8;
 
-    /**
-     * The runway is 16 blocks wide and 64 long, running north from z = -1: 32 blocks of ice (the
-     * vanilla ice block, an IceBlock, which the skates' friction and snowflake particles are made
-     * for), then 32 blocks of stone.
-     */
     private static final int RUNWAY_MIN_X = -7;
 
     private static final int RUNWAY_MAX_X = 8;
@@ -88,7 +82,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
     private static final int RUNWAY_ICE_END_Z = -32;
     private static final int RUNWAY_END_Z = -64;
 
-    /** On the first ice block, facing north along the runway. */
     private static final Vec3 RUN_START = new Vec3(0.5D, 64.0D, -0.35D);
 
     /** How long each runway run goes on once the skater is on the stone, as the film shows it. */
@@ -97,22 +90,12 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
     private static final float NORTH = 180.0F;
     private static final float RUN_PITCH = 18.0F;
 
-    /** Looking down far enough that the ring of dropped skates is in view. */
     private static final float SHOWCASE_PITCH = 35.0F;
 
-    /**
-     * The third-person camera stays this far from the player, so the whole ring around the player
-     * is in the picture.
-     */
     private static final double CAMERA_DISTANCE = 5.0D;
 
-    /**
-     * The body is turned this far from the camera, so the held skate is not hidden behind the
-     * player.
-     */
     private static final float BODY_OFFSET = 30.0F;
 
-    /** How long each view holds still before and after the swing, as the film shows it. */
     private static final long STILL_MILLIS = 1000L;
 
     /**
@@ -128,7 +111,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
 
     private static final int SWING_TICKS = SwingAnimation.DEFAULT.duration();
 
-    /** Large enough that the pad and the whole runway are in view from either. */
     private static final int RENDER_DISTANCE = 12;
 
     private static final int SETTLE_TICKS = 15;
@@ -174,7 +156,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
     @Override
     public void runTest(ClientGameTestContext context) {
         Properties serverProperties = ClientGameTestServers.flatServerProperties();
-        // The pad and the whole runway stay inside the view, so no chunk arrives while filming.
         serverProperties.setProperty("view-distance", Integer.toString(RENDER_DISTANCE));
 
         ClientGameTestServers.withDedicatedServer(
@@ -185,8 +166,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
                         server.runOnServer(
                                 minecraftServer -> {
                                     buildGround(minecraftServer.overworld());
-                                    // A bright, still noon, so the showcase is not lit by a setting
-                                    // sun.
                                     CommandSourceStack source =
                                             minecraftServer
                                                     .createCommandSourceStack()
@@ -280,10 +259,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
                 };
     }
 
-    /**
-     * Sets the camera, the look and the caption of one view in a single client tick, so the picture
-     * and the caption change on the same frame.
-     */
     private static void prepareView(ClientGameTestContext context, Skates skates, CameraType view) {
         String id = viewId(skates, view);
         String title =
@@ -316,10 +291,9 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
     }
 
     /**
-     * One view of the worn, held and dropped skates: still for a second, one normal arm swing,
-     * still for a second. Views are cut, not switched on camera: the caption and the camera of the
-     * next view change between two stages, which the delivered video leaves out, because the
-     * caption can reach the screen a frame after the new camera does.
+     * Views are cut, not switched on camera: the caption and the camera of the next view change
+     * between two stages, which the delivered video leaves out, because the caption can reach the
+     * screen a frame after the new camera does.
      */
     private static void view(ClientGameTestContext context, Skates skates, CameraType view) {
         String id = viewId(skates, view);
@@ -344,7 +318,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
         }
         holdStill(context, view, STILL_MILLIS - CUT_TRAIL_MILLIS);
         stageEnd(id);
-        // The cut keeps a moment of picture after the end; the scene must not change in it.
         context.waitTicks(HOLD_AFTER_END_TICKS);
     }
 
@@ -467,7 +440,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
         }
     }
 
-    /** The ring of dropped skates: two blocks out from the pad centre, every 45 degrees. */
     private static List<Vec3> ringPositions() {
         List<Vec3> positions = new ArrayList<>();
         for (int index = 0; index < RING_SIZE; index++) {
@@ -488,8 +460,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
     private static ItemStack stackOf(ServerLevel level, Skates skates) {
         ItemStack stack = new ItemStack(skates.item());
         if (skates == Skates.ICE) {
-            // The ice skates carry a copper coast trim, the same on the feet, in the hand and on
-            // the ground.
             stack.set(
                     DataComponents.TRIM,
                     new ArmorTrim(
@@ -503,10 +473,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
         return stack;
     }
 
-    /**
-     * Makes every skate in the world of one type: the worn pair, the only item in the inventory and
-     * the eight dropped ones. The dropped skates keep their places; only their item changes.
-     */
     private static void useSkates(ServerPlayer player, Skates skates) {
         ServerLevel level = player.level();
         ItemStack stack = stackOf(level, skates);
@@ -520,8 +486,7 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
             for (Vec3 position : ringPositions()) {
                 ItemEntity entity =
                         new ItemEntity(level, position.x, position.y, position.z, stack.copy());
-                // A fresh item entity gets a random push; these stay exactly where they are put,
-                // are never picked up and never despawn.
+                // A fresh item entity gets a random push.
                 entity.setDeltaMovement(Vec3.ZERO);
                 entity.setNeverPickUp();
                 entity.setUnlimitedLifetime();
@@ -540,7 +505,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
         player.setOnGround(true);
     }
 
-    /** The ring is complete, in place and of the given skate type, as the server sees it. */
     private static void assertRing(TestDedicatedServerContext server, Skates skates) {
         List<ItemEntity> dropped =
                 server.computeOnServer(
@@ -569,7 +533,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
         }
     }
 
-    /** Waits until the client shows the given skates on the feet, in the hand and in the ring. */
     private static void waitForSkatesOnClient(ClientGameTestContext context, Skates skates) {
         context.waitFor(
                 client -> {
@@ -587,10 +550,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
                 LOAD_TIMEOUT_TICKS);
     }
 
-    /**
-     * Marks the start of a filmed stage; the delivered video keeps only the time between a start
-     * and an end.
-     */
     private static void stageStart(String id) {
         System.out.println("STAGE_START " + System.currentTimeMillis() + " " + id);
     }
@@ -599,10 +558,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
         System.out.println("STAGE_END " + System.currentTimeMillis() + " " + id);
     }
 
-    /**
-     * Waits until the client holds every chunk in the circle two chunks inside the render distance
-     * of the player.
-     */
     private static void waitForChunkWindow(ClientGameTestContext context) {
         context.waitFor(
                 client -> {
@@ -631,10 +586,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
                 LOAD_TIMEOUT_TICKS);
     }
 
-    /**
-     * Waits until the renderer has had nothing to build for a while, so the next frame is a
-     * finished one.
-     */
     private static void waitForMeshesIdle(ClientGameTestContext context) {
         int idleTicks = 0;
         for (int tick = 0; tick < LOAD_TIMEOUT_TICKS; tick++) {
@@ -648,10 +599,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
         throw new AssertionError("The client did not finish building the chunks around the player");
     }
 
-    /**
-     * From behind, the body is turned away from the camera so the held skates are not hidden behind
-     * the player; in the other views the body faces where the player looks.
-     */
     private static void turnBody(Minecraft client, CameraType view) {
         client.player.setYRot(NORTH);
         client.player.setYBodyRot(
@@ -675,10 +622,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
         }
     }
 
-    /**
-     * One column of a platform: its top block, solid stone below so it reads as a slab, and air
-     * above.
-     */
     private static void platformColumn(
             ServerLevel level, BlockPos.MutableBlockPos cursor, int x, int z, Block top) {
         level.setBlock(cursor.set(x, FLOOR_Y, z), top.defaultBlockState(), Block.UPDATE_CLIENTS);
@@ -692,12 +635,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
         }
     }
 
-    /**
-     * On a server with Ice Skates nothing is hidden: the signal says so, the tabs and the search
-     * hold every item, and a saved hotbar with skates loads them. The side that hides them needs a
-     * server without the mod, which the test servers cannot be; ServerSupport says how it is told
-     * apart.
-     */
     private static void verifyCreativeOnServerWithIceSkates(ClientGameTestContext context) {
         context.runOnClient(
                 client -> {
@@ -796,10 +733,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
                 });
     }
 
-    /**
-     * The worn skates' trim must resolve to the real pattern texture, not the paletted texture
-     * manager's fallback.
-     */
     private static void verifyTrimTexture(ClientGameTestContext context) {
         context.runOnClient(
                 client -> {
