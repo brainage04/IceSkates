@@ -57,9 +57,10 @@ import net.minecraft.world.phys.Vec3;
  * Films the skates for the showcase. For each skate type (ice skates, then roller skates) the
  * player wears the skates, holds them and stands in a ring of eight dropped ones, and is shown in
  * first person, third person from behind and third person from the front: still for a second, one
- * arm swing, still for a second. Then the player skates the whole runway (32 blocks of ice, then 32
- * of stone) in a straight line, first on ice skates and then on roller skates. Nothing of the other
- * skate type is in the world, in the inventory or on the player meanwhile.
+ * arm swing, still for a second. Then the player skates straight north along the runway (32 blocks
+ * of ice, then 32 of stone) until about two seconds after reaching the stone, first on ice skates
+ * and then on roller skates. Nothing of the other skate type is in the world, in the inventory or
+ * on the player meanwhile.
  */
 @SuppressWarnings("UnstableApiUsage")
 public final class IceSkatesClientGameTest implements FabricClientGameTest {
@@ -90,8 +91,8 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
     /** On the first ice block, facing north along the runway. */
     private static final Vec3 RUN_START = new Vec3(0.5D, 64.0D, -0.35D);
 
-    /** Where the skater should come to rest: inside the last stone block, clear of the edge. */
-    private static final double RUN_STOP_Z = RUNWAY_END_Z + 0.9D;
+    /** How long each runway run goes on once the skater is on the stone, as the film shows it. */
+    private static final long ON_STONE_MILLIS = 2000L;
 
     private static final float NORTH = 180.0F;
     private static final float RUN_PITCH = 18.0F;
@@ -122,7 +123,7 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
 
     private static final long CUT_TRAIL_MILLIS = 120L;
 
-    /** Ticks the skater stands before setting off and rests after stopping on the runway. */
+    /** Ticks the skater stands before setting off, and rests still after a run off camera. */
     private static final int REST_TICKS = 20;
 
     private static final int SWING_TICKS = SwingAnimation.DEFAULT.duration();
@@ -167,11 +168,6 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
 
         private Item item() {
             return this == ICE ? ModItems.iceSkates() : ModItems.rollerSkates();
-        }
-
-        /** Ice skates on the friction of the block below; roller skates on their own 0.925. */
-        private double stoneFriction() {
-            return this == ICE ? 0.6D : 0.925D;
         }
     }
 
@@ -361,9 +357,10 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
     }
 
     /**
-     * Skates the whole runway straight north, from the first ice block to the last stone one,
-     * filmed from behind. Forward is held until the skater would just come to rest inside the last
-     * block; the caption names the surface under the skater.
+     * Skates straight north along the runway from the first ice block, filmed from behind, and ends
+     * the stage about two seconds after the skater reaches the stone; the caption names the surface
+     * under the skater. Forward stays held until the stage ends, and the skater comes to rest off
+     * camera, still on the stone.
      */
     private static void run(
             ClientGameTestContext context, TestDedicatedServerContext server, Skates skates) {
@@ -409,34 +406,35 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
 
         TestInput input = context.getInput();
         input.holdKey(options -> options.keyUp);
-        boolean held = true;
         boolean onStone = false;
-        int still = 0;
-        for (int tick = 0; tick < RUN_TIMEOUT_TICKS && still < REST_TICKS; tick++) {
-            Vec3 position = context.computeOnClient(client -> client.player.position());
-            Vec3 motion = context.computeOnClient(client -> client.player.getDeltaMovement());
-            if (!onStone && position.z < RUNWAY_ICE_END_Z) {
+        for (int tick = 0; tick < RUN_TIMEOUT_TICKS && !onStone; tick++) {
+            if (context.computeOnClient(client -> client.player.getZ()) < RUNWAY_ICE_END_Z) {
                 onStone = true;
                 context.runOnClient(
                         client -> ClientGameTestRecordingHud.showStep(id, title, stoneSubtitle));
+            } else {
+                context.waitTick();
             }
-            // Once on stone, the skater slows by its friction each tick; forward is let go when
-            // the remaining glide would end just inside the last block.
-            double friction = skates.stoneFriction();
-            double glide = -motion.z * friction / (1.0D - friction);
-            if (held && onStone && position.z - glide <= RUN_STOP_Z) {
-                input.releaseKey(options -> options.keyUp);
-                held = false;
-            }
-            still = !held && Math.abs(motion.z) < 0.001D ? still + 1 : 0;
-            context.waitTick();
         }
-        if (held) {
+        if (!onStone) {
             input.releaseKey(options -> options.keyUp);
-            throw new AssertionError(title + " never reached the end of the runway");
+            throw new AssertionError(title + " never reached the stone");
+        }
+        // Timed by the clock, as the film is, not by ticks, which run slower than twenty a second
+        // under load.
+        long stoneEnd = System.currentTimeMillis() + ON_STONE_MILLIS - CUT_TRAIL_MILLIS;
+        while (System.currentTimeMillis() < stoneEnd) {
+            context.waitTick();
         }
         stageEnd(id);
         context.waitTicks(HOLD_AFTER_END_TICKS);
+        input.releaseKey(options -> options.keyUp);
+        int still = 0;
+        for (int tick = 0; tick < RUN_TIMEOUT_TICKS && still < REST_TICKS; tick++) {
+            Vec3 motion = context.computeOnClient(client -> client.player.getDeltaMovement());
+            still = Math.abs(motion.z) < 0.001D ? still + 1 : 0;
+            context.waitTick();
+        }
 
         Vec3 end =
                 server.computeOnServer(
@@ -456,14 +454,14 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
                                     .is(Blocks.STONE);
                         });
         System.out.println("[ICE] " + title + " ended at " + end + ", on stone: " + onRunwayStone);
-        // The whole length, straight: from the first block to the last, without leaving the
-        // runway or turning off its centre line.
+        // Straight, onto the stone and to rest on it: without leaving the runway or turning off its
+        // centre line.
         if (!onRunwayStone
-                || end.z > RUNWAY_END_Z + 2.0D
+                || end.z > RUNWAY_ICE_END_Z
                 || end.z < RUNWAY_END_Z + 0.3D
                 || Math.abs(end.x - RUN_START.x) > 0.5D) {
             throw new AssertionError(
-                    title + " must skate straight to the far end of the runway: " + end);
+                    title + " must skate straight onto the stone and stop on it: " + end);
         }
     }
 
