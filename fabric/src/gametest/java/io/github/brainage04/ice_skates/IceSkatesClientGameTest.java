@@ -427,8 +427,10 @@ public final class IceSkatesClientGameTest implements FabricClientGameTest {
             context.waitTick();
         }
         stageEnd(id);
-        context.waitTicks(HOLD_AFTER_END_TICKS);
+        // Forward is the only key held; letting go as the stage ends, off camera, keeps the coast
+        // short, so the skater stops well before the far edge.
         input.releaseKey(options -> options.keyUp);
+        context.waitTicks(HOLD_AFTER_END_TICKS);
         int still = 0;
         for (int tick = 0; tick < RUN_TIMEOUT_TICKS && still < REST_TICKS; tick++) {
             Vec3 motion = context.computeOnClient(client -> client.player.getDeltaMovement());
