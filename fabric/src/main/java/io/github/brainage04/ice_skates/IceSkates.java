@@ -14,7 +14,6 @@ import net.minecraft.world.item.Item;
 public final class IceSkates implements ModInitializer {
     @Override
     public void onInitialize() {
-        IceSkatesCommon.initialize();
         ModItems.initialize(IceSkates::registerItem);
     }
 
