@@ -15,6 +15,8 @@ heavy --label IceSkates-client -- ./gradlew --no-daemon :fabric:runProductionCli
 heavy --label IceSkates-recording -- ./gradlew --no-daemon :fabric:recordClientGameTest
 ```
 
+The film itself (the pad and runway, cameras, captions and stage markers) is `IceSkatesShowcase` in `fabric/src/recording`. `IceSkatesClientGameTest` keeps the checks: item models, the worn trim's texture, the creative tabs and saved hotbar, and where each runway run comes to rest.
+
 Run the same client GameTests against a plain vanilla server without Ice Skates (MinecraftModConventions starts it). `IceSkatesVanillaServerClientGameTest` checks that no Ice Skates item is offered in creative there and that taking one does not get the player kicked, then sends the held-back packet and expects the kick, so the check would catch it. It is not part of `runAllGameTests`:
 
 ```shell

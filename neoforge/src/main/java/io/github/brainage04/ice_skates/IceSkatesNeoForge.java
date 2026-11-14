@@ -20,7 +20,6 @@ public final class IceSkatesNeoForge {
             DeferredRegister.createItems(IceSkatesCommon.MOD_ID);
 
     public IceSkatesNeoForge(IEventBus modBus) {
-        IceSkatesCommon.initialize();
         ModItems.initialize(IceSkatesNeoForge::registerItem);
         ITEMS.register(modBus);
         modBus.addListener(this::addCreativeItems);
