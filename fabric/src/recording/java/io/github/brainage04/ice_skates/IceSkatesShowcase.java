@@ -372,12 +372,7 @@ public final class IceSkatesShowcase {
             input.releaseKey(options -> options.keyUp);
             throw new AssertionError(title + " never reached the stone");
         }
-        // Timed by the clock, as the film is, not by ticks, which run slower than twenty a second
-        // under load.
-        long stoneEnd = System.currentTimeMillis() + ON_STONE_MILLIS - CUT_TRAIL_MILLIS;
-        while (System.currentTimeMillis() < stoneEnd) {
-            context.waitTick();
-        }
+        ClientGameTestWaits.holdFor(context, ON_STONE_MILLIS - CUT_TRAIL_MILLIS);
         ClientGameTestStages.endStage(id);
         // Forward is the only key held; letting go as the stage ends, off camera, keeps the coast
         // short, so the skater stops well before the far edge.
