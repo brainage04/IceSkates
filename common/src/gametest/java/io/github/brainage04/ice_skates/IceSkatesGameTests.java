@@ -2,6 +2,7 @@ package io.github.brainage04.ice_skates;
 
 import io.github.brainage04.ice_skates.item.ModItems;
 import io.github.brainage04.ice_skates.util.PlayerUtils;
+import io.github.brainage04.ice_skates.util.SkateMotion;
 import java.util.List;
 import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -12,6 +13,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -86,8 +88,49 @@ public final class IceSkatesGameTests {
                         Math.abs(stone - ice) < 0.00001 && Math.abs(ice - blueIce) < 0.00001,
                         "Roller skates use the same friction across surfaces");
             }
+
+            float own =
+                    skates == ModItems.iceSkates()
+                            ? Blocks.STONE.getFriction()
+                            : SkateMotion.ROLLER_SKATE_FRICTION;
+            verifyCoastShare(context, player, 2.0, 1.0, 1.0F - (1.0F - own) * 2.0F, "friction 2");
+            verifyCoastShare(context, player, 0.0, 1.0, Math.max(own, 0.91F), "friction 0");
+            verifyCoastShare(
+                    context,
+                    player,
+                    0.0,
+                    2.0,
+                    Math.max(own, 1.0F - (1.0F - 0.91F) * 2.0F),
+                    "drag 2");
+            verifyCoastShare(context, player, 1.0, 1.0, own, "default attributes");
         }
         context.succeed();
+    }
+
+    /**
+     * A skater on stone with the given {@code friction_modifier} and {@code air_drag_modifier}
+     * keeps {@code share} of its speed in a tick. The modifiers then go back to their defaults.
+     */
+    private static void verifyCoastShare(
+            GameTestHelper context,
+            ServerPlayer player,
+            double frictionModifier,
+            double airDragModifier,
+            float share,
+            String state) {
+        player.getAttribute(Attributes.FRICTION_MODIFIER).setBaseValue(frictionModifier);
+        player.getAttribute(Attributes.AIR_DRAG_MODIFIER).setBaseValue(airDragModifier);
+        double coasted = coast(context, player, Blocks.STONE);
+        player.getAttribute(Attributes.FRICTION_MODIFIER).setBaseValue(1.0);
+        player.getAttribute(Attributes.AIR_DRAG_MODIFIER).setBaseValue(1.0);
+        context.assertTrue(
+                Math.abs(coasted - 0.2 * share) < 0.000001,
+                "With "
+                        + state
+                        + " a skater on stone keeps "
+                        + share
+                        + " of its speed, not "
+                        + coasted / 0.2);
     }
 
     public static void exhaustionFollowsSkatingState(GameTestHelper context) {
