@@ -8,6 +8,8 @@ Check `heavy status` before running Gradle. Run the build and all development an
 heavy --label IceSkates-tests -- ./gradlew --no-daemon build runAllGameTests
 ```
 
+`:fabric:test` runs the unit tests. `SkateMotionTest` checks one tick of skating in `SkateMotion` with examples and jqwik properties: without keys a skater keeps the friction share of its speed, held keys add 0.04 blocks a tick in the direction vanilla's `Entity#getInputVector` gives (no more on a diagonal), and no keys or turns push a skater past the top speed, 0.04 / (1 - friction). Ice skates take the friction of the block below (`Block#getFriction`) as the share of speed kept each tick. Vanilla keeps that friction, scaled by the player's `friction_modifier` attribute, times an air drag of 0.91 scaled by the player's `air_drag_modifier` attribute (LivingEntity.java:2453 and 2471-2473 in 26.3); the skates use neither attribute. Roller skates keep 0.925 on any block. `:fabric:pitest` runs mutation tests on `SkateMotion` against them; it is not part of `check`, and the report is written to `fabric/build/reports/pitest`.
+
 Run the Fabric headless client GameTest that verifies gameplay contracts and records item-rendering stages:
 
 ```shell

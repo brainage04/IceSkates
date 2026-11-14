@@ -1,10 +1,10 @@
 package io.github.brainage04.ice_skates.mixin;
 
 import io.github.brainage04.ice_skates.util.PlayerUtils;
+import io.github.brainage04.ice_skates.util.SkateMotion;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.WalkAnimationState;
@@ -52,52 +52,19 @@ public abstract class LivingEntityMixin extends EntityMixin {
                         spawnFeetParticles(particleDelta, ParticleTypes.SNOWFLAKE);
                     }
                 } else if (PlayerUtils.isWearingRollerSkates(player)) {
-                    friction = 0.925F;
+                    friction = SkateMotion.ROLLER_SKATE_FRICTION;
 
                     spawnFeetParticles(particleDelta, new DustParticleOptions(0x0F0F0F, 1.0F));
                 }
             }
 
-            Vec3 velocity = this.getDeltaMovement();
-
-            velocity = new Vec3(velocity.x * friction, velocity.y - gravity, velocity.z * friction);
-
-            float forwardAccel = 0.0F;
-            if (inputVector.z > 0) {
-                forwardAccel += 0.04F;
-            } else if (inputVector.z < 0) {
-                forwardAccel -= 0.04F;
-            }
-
-            float strafeAccel = 0.0F;
-            if (inputVector.x > 0) {
-                strafeAccel += 0.04F;
-            } else if (inputVector.x < 0) {
-                strafeAccel -= 0.04F;
-            }
-
-            float accelerationLength =
-                    Mth.sqrt(forwardAccel * forwardAccel + strafeAccel * strafeAccel);
-            if (accelerationLength > 0.04F) {
-                float scale = 0.04F / accelerationLength;
-                forwardAccel *= scale;
-                strafeAccel *= scale;
-            }
-
-            if (forwardAccel != 0.0F || strafeAccel != 0.0F) {
-                float yRot = this.getYRot();
-                float rad = yRot * ((float) Math.PI / 180F);
-
-                double xForward = Mth.sin(-rad) * forwardAccel;
-                double zForward = Mth.cos(rad) * forwardAccel;
-
-                double xStrafe = Mth.cos(rad) * strafeAccel;
-                double zStrafe = Mth.sin(rad) * strafeAccel;
-
-                velocity = velocity.add(xForward + xStrafe, 0.0, zForward + zStrafe);
-            }
-
-            this.setDeltaMovement(velocity);
+            this.setDeltaMovement(
+                    SkateMotion.nextVelocity(
+                            this.getDeltaMovement(),
+                            friction,
+                            gravity,
+                            inputVector,
+                            this.getYRot()));
             this.move(MoverType.SELF, this.getDeltaMovement());
 
             ci.cancel();
