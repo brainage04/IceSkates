@@ -8,6 +8,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.WalkAnimationState;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -56,6 +57,12 @@ public abstract class LivingEntityMixin extends EntityMixin {
 
                     spawnFeetParticles(particleDelta, new DustParticleOptions(0x0F0F0F, 1.0F));
                 }
+
+                friction =
+                        SkateMotion.groundFriction(
+                                friction,
+                                (float) player.getAttributeValue(Attributes.FRICTION_MODIFIER),
+                                (float) player.getAttributeValue(Attributes.AIR_DRAG_MODIFIER));
             }
 
             this.setDeltaMovement(

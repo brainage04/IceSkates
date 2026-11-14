@@ -195,4 +195,89 @@ class SkateMotionTest {
         }
         return velocity.horizontalDistance();
     }
+
+    /**
+     * Frictions of 0.5 and above, where 1 - (1 - friction) is exact in float arithmetic. Below 0.5
+     * vanilla's formula moves the friction by a rounding step even at modifier 1, for vanilla's
+     * players as well.
+     */
+    @Provide
+    Arbitrary<Float> skateFrictions() {
+        return Arbitraries.oneOf(
+                Arbitraries.of(VANILLA_FRICTIONS),
+                Arbitraries.just(SkateMotion.ROLLER_SKATE_FRICTION),
+                Arbitraries.floats().between(0.5F, 0.99F));
+    }
+
+    /** LivingEntity#computeModifiedFriction, LivingEntity.java:518-520 in 26.3. */
+    private static float vanillaModifiedFriction(float friction, float modifier) {
+        return Mth.clamp(1.0F - (1.0F - friction) * modifier, 0.0F, 1.0F);
+    }
+
+    @Property
+    void defaultAttributesKeepTheSkateFrictionExactly(@ForAll("skateFrictions") float friction) {
+        assertEquals(
+                Float.floatToIntBits(friction),
+                Float.floatToIntBits(SkateMotion.groundFriction(friction, 1.0F, 1.0F)));
+    }
+
+    @Property
+    void aFrictionModifierAboveOneScalesTheFrictionAsVanilla(
+            @ForAll("skateFrictions") float friction,
+            @ForAll @FloatRange(min = 1.0F, max = 20.0F) float frictionModifier,
+            @ForAll @FloatRange(min = 0.0F, max = 5.0F) float airDragModifier) {
+        assertEquals(
+                vanillaModifiedFriction(friction, frictionModifier),
+                SkateMotion.groundFriction(friction, frictionModifier, airDragModifier));
+    }
+
+    @Property
+    void aFrictionModifierBelowOneKeepsTheTopSpeedBoundedByTheAirDrag(
+            @ForAll("skateFrictions") float friction,
+            @ForAll @FloatRange(min = 0.0F, max = 1.0F) float frictionModifier,
+            @ForAll @FloatRange(min = 0.01F, max = 5.0F) float airDragModifier) {
+        float share = SkateMotion.groundFriction(friction, frictionModifier, airDragModifier);
+        float airDrag = vanillaModifiedFriction(0.91F, airDragModifier);
+        assertTrue(share >= friction, share + " below " + friction);
+        assertTrue(share <= Math.max(friction, airDrag), share + " above the air drag");
+        assertTrue(share < 1.0F);
+    }
+
+    @Property
+    void aLowerFrictionModifierNeverSlowsASkater(
+            @ForAll("skateFrictions") float friction,
+            @ForAll @FloatRange(min = 0.0F, max = 4.0F) float a,
+            @ForAll @FloatRange(min = 0.0F, max = 4.0F) float b,
+            @ForAll @FloatRange(min = 0.0F, max = 5.0F) float airDragModifier) {
+        assertTrue(
+                SkateMotion.groundFriction(friction, Math.min(a, b), airDragModifier)
+                        >= SkateMotion.groundFriction(friction, Math.max(a, b), airDragModifier));
+    }
+
+    @Test
+    void topSpeedsWithFrictionModifiers() {
+        float ice = 0.98F;
+        float roller = SkateMotion.ROLLER_SKATE_FRICTION;
+        assertEquals(2.0, topSpeedAfter(SkateMotion.groundFriction(ice, 0.0F, 1.0F), 2000), 1e-3);
+        assertEquals(2.0, topSpeedAfter(SkateMotion.groundFriction(ice, 1.0F, 1.0F), 2000), 1e-3);
+        assertEquals(1.0, topSpeedAfter(SkateMotion.groundFriction(ice, 2.0F, 1.0F), 2000), 1e-3);
+        double rollerTop = 0.04 / (1.0 - 0.925F);
+        assertEquals(
+                rollerTop,
+                topSpeedAfter(SkateMotion.groundFriction(roller, 0.0F, 1.0F), 2000),
+                1e-6);
+        assertEquals(
+                rollerTop,
+                topSpeedAfter(SkateMotion.groundFriction(roller, 1.0F, 1.0F), 2000),
+                1e-6);
+        assertEquals(
+                0.04 / (1.0 - 0.85F),
+                topSpeedAfter(SkateMotion.groundFriction(roller, 2.0F, 1.0F), 2000),
+                1e-6);
+        assertEquals(
+                0.04 / (1.0 - 0.91F),
+                topSpeedAfter(SkateMotion.groundFriction(0.6F, 0.0F, 1.0F), 2000),
+                1e-6,
+                "ice skates on stone");
+    }
 }
