@@ -5,7 +5,7 @@
   "name": "${mod_name}",
   "description": "A Minecraft mod that adds ice skates (and roller skates).",
   "authors": ["brainage04"],
-  "contact": {"homepage": "https://github.com/brainage04/IceSkates", "sources": "https://github.com/brainage04/IceSkates"},
+  "contact": {"homepage": "https://github.com/brainage04/IceSkates", "sources": "https://github.com/brainage04/IceSkates", "issues": "https://github.com/brainage04/IceSkates/issues"},
   "license": "MIT",
   "icon": "assets/ice_skates/icon.png",
   "environment": "*",
