@@ -54,6 +54,11 @@ public final class IceSkatesGameTests {
     /** A cell above the 3x3 floor, where the yield test puts the skater in the air. */
     private static final BlockPos AIR_CELL = new BlockPos(2, 3, 2);
 
+    /**
+     * A ceiling the skater in the air cell hits head first when it rises at the fall test's speed.
+     */
+    private static final BlockPos CEILING_CELL = new BlockPos(2, 5, 2);
+
     private static final int LEVITATION_TICKS = 100;
 
     /** Upward speed and tick count of the fall test: the player stays clear of the floor. */
@@ -251,19 +256,33 @@ public final class IceSkatesGameTests {
      * tick. Each entry is the player's height and vertical speed after one tick in the air.
      */
     public static void skatersFallAsVanillaDoes(GameTestHelper context) {
-        List<Vec3> skating = fall(context, ModItems.iceSkates());
-        List<Vec3> boots = fall(context, Items.IRON_BOOTS);
-        LOGGER.info("IceSkatesAir fall skates {} boots {}", skating, boots);
-        for (int i = 0; i < skating.size(); i++) {
-            context.assertTrue(
-                    skating.get(i).distanceTo(boots.get(i)) < SPEED_TOLERANCE,
-                    "Tick " + i + " of the fall must match ordinary boots");
-        }
+        assertFallMatchesBoots(context, "open air", player -> {});
+        context.setBlock(CEILING_CELL, Blocks.STONE);
+        assertFallMatchesBoots(
+                context,
+                "a ceiling with slow falling",
+                player ->
+                        player.addEffect(
+                                new MobEffectInstance(MobEffects.SLOW_FALLING, LEVITATION_TICKS)));
+        context.setBlock(CEILING_CELL, Blocks.AIR);
         context.succeed();
     }
 
-    private static List<Vec3> fall(GameTestHelper context, Item boots) {
+    private static void assertFallMatchesBoots(
+            GameTestHelper context, String name, Consumer<Player> setup) {
+        List<Vec3> skating = fall(context, ModItems.iceSkates(), setup);
+        List<Vec3> boots = fall(context, Items.IRON_BOOTS, setup);
+        LOGGER.info("IceSkatesAir fall {} skates {} boots {}", name, skating, boots);
+        for (int i = 0; i < skating.size(); i++) {
+            context.assertTrue(
+                    skating.get(i).distanceTo(boots.get(i)) < SPEED_TOLERANCE,
+                    "Tick " + i + " of the fall in " + name + " must match ordinary boots");
+        }
+    }
+
+    private static List<Vec3> fall(GameTestHelper context, Item boots, Consumer<Player> setup) {
         Player player = playerInAir(context, boots);
+        setup.accept(player);
         player.setDeltaMovement(new Vec3(0, FALL_START_SPEED, TAKE_OFF_SPEED));
         List<Vec3> ticks = new ArrayList<>();
         for (int i = 0; i < FALL_TICKS; i++) {

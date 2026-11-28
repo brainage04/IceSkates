@@ -124,7 +124,10 @@ public abstract class LivingEntityMixin extends EntityMixin {
                 // (LivingEntity.travelInAir), so a jump or a fall keeps its vanilla trajectory.
                 Vec3 moved = this.getDeltaMovement();
                 this.setDeltaMovement(
-                        new Vec3(moved.x, (moved.y - gravity) * this.getAirDrag(), moved.z));
+                        new Vec3(
+                                moved.x,
+                                (moved.y - this.getEffectiveGravity()) * this.getAirDrag(),
+                                moved.z));
             }
 
             ci.cancel();
