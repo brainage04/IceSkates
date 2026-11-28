@@ -15,6 +15,11 @@ public class IceSkatesGameTest {
     }
 
     @GameTest
+    public void skatersKeepSkatingPhysicsInTheAir(GameTestHelper context) {
+        IceSkatesGameTests.skatersKeepSkatingPhysicsInTheAir(context);
+    }
+
+    @GameTest
     public void exhaustionFollowsSkatingState(GameTestHelper context) {
         IceSkatesGameTests.exhaustionFollowsSkatingState(context);
     }

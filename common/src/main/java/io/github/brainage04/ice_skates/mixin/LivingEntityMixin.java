@@ -52,7 +52,7 @@ public abstract class LivingEntityMixin extends EntityMixin {
                         spawnFeetParticles(particleDelta, ParticleTypes.SNOWFLAKE);
                     }
                 } else if (PlayerUtils.isWearingRollerSkates(player)) {
-                    friction = 0.925F;
+                    friction = PlayerUtils.ROLLER_SKATE_FRICTION;
 
                     spawnFeetParticles(particleDelta, new DustParticleOptions(0x0F0F0F, 1.0F));
                 }
@@ -64,22 +64,22 @@ public abstract class LivingEntityMixin extends EntityMixin {
 
             float forwardAccel = 0.0F;
             if (inputVector.z > 0) {
-                forwardAccel += 0.04F;
+                forwardAccel += PlayerUtils.SKATE_ACCELERATION;
             } else if (inputVector.z < 0) {
-                forwardAccel -= 0.04F;
+                forwardAccel -= PlayerUtils.SKATE_ACCELERATION;
             }
 
             float strafeAccel = 0.0F;
             if (inputVector.x > 0) {
-                strafeAccel += 0.04F;
+                strafeAccel += PlayerUtils.SKATE_ACCELERATION;
             } else if (inputVector.x < 0) {
-                strafeAccel -= 0.04F;
+                strafeAccel -= PlayerUtils.SKATE_ACCELERATION;
             }
 
             float accelerationLength =
                     Mth.sqrt(forwardAccel * forwardAccel + strafeAccel * strafeAccel);
-            if (accelerationLength > 0.04F) {
-                float scale = 0.04F / accelerationLength;
+            if (accelerationLength > PlayerUtils.SKATE_ACCELERATION) {
+                float scale = PlayerUtils.SKATE_ACCELERATION / accelerationLength;
                 forwardAccel *= scale;
                 strafeAccel *= scale;
             }

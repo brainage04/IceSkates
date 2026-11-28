@@ -1,7 +1,9 @@
 package io.github.brainage04.ice_skates;
 
+import com.mojang.logging.LogUtils;
 import io.github.brainage04.ice_skates.item.ModItems;
 import io.github.brainage04.ice_skates.util.PlayerUtils;
+import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -22,8 +24,25 @@ import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
+import org.slf4j.Logger;
 
 public final class IceSkatesGameTests {
+    private static final Logger LOGGER = LogUtils.getLogger();
+
+    /** Horizontal speed of the skater when it jumps, small enough to stay over the 3x3 floor. */
+    private static final double TAKE_OFF_SPEED = 0.1;
+
+    /** The most ticks one jump is followed; a jump lands after about twelve. */
+    private static final int MAX_JUMP_TICKS = 20;
+
+    /** Airborne ticks a jump must give the checks, so a landing cannot hide a missing one. */
+    private static final int MIN_AIRBORNE_TICKS = 6;
+
+    private static final double SPEED_TOLERANCE = 1.0E-4;
+
+    /** Vanilla's vertical drag on a falling player, {@code LivingEntity.getAirDrag}. */
+    private static final double VERTICAL_AIR_DRAG = 0.98;
+
     private IceSkatesGameTests() {}
 
     public static void skatesAndSwordsAreRegisteredWithDyeRecipes(GameTestHelper context) {
@@ -88,6 +107,133 @@ public final class IceSkatesGameTests {
             }
         }
         context.succeed();
+    }
+
+    /**
+     * A skater that leaves the ground by a jump keeps its skating physics in the air: the speed
+     * decays by the friction of the surface it left, and the throttle adds the skating
+     * acceleration. Each line of the log is one tick of the jump: the speed, whether the player
+     * stood on the ground when the tick began, and the vertical speed.
+     */
+    public static void skatersKeepSkatingPhysicsInTheAir(GameTestHelper context) {
+        ServerPlayer player = (ServerPlayer) context.makeMockServerPlayer(GameType.SURVIVAL);
+        context.runBeforeTestEnd(player::discard);
+        for (Skate skate :
+                List.of(
+                        new Skate(ModItems.iceSkates(), Blocks.BLUE_ICE),
+                        new Skate(ModItems.rollerSkates(), Blocks.STONE))) {
+            player.setItemSlot(EquipmentSlot.FEET, new ItemStack(skate.item()));
+            float friction =
+                    skate.item() == ModItems.iceSkates()
+                            ? skate.surface().getFriction()
+                            : PlayerUtils.ROLLER_SKATE_FRICTION;
+
+            List<Tick> coast = jump(context, player, skate, Vec3.ZERO);
+            logJump(skate, "coast", coast);
+            List<Tick> airborne = airborneTicks(coast);
+            context.assertTrue(
+                    airborne.size() >= MIN_AIRBORNE_TICKS,
+                    skate.name() + " jump must give " + MIN_AIRBORNE_TICKS + " airborne ticks");
+            for (Tick tick : airborne) {
+                context.assertTrue(
+                        Math.abs(tick.speed() - tick.before() * friction) < SPEED_TOLERANCE,
+                        skate.name()
+                                + " must keep friction "
+                                + friction
+                                + " in the air, speed went "
+                                + tick.before()
+                                + " to "
+                                + tick.speed());
+            }
+
+            List<Tick> thrust = jump(context, player, skate, new Vec3(0, 0, 1));
+            logJump(skate, "thrust", thrust);
+            for (Tick tick : airborneTicks(thrust)) {
+                context.assertTrue(
+                        Math.abs(
+                                        tick.speed()
+                                                - (tick.before() * friction
+                                                        + PlayerUtils.SKATE_ACCELERATION))
+                                < SPEED_TOLERANCE,
+                        skate.name()
+                                + " must add the skating acceleration in the air, speed went "
+                                + tick.before()
+                                + " to "
+                                + tick.speed());
+            }
+
+            Tick previous = null;
+            for (Tick tick : coast) {
+                if (previous != null && !tick.onGroundBefore() && !tick.onGroundAfter()) {
+                    double gravity = player.getGravity();
+                    context.assertTrue(
+                            Math.abs(
+                                            tick.vertical()
+                                                    - (previous.vertical() - gravity)
+                                                            * VERTICAL_AIR_DRAG)
+                                    < SPEED_TOLERANCE,
+                            skate.name() + " must fall by vanilla's gravity and air drag");
+                }
+                previous = tick;
+            }
+        }
+        context.succeed();
+    }
+
+    private record Skate(Item item, Block surface) {
+        String name() {
+            return item == ModItems.iceSkates() ? "Ice skates" : "Roller skates";
+        }
+    }
+
+    private record Tick(
+            boolean onGroundBefore,
+            boolean onGroundAfter,
+            double before,
+            double speed,
+            double vertical) {}
+
+    private static List<Tick> jump(
+            GameTestHelper context, ServerPlayer player, Skate skate, Vec3 input) {
+        resetPlayer(context, player, skate.surface());
+        player.setDeltaMovement(new Vec3(0, 0, TAKE_OFF_SPEED));
+        player.jumpFromGround();
+        List<Tick> ticks = new ArrayList<>();
+        for (int i = 0; i < MAX_JUMP_TICKS; i++) {
+            boolean onGround = player.onGround();
+            double before = player.getDeltaMovement().horizontalDistance();
+            player.travel(input);
+            Vec3 after = player.getDeltaMovement();
+            ticks.add(
+                    new Tick(
+                            onGround,
+                            player.onGround(),
+                            before,
+                            after.horizontalDistance(),
+                            after.y));
+            if (player.onGround() && i > 0) break;
+        }
+        return ticks;
+    }
+
+    private static List<Tick> airborneTicks(List<Tick> ticks) {
+        return ticks.stream().filter(tick -> !tick.onGroundBefore()).toList();
+    }
+
+    private static void logJump(Skate skate, String label, List<Tick> ticks) {
+        for (int i = 0; i < ticks.size(); i++) {
+            Tick tick = ticks.get(i);
+            LOGGER.info(
+                    "IceSkatesAir {} {} tick {}: onGround={} speed {} -> {} ({}x) vertical {}",
+                    skate.name(),
+                    label,
+                    i,
+                    tick.onGroundBefore(),
+                    tick.before(),
+                    tick.speed(),
+                    tick.before() == 0 ? 0 : tick.speed() / tick.before(),
+                    tick.vertical());
+        }
     }
 
     public static void exhaustionFollowsSkatingState(GameTestHelper context) {
