@@ -75,12 +75,10 @@ public abstract class LivingEntityMixin extends EntityMixin {
 
             Vec3 velocity = this.getDeltaMovement();
 
-            double verticalDrag = grounded ? 1.0 : this.getAirDrag();
-
             velocity =
                     new Vec3(
                             velocity.x * friction,
-                            (velocity.y - gravity) * verticalDrag,
+                            grounded ? velocity.y - gravity : velocity.y,
                             velocity.z * friction);
 
             float forwardAccel = 0.0F;
@@ -120,6 +118,14 @@ public abstract class LivingEntityMixin extends EntityMixin {
 
             this.setDeltaMovement(velocity);
             this.move(MoverType.SELF, this.getDeltaMovement());
+
+            if (!grounded) {
+                // Vanilla moves first and only then applies gravity and the vertical air drag
+                // (LivingEntity.travelInAir), so a jump or a fall keeps its vanilla trajectory.
+                Vec3 moved = this.getDeltaMovement();
+                this.setDeltaMovement(
+                        new Vec3(moved.x, (moved.y - gravity) * this.getAirDrag(), moved.z));
+            }
 
             ci.cancel();
         } else {

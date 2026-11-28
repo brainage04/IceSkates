@@ -54,8 +54,12 @@ public final class IceSkatesGameTests {
     /** A cell above the 3x3 floor, where the yield test puts the skater in the air. */
     private static final BlockPos AIR_CELL = new BlockPos(2, 3, 2);
 
-    /** How long the levitation in the yield test lasts, ticks. */
     private static final int LEVITATION_TICKS = 100;
+
+    /** Upward speed and tick count of the fall test: the player stays clear of the floor. */
+    private static final double FALL_START_SPEED = 0.3;
+
+    private static final int FALL_TICKS = 4;
 
     /** Vanilla's vertical drag on a falling player, {@code LivingEntity.getAirDrag}. */
     private static final double VERTICAL_AIR_DRAG = 0.98;
@@ -242,10 +246,46 @@ public final class IceSkatesGameTests {
     }
 
     /**
+     * A skater's rise and fall is the same player's in ordinary boots: vanilla moves first and
+     * applies gravity and the vertical air drag after, so a jump keeps its height and its landing
+     * tick. Each entry is the player's height and vertical speed after one tick in the air.
+     */
+    public static void skatersFallAsVanillaDoes(GameTestHelper context) {
+        List<Vec3> skating = fall(context, ModItems.iceSkates());
+        List<Vec3> boots = fall(context, Items.IRON_BOOTS);
+        LOGGER.info("IceSkatesAir fall skates {} boots {}", skating, boots);
+        for (int i = 0; i < skating.size(); i++) {
+            context.assertTrue(
+                    skating.get(i).distanceTo(boots.get(i)) < SPEED_TOLERANCE,
+                    "Tick " + i + " of the fall must match ordinary boots");
+        }
+        context.succeed();
+    }
+
+    private static List<Vec3> fall(GameTestHelper context, Item boots) {
+        Player player = playerInAir(context, boots);
+        player.setDeltaMovement(new Vec3(0, FALL_START_SPEED, TAKE_OFF_SPEED));
+        List<Vec3> ticks = new ArrayList<>();
+        for (int i = 0; i < FALL_TICKS; i++) {
+            player.travel(Vec3.ZERO);
+            ticks.add(new Vec3(player.getY(), player.getDeltaMovement().y, 0));
+        }
+        return ticks;
+    }
+
+    /**
      * One tick in the air after one skating tick on blue ice, with the takeover applied, in the
      * given boots.
      */
     private static Vec3 airTravel(GameTestHelper context, Item boots, Consumer<Player> takeover) {
+        Player player = playerInAir(context, boots);
+        takeover.accept(player);
+        player.travel(Vec3.ZERO);
+        return player.getDeltaMovement();
+    }
+
+    /** A player in the given boots who skated one tick on blue ice and is now above it. */
+    private static Player playerInAir(GameTestHelper context, Item boots) {
         Player player = context.makeMockPlayer(GameType.SURVIVAL);
         player.setItemSlot(EquipmentSlot.FEET, new ItemStack(boots));
         resetPlayer(context, player, Blocks.BLUE_ICE);
@@ -255,9 +295,7 @@ public final class IceSkatesGameTests {
         player.setPos(context.absoluteVec(Vec3.atBottomCenterOf(AIR_CELL)));
         player.setOnGround(false);
         player.setDeltaMovement(new Vec3(0, 0, TAKE_OFF_SPEED));
-        takeover.accept(player);
-        player.travel(Vec3.ZERO);
-        return player.getDeltaMovement();
+        return player;
     }
 
     private record Skate(Item item, Block surface) {

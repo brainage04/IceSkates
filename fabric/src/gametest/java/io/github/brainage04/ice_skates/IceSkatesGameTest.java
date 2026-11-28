@@ -25,6 +25,11 @@ public class IceSkatesGameTest {
     }
 
     @GameTest
+    public void skatersFallAsVanillaDoes(GameTestHelper context) {
+        IceSkatesGameTests.skatersFallAsVanillaDoes(context);
+    }
+
+    @GameTest
     public void exhaustionFollowsSkatingState(GameTestHelper context) {
         IceSkatesGameTests.exhaustionFollowsSkatingState(context);
     }
