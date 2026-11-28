@@ -20,6 +20,11 @@ public class IceSkatesGameTest {
     }
 
     @GameTest
+    public void skatingYieldsToOtherMovementInTheAir(GameTestHelper context) {
+        IceSkatesGameTests.skatingYieldsToOtherMovementInTheAir(context);
+    }
+
+    @GameTest
     public void exhaustionFollowsSkatingState(GameTestHelper context) {
         IceSkatesGameTests.exhaustionFollowsSkatingState(context);
     }

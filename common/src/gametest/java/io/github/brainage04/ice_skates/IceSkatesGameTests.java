@@ -5,6 +5,7 @@ import io.github.brainage04.ice_skates.item.ModItems;
 import io.github.brainage04.ice_skates.util.PlayerUtils;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -12,8 +13,12 @@ import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -35,10 +40,22 @@ public final class IceSkatesGameTests {
     /** The most ticks one jump is followed; a jump lands after about twelve. */
     private static final int MAX_JUMP_TICKS = 20;
 
+    /**
+     * Ticks of the thrust phase: the throttle carries the skater fast, so it stops before the
+     * test's walls.
+     */
+    private static final int THRUST_TICKS = 8;
+
     /** Airborne ticks a jump must give the checks, so a landing cannot hide a missing one. */
     private static final int MIN_AIRBORNE_TICKS = 6;
 
     private static final double SPEED_TOLERANCE = 1.0E-4;
+
+    /** A cell above the 3x3 floor, where the yield test puts the skater in the air. */
+    private static final BlockPos AIR_CELL = new BlockPos(2, 3, 2);
+
+    /** How long the levitation in the yield test lasts, ticks. */
+    private static final int LEVITATION_TICKS = 100;
 
     /** Vanilla's vertical drag on a falling player, {@code LivingEntity.getAirDrag}. */
     private static final double VERTICAL_AIR_DRAG = 0.98;
@@ -128,7 +145,7 @@ public final class IceSkatesGameTests {
                             ? skate.surface().getFriction()
                             : PlayerUtils.ROLLER_SKATE_FRICTION;
 
-            List<Tick> coast = jump(context, player, skate, Vec3.ZERO);
+            List<Tick> coast = jump(context, player, skate, Vec3.ZERO, MAX_JUMP_TICKS);
             logJump(skate, "coast", coast);
             List<Tick> airborne = airborneTicks(coast);
             context.assertTrue(
@@ -146,7 +163,7 @@ public final class IceSkatesGameTests {
                                 + tick.speed());
             }
 
-            List<Tick> thrust = jump(context, player, skate, new Vec3(0, 0, 1));
+            List<Tick> thrust = jump(context, player, skate, new Vec3(0, 0, 1), THRUST_TICKS);
             logJump(skate, "thrust", thrust);
             for (Tick tick : airborneTicks(thrust)) {
                 context.assertTrue(
@@ -180,6 +197,69 @@ public final class IceSkatesGameTests {
         context.succeed();
     }
 
+    /**
+     * A skater that left the ground skating moves as the same player in ordinary boots would once
+     * something else takes over the movement in the air: creative flight, gliding, a ladder,
+     * levitation and a mount.
+     */
+    public static void skatingYieldsToOtherMovementInTheAir(GameTestHelper context) {
+        record Takeover(String name, Consumer<Player> apply) {}
+        List<Takeover> takeovers =
+                List.of(
+                        new Takeover(
+                                "Creative flight", player -> player.getAbilities().flying = true),
+                        new Takeover("Gliding", Player::startFallFlying),
+                        new Takeover(
+                                "A ladder", player -> context.setBlock(AIR_CELL, Blocks.LADDER)),
+                        new Takeover(
+                                "Levitation",
+                                player ->
+                                        player.addEffect(
+                                                new MobEffectInstance(
+                                                        MobEffects.LEVITATION, LEVITATION_TICKS))),
+                        new Takeover(
+                                "A mount",
+                                player -> {
+                                    Entity pig =
+                                            context.spawn(
+                                                    EntityTypes.PIG,
+                                                    new BlockPos(
+                                                            AIR_CELL.getX(), 1, AIR_CELL.getZ()));
+                                    player.startRiding(pig, true, false);
+                                }));
+        List<String> differing = new ArrayList<>();
+        for (Takeover takeover : takeovers) {
+            Vec3 skating = airTravel(context, ModItems.iceSkates(), takeover.apply());
+            Vec3 boots = airTravel(context, Items.IRON_BOOTS, takeover.apply());
+            LOGGER.info("IceSkatesAir {} skates {} boots {}", takeover.name(), skating, boots);
+            if (skating.distanceTo(boots) >= SPEED_TOLERANCE) differing.add(takeover.name());
+            context.setBlock(AIR_CELL, Blocks.AIR);
+        }
+        context.assertTrue(
+                differing.isEmpty(),
+                "Skates must yield to the takeover, but did not for " + differing);
+        context.succeed();
+    }
+
+    /**
+     * One tick in the air after one skating tick on blue ice, with the takeover applied, in the
+     * given boots.
+     */
+    private static Vec3 airTravel(GameTestHelper context, Item boots, Consumer<Player> takeover) {
+        Player player = context.makeMockPlayer(GameType.SURVIVAL);
+        player.setItemSlot(EquipmentSlot.FEET, new ItemStack(boots));
+        resetPlayer(context, player, Blocks.BLUE_ICE);
+        player.setDeltaMovement(new Vec3(0, 0, TAKE_OFF_SPEED));
+        player.travel(Vec3.ZERO);
+
+        player.setPos(context.absoluteVec(Vec3.atBottomCenterOf(AIR_CELL)));
+        player.setOnGround(false);
+        player.setDeltaMovement(new Vec3(0, 0, TAKE_OFF_SPEED));
+        takeover.accept(player);
+        player.travel(Vec3.ZERO);
+        return player.getDeltaMovement();
+    }
+
     private record Skate(Item item, Block surface) {
         String name() {
             return item == ModItems.iceSkates() ? "Ice skates" : "Roller skates";
@@ -194,12 +274,12 @@ public final class IceSkatesGameTests {
             double vertical) {}
 
     private static List<Tick> jump(
-            GameTestHelper context, ServerPlayer player, Skate skate, Vec3 input) {
+            GameTestHelper context, ServerPlayer player, Skate skate, Vec3 input, int maxTicks) {
         resetPlayer(context, player, skate.surface());
         player.setDeltaMovement(new Vec3(0, 0, TAKE_OFF_SPEED));
         player.jumpFromGround();
         List<Tick> ticks = new ArrayList<>();
-        for (int i = 0; i < MAX_JUMP_TICKS; i++) {
+        for (int i = 0; i < maxTicks; i++) {
             boolean onGround = player.onGround();
             double before = player.getDeltaMovement().horizontalDistance();
             player.travel(input);
@@ -370,7 +450,7 @@ public final class IceSkatesGameTests {
                 state + " must retain normal exhaustion");
     }
 
-    private static void resetPlayer(GameTestHelper context, ServerPlayer player, Block surface) {
+    private static void resetPlayer(GameTestHelper context, Player player, Block surface) {
         for (int x = 1; x <= 3; x++) {
             for (int z = 1; z <= 3; z++) {
                 context.setBlock(new BlockPos(x, 1, z), surface);

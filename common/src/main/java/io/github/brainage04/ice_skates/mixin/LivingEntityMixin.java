@@ -26,17 +26,30 @@ public abstract class LivingEntityMixin extends EntityMixin {
     @Shadow
     protected abstract double getEffectiveGravity();
 
+    @Shadow
+    protected abstract float getAirDrag();
+
+    /**
+     * The friction of the surface the skater last skated on. A skater that leaves the ground keeps
+     * it through the air instead of taking vanilla's air friction. NaN when the skater did not
+     * leave the ground skating.
+     */
+    @Unique private float takeOffFriction = Float.NaN;
+
     @Inject(method = "travel", at = @At("HEAD"), cancellable = true)
     private void ice_skates$travel(Vec3 inputVector, CallbackInfo ci) {
         LivingEntity self = (LivingEntity) (Object) this;
         if (!(self instanceof Player player)) return;
 
-        if (PlayerUtils.canSkate(player)) {
+        boolean grounded = PlayerUtils.canSkate(player);
+        boolean skatingInAir =
+                !grounded && PlayerUtils.canSkateInAir(player) && !Float.isNaN(takeOffFriction);
+        if (grounded || skatingInAir) {
             double gravity = this.getEffectiveGravity();
 
-            float friction = 0.9F;
+            float friction = takeOffFriction;
 
-            if (this.onGround()) {
+            if (grounded) {
                 double particleDelta = 0.1;
 
                 if (PlayerUtils.isWearingIceSkates(player)) {
@@ -56,11 +69,19 @@ public abstract class LivingEntityMixin extends EntityMixin {
 
                     spawnFeetParticles(particleDelta, new DustParticleOptions(0x0F0F0F, 1.0F));
                 }
+
+                takeOffFriction = friction;
             }
 
             Vec3 velocity = this.getDeltaMovement();
 
-            velocity = new Vec3(velocity.x * friction, velocity.y - gravity, velocity.z * friction);
+            double verticalDrag = grounded ? 1.0 : this.getAirDrag();
+
+            velocity =
+                    new Vec3(
+                            velocity.x * friction,
+                            (velocity.y - gravity) * verticalDrag,
+                            velocity.z * friction);
 
             float forwardAccel = 0.0F;
             if (inputVector.z > 0) {
@@ -101,6 +122,8 @@ public abstract class LivingEntityMixin extends EntityMixin {
             this.move(MoverType.SELF, this.getDeltaMovement());
 
             ci.cancel();
+        } else {
+            takeOffFriction = Float.NaN;
         }
     }
 

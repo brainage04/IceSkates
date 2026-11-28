@@ -32,6 +32,10 @@ public final class IceSkatesNeoForgeGameTest {
                 () -> IceSkatesGameTests::skatersKeepSkatingPhysicsInTheAir);
         event.register(
                 BuiltInRegistries.TEST_FUNCTION.key(),
+                IceSkatesCommon.id("skating_yields_to_other_movement_in_the_air"),
+                () -> IceSkatesGameTests::skatingYieldsToOtherMovementInTheAir);
+        event.register(
+                BuiltInRegistries.TEST_FUNCTION.key(),
                 IceSkatesCommon.id("exhaustion_follows_skating_state"),
                 () -> IceSkatesGameTests::exhaustionFollowsSkatingState);
         event.register(

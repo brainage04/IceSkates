@@ -1,6 +1,7 @@
 package io.github.brainage04.ice_skates.util;
 
 import io.github.brainage04.ice_skates.item.ModItems;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 
@@ -24,5 +25,22 @@ public class PlayerUtils {
                 && player.onGround()
                 && !player.isInLiquid()
                 && !player.isInPowderSnow;
+    }
+
+    /**
+     * Whether a skater off the ground is still skating: it left the ground wearing skates and
+     * nothing else moves it, so liquid, powder snow, gliding, flight, a ladder, a mount and
+     * levitation take over as in vanilla.
+     */
+    public static boolean canSkateInAir(Player player) {
+        return (isWearingIceSkates(player) || isWearingRollerSkates(player))
+                && !player.onGround()
+                && !player.isInLiquid()
+                && !player.isInPowderSnow
+                && !player.isFallFlying()
+                && !player.getAbilities().flying
+                && !player.onClimbable()
+                && !player.isPassenger()
+                && !player.hasEffect(MobEffects.LEVITATION);
     }
 }
