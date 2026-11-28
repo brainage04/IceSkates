@@ -1,49 +1,23 @@
 # IceSkates
 
-IceSkates is a Fabric and NeoForge mod for Minecraft 26.3 that adds craftable ice skates, roller skates, and ice-themed swords. Install the matching loader variant on both the client and server.
-
-Equip either pair of skates in the feet slot and move along the ground. Recipes and advancements are available through the vanilla recipe book and advancement screen.
+IceSkates is a Fabric and NeoForge mod for Minecraft 26.3 that adds craftable Ice Skates, Roller Skates, and Ice/Packed Ice/Blue Ice Swords.
 
 ## Features
 
-### Skating
+- Ice skates (very fast on ice blocks, very slow on everything else)
+- Roller skates (consistently fast across all blocks)
+- Both are \~iron boots level in terms of protection, and can be dyed in a crafting table, washed clean in a cauldron, enchanted, and used with armor trims!
+- Ice, Packed Ice, and Blue Ice Swords, which have progressively higher durability and attack damage
+- Seamless integration with vanilla advancements and crafting
 
-- Ice skates preserve the friction of the block below the player, making ice, packed ice, and blue ice especially slippery. Skating over ice also emits snowflake particles.
-- Roller skates use consistent low friction on solid ground and emit dark dust particles.
-- Both pairs stop new food exhaustion while actively skating without suspending normal hunger, healing, or starvation processing.
-- Skating replaces normal footsteps with periodic skating sounds, reduces the walk animation, and suppresses grounded first-person view bobbing.
-- Skating physics disengage in liquids, powder snow, and while airborne.
-
-### Items and customization
-
-- Ice skates and roller skates provide iron-equivalent boot protection and can be repaired with iron.
-- Both pairs can be dyed in a crafting table, washed clean in a water cauldron, enchanted as boots, and customized with vanilla armor trims.
-- Ice skate blades and roller skate wheels are crafting components.
-- Ice, packed-ice, and blue-ice swords provide progressively greater durability and attack damage.
-
-Equipped skates follow each leg independently.
-
-## Getting started
+## Requirements
 
 - Minecraft 26.3
-- Java 25 or newer
-- Either Fabric Loader 0.19.5 or newer with Fabric API, or NeoForge 26.3.0.99 or newer
-- Install the matching loader variant on both the client and server.
-
-## Commands
-
-No commands yet.
-
-## Configuration
-
-No configuration yet.
-
-## Compatibility
-
-No known incompatibilities.
+- Java >=25
+- Fabric Loader >=0.19.5 w/ Fabric API or NeoForge >=26.3.0.99
 
 ## Documentation
 
-- [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) - builds and GameTests.
-- [docs/RELEASE.md](docs/RELEASE.md) - release automation.
-- [docs/MODRINTH.md](docs/MODRINTH.md) - optional Modrinth publishing.
+- [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) - builds and GameTests
+- [docs/RELEASE.md](docs/RELEASE.md) - release automation
+- [docs/MODRINTH.md](docs/MODRINTH.md) - optional Modrinth publishing
